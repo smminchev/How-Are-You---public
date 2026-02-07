@@ -264,6 +264,51 @@
                     <summary data-i18n="faq.q10.question">What if my parent leaves their phone at home?</summary>
                     <p data-i18n="faq.q10.answer">The app monitors the phone's location. If your parent frequently leaves their phone at home, this will be learned as normal behavior. Unusual patterns (phone stationary for too long) may still trigger alerts.</p>
                 </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q11.question">Why must I "Ignore Battery Optimizations"?</summary>
+                    <p data-i18n="faq.q11.answer">Android tries to kill apps that run in the background to save power. For a safety app, this is dangerous because it stops monitoring. "Ignoring optimizations" tells Android that this app is critical and must not be killed.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q12.question">The app keeps getting killed by my phone. What do I do?</summary>
+                    <p data-i18n="faq.q12.answer">Some manufacturers (Samsung, Xiaomi, Huawei, Honor, OPPO) aggressively kill background apps. Go to Settings > Permissions and fix any issues. Disable Battery Optimization for this app. On Samsung/Xiaomi/Huawei: check manufacturer-specific power saving settings and add the app to exceptions. Lock the app in recent apps if possible.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q13.question">I don't see a notification. Is the app running?</summary>
+                    <p data-i18n="faq.q13.answer">Yes! The app is designed to be "install and forget". The notification is intentionally silent and hidden while you use your phone so you're not bothered. To verify: open the app - if you see the dashboard, monitoring is active.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q14.question">I see a warning "May keep your system from sleeping". Is this a problem?</summary>
+                    <p data-i18n="faq.q14.answer">This warning is normal for a 24/7 safety app. It means the app is working correctly by keeping sensors active to detect emergencies. The app works perfectly with this warning. On Honor/Huawei devices, you can optionally silence it in Settings > Battery > Power-intensive prompt.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q15.question">How much battery does the app use?</summary>
+                    <p data-i18n="faq.q15.answer">The app uses smart sensor polling that adapts to activity. During stillness, sensor polling reduces by 80%. Typical battery usage is 3-8% per day. WiFi-assisted location helps reduce GPS battery drain. The app is designed for less than 10% daily impact.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Troubleshooting Section -->
+    <section class="faq" id="troubleshooting">
+        <div class="container">
+            <h2 class="section-title" data-i18n="troubleshooting.title">Troubleshooting</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary data-i18n="troubleshooting.gps.question">GPS location isn't updating</summary>
+                    <p data-i18n="troubleshooting.gps.answer">1. Open Android Settings > Location and ensure it's enabled. 2. Set location accuracy to "High accuracy" mode. 3. Open app permissions for "How Are You?!" and set Location to "Allow all the time". 4. Restart the phone and wait 5 minutes. 5. If outdoors, ensure clear view of sky for 2 minutes.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="troubleshooting.email.question">Alert emails are not being delivered</summary>
+                    <p data-i18n="troubleshooting.email.answer">1. Go to Settings > Email Configuration and ensure you see "Signed in as...". 2. If not signed in, tap "Sign in with Google" and grant permissions. 3. Verify all recipient email addresses are valid. 4. Ensure the phone has active internet. 5. Wait 10 minutes and try again if you've sent many emails recently (Gmail rate limiting).</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="troubleshooting.killed.question">Monitoring stops or notification disappears</summary>
+                    <p data-i18n="troubleshooting.killed.answer">1. Go to Settings > Permissions and fix any issues shown. 2. Disable Battery Optimization: Android Settings > Apps > How Are You?! > Battery > Unrestricted. 3. Lock the app in recent apps (long-press the app card and tap the lock icon). 4. On Xiaomi/Huawei/Samsung/Honor: check manufacturer-specific power saving settings and add the app to exceptions.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="troubleshooting.battery.question">Battery draining quickly</summary>
+                    <p data-i18n="troubleshooting.battery.answer">1. Ensure WiFi is enabled - GPS uses less battery with WiFi-assisted location. 2. The app typically uses 3-8% battery per day. Higher usage may indicate GPS issues. 3. If battery drain is severe, restart the phone. 4. The app automatically reduces sensor polling during periods of stillness to save battery.</p>
+                </details>
             </div>
         </div>
     </section>
