@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How Are You?! - AI-powered safety monitoring for elderly care. Peace of mind for your loved ones.">
+    <title>How Are You?! - Elderly Safety Monitoring</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="How Are You?! Logo" class="logo-img">
+                <span class="logo-text">how are you?</span>
+            </a>
+            <nav class="nav">
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="bg">BG</button>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title" data-i18n="hero.title">Peace of Mind for Your Loved Ones</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">AI-powered safety monitoring that learns your parent's routines and alerts you to emergencies - without daily check-in calls</p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary" id="play-store-link">
+                    <svg class="play-icon" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                    <span data-i18n="hero.cta">Download on Google Play</span>
+                </a>
+            </div>
+            <p class="hero-reviews">
+                <a href="#" class="reviews-link" data-i18n="hero.reviews">See what users say on Google Play</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features.title">Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.learning.title">7-Day Learning</h3>
+                    <p class="feature-desc" data-i18n="features.learning.desc">AI learns unique behavioral patterns in just one week</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.monitoring.title">24/7 Monitoring</h3>
+                    <p class="feature-desc" data-i18n="features.monitoring.desc">Continuous protection without any interaction required</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.alerts.title">Smart Alerts</h3>
+                    <p class="feature-desc" data-i18n="features.alerts.desc">Email notifications with GPS coordinates when needed</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.82 8.71,12.47 12,12.47C15.29,12.47 18,13.79 18,15.47C17.76,16 17.47,16.5 17.13,17Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.privacy.title">100% Private</h3>
+                    <p class="feature-desc" data-i18n="features.privacy.desc">All data stays on device, zero cloud transmission</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.price.title">One-Time Purchase</h3>
+                    <p class="feature-desc" data-i18n="features.price.desc">$99, no subscriptions ever</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="features.dignity.title">Dignity First</h3>
+                    <p class="feature-desc" data-i18n="features.dignity.desc">No intrusive notifications to your parent</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title" data-i18n="howItWorks.title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title" data-i18n="howItWorks.step1.title">Quick Setup</h3>
+                    <p class="step-desc" data-i18n="howItWorks.step1.desc">Grant permissions, connect Gmail, add family emails. Takes just 3-5 minutes.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title" data-i18n="howItWorks.step2.title">Learning Phase</h3>
+                    <p class="step-desc" data-i18n="howItWorks.step2.desc">Basic monitoring active from Day 1. AI personalizes thresholds by Day 7.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title" data-i18n="howItWorks.step3.title">Active Protection</h3>
+                    <p class="step-desc" data-i18n="howItWorks.step3.desc">Anomaly detection with automatic family alerts when something seems wrong.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Not Others Section -->
+    <section class="why-not-others" id="why-not-others">
+        <div class="container">
+            <h2 class="section-title" data-i18n="whyNot.title">Why Not Traditional Solutions?</h2>
+            <div class="comparison-list">
+                <div class="comparison-item">
+                    <div class="comparison-icon bad">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+                    </div>
+                    <p data-i18n="whyNot.item1">Traditional alert systems require pressing a button - but emergencies don't wait</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="comparison-icon bad">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+                    </div>
+                    <p data-i18n="whyNot.item2">Subscription services cost $30-50/month ($360-600/year) - safety shouldn't be a recurring tax</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="comparison-icon bad">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+                    </div>
+                    <p data-i18n="whyNot.item3">Cloud-based solutions store your data on their servers - we keep everything on your device</p>
+                </div>
+                <div class="comparison-item">
+                    <div class="comparison-icon bad">
+                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+                    </div>
+                    <p data-i18n="whyNot.item4">Generic thresholds don't know YOUR parent - we learn individual patterns</p>
+                </div>
+            </div>
+            <p class="mission-statement" data-i18n="whyNot.mission">This isn't about making money. We built this because we needed it ourselves.</p>
+        </div>
+    </section>
+
+    <!-- You're In Control Section -->
+    <section class="in-control" id="in-control">
+        <div class="container">
+            <h2 class="section-title" data-i18n="inControl.title">You're In Control</h2>
+            <p class="section-subtitle" data-i18n="inControl.subtitle">Your privacy, your choice - always</p>
+            <div class="control-grid">
+                <div class="control-item">
+                    <div class="control-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z"/></svg>
+                    </div>
+                    <p data-i18n="inControl.item1">Your data never leaves your device - zero cloud surveillance</p>
+                </div>
+                <div class="control-item">
+                    <div class="control-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/></svg>
+                    </div>
+                    <p data-i18n="inControl.item2">View exactly what the app has learned about your patterns</p>
+                </div>
+                <div class="control-item">
+                    <div class="control-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"/></svg>
+                    </div>
+                    <p data-i18n="inControl.item3">Reset Learning button instantly deletes all data - your choice</p>
+                </div>
+                <div class="control-item">
+                    <div class="control-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/></svg>
+                    </div>
+                    <p data-i18n="inControl.item4">No notifications bother you during normal operation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Under the Hood Section -->
+    <section class="under-the-hood" id="under-the-hood">
+        <div class="container">
+            <details class="tech-details">
+                <summary class="tech-summary">
+                    <h2 data-i18n="underHood.title">Under the Hood</h2>
+                    <span class="toggle-icon"></span>
+                </summary>
+                <div class="tech-content">
+                    <ul class="tech-list">
+                        <li data-i18n="underHood.item1">Powered by Google's Gemini Nano - on-device AI, no internet required for analysis</li>
+                        <li data-i18n="underHood.item2">Detects: unusual stillness duration, abnormally long sleep, location deviations from safe zones</li>
+                        <li data-i18n="underHood.item3">Context-aware: different thresholds for home vs. outside, day vs. night</li>
+                        <li data-i18n="underHood.item4">Monthly recalibration adapts to changing routines (seasonal, health changes)</li>
+                        <li data-i18n="underHood.item5">Battery efficient: designed for less than 10% daily battery impact</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <h2 class="section-title" data-i18n="screenshots.title">See It In Action</h2>
+            <div class="screenshots-gallery">
+                <img src="images/screenshots/device1.png" alt="Dashboard - Learning your routines with progress indicator" class="screenshot">
+                <img src="images/screenshots/device2.png" alt="Activity tracking - Locations, movements, and rest periods" class="screenshot">
+                <img src="images/screenshots/device7.png" alt="Privacy controls - 100% on-device data storage" class="screenshot">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="section-title" data-i18n="faq.title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary data-i18n="faq.q1.question">What emergencies can it detect?</summary>
+                    <p data-i18n="faq.q1.answer">The app detects unusual stillness (potential falls or medical emergencies), abnormally long sleep periods, and location deviations from established safe zones. It learns what's normal for YOUR parent specifically.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q2.question">How does the 7-day learning phase work?</summary>
+                    <p data-i18n="faq.q2.answer">During the first 7 days, the AI observes daily patterns - when they wake up, typical activity levels, regular locations. Basic monitoring is active from Day 1, but personalized thresholds are refined by Day 7.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q3.question">Is my parent's data safe?</summary>
+                    <p data-i18n="faq.q3.answer">Yes. All data is processed and stored entirely on the device. Nothing is sent to cloud servers. The only external communication is emergency alerts sent via Gmail to family members.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q4.question">What if the app sends false alerts?</summary>
+                    <p data-i18n="faq.q4.answer">The AI continuously learns and adapts. False alerts decrease over time as the system better understands individual patterns. You can also adjust sensitivity in settings.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q5.question">Do I need to pay monthly?</summary>
+                    <p data-i18n="faq.q5.answer">No. It's a one-time purchase of $99. No subscriptions, no hidden fees, no recurring charges - ever.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q6.question">What Android version is required?</summary>
+                    <p data-i18n="faq.q6.answer">Android 14 or higher is required for the on-device AI features (Gemini Nano).</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q7.question">Can my parent reset or disable it?</summary>
+                    <p data-i18n="faq.q7.answer">Yes, absolutely. The "Reset Learning" button is easily accessible and instantly deletes all learned data. They can also uninstall the app anytime - no questions asked.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q8.question">What happens if the phone battery dies?</summary>
+                    <p data-i18n="faq.q8.answer">The app cannot monitor when the phone is off. However, an extended period without any data can itself trigger an alert to family members, indicating something may be wrong.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q9.question">Does it work without WiFi or internet?</summary>
+                    <p data-i18n="faq.q9.answer">The AI analysis works entirely offline. However, internet connection (WiFi or mobile data) is needed to send emergency alerts via email.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq.q10.question">What if my parent leaves their phone at home?</summary>
+                    <p data-i18n="faq.q10.answer">The app monitors the phone's location. If your parent frequently leaves their phone at home, this will be learned as normal behavior. Unusual patterns (phone stationary for too long) may still trigger alerts.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="How Are You?!" class="footer-logo">
+                    <span class="footer-name">how are you?</span>
+                </div>
+                <div class="footer-links">
+                    <a href="privacy-policy.html" class="footer-link" data-i18n="footer.privacy" data-privacy-link>Privacy Policy</a>
+                    <a href="#" class="footer-link contact-link" data-i18n="footer.contact">Contact</a>
+                </div>
+            </div>
+            <p class="footer-copyright" data-i18n="footer.copyright">&copy; 2026 How Are You?! All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
