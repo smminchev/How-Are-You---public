@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="How Are You?! - AI-powered safety monitoring for elderly care. Peace of mind for your loved ones.">
-    <title>How Are You?! - Elderly Safety Monitoring</title>
+    <meta name="description" content="How Are You?! Senior Safety - AI-powered safety monitoring for elderly care. Peace of mind for your loved ones.">
+    <title>How Are You?! Senior Safety</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="header-content">
             <a href="#" class="logo">
-                <img src="images/logo.png" alt="How Are You?! Logo" class="logo-img">
-                <span class="logo-text">how are you?</span>
+                <img src="images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
             </a>
             <nav class="nav">
                 <div class="language-switcher">
@@ -28,6 +31,10 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+        <div class="hero-shape hero-shape-4"></div>
         <div class="container">
             <h1 class="hero-title" data-i18n="hero.title">Peace of Mind for Your Loved Ones</h1>
             <p class="hero-subtitle" data-i18n="hero.subtitle">AI-powered safety monitoring that learns your parent's routines and alerts you to emergencies - without daily check-in calls</p>
@@ -44,7 +51,7 @@
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section class="features reveal" id="features">
         <div class="container">
             <h2 class="section-title" data-i18n="features.title">Key Features</h2>
             <div class="features-grid">
@@ -94,8 +101,60 @@
         </div>
     </section>
 
+    <!-- What We Detect Section -->
+    <section class="scenarios reveal" id="scenarios">
+        <div class="container">
+            <h2 class="section-title" data-i18n="scenarios.title">What We Detect</h2>
+            <p class="section-subtitle" data-i18n="scenarios.subtitle">Real emergencies the app is built to catch</p>
+            <div class="features-grid">
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M11,7H13V13H11V7M11,15H13V17H11V15Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="scenarios.falls.title">Falls at Home</h3>
+                    <p class="feature-desc" data-i18n="scenarios.falls.desc">Your parent falls and can't reach their phone. The app detects hours of unusual stillness and alerts your family with their GPS location.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="scenarios.medical.title">Medical Emergency</h3>
+                    <p class="feature-desc" data-i18n="scenarios.medical.desc">A stroke or heart event leaves them unable to move. The app notices the sudden break from normal activity patterns.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="scenarios.sleep.title">Didn't Wake Up on Time</h3>
+                    <p class="feature-desc" data-i18n="scenarios.sleep.desc">It's 11 AM and they usually wake at 7. The app knows their sleep schedule and alerts you when something's off.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5C10.62,11.5 9.5,10.38 9.5,9C9.5,7.62 10.62,6.5 12,6.5C13.38,6.5 14.5,7.62 14.5,9C14.5,10.38 13.38,11.5 12,11.5Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="scenarios.wandered.title">Wandered to Unfamiliar Area</h3>
+                    <p class="feature-desc" data-i18n="scenarios.wandered.desc">They've left their usual neighborhood at an unusual hour. The app learned their safe zones and notices the deviation.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="scenarios.silent.title">Phone Silent Too Long</h3>
+                    <p class="feature-desc" data-i18n="scenarios.silent.desc">No phone activity for hours. Could mean the battery died — or it could mean they can't reach it.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M20.5,3L20.34,3.03L15,5.1L9,3L3.36,4.9C3.15,4.97 3,5.15 3,5.38V20.5A0.5,0.5 0 0,0 3.5,21L3.66,20.97L9,18.9L15,21L20.64,19.1C20.85,19.03 21,18.85 21,18.62V3.5A0.5,0.5 0 0,0 20.5,3M15,19L9,16.89V5L15,7.11V19Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="scenarios.travel.title">Traveling Safely</h3>
+                    <p class="feature-desc" data-i18n="scenarios.travel.desc">Your parent went on vacation. Instead of 7 days of false alarms, you get one "they appear to be traveling" notification and a "they're home" when they return.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
+    <section class="how-it-works reveal" id="how-it-works">
         <div class="container">
             <h2 class="section-title" data-i18n="howItWorks.title">How It Works</h2>
             <div class="steps">
@@ -118,34 +177,90 @@
         </div>
     </section>
 
-    <!-- Why Not Others Section -->
-    <section class="why-not-others" id="why-not-others">
+    <!-- A Day With How Are You?! Section -->
+    <section class="day-story reveal" id="day-story">
         <div class="container">
-            <h2 class="section-title" data-i18n="whyNot.title">Why Not Traditional Solutions?</h2>
-            <div class="comparison-list">
-                <div class="comparison-item">
-                    <div class="comparison-icon bad">
-                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+            <h2 class="section-title" data-i18n="dayStory.title">A Day With How Are You?!</h2>
+            <p class="section-subtitle" data-i18n="dayStory.subtitle">What protection looks like from your family's perspective</p>
+            <div class="timeline">
+                <div class="timeline-phase">
+                    <div class="timeline-marker">
+                        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,2L14.39,5.42C13.65,5.15 12.84,5 12,5C11.16,5 10.35,5.15 9.61,5.42L12,2M3.34,7L7.5,6.65C6.9,7.16 6.36,7.78 5.93,8.5C5.5,9.22 5.25,9.95 5.11,10.69L3.34,7M3.36,17L5.12,13.23C5.26,14 5.53,14.78 5.95,15.5C6.37,16.22 6.91,16.82 7.5,17.35L3.36,17M20.65,7L18.88,10.68C18.74,9.94 18.5,9.22 18.07,8.5C17.64,7.78 17.1,7.16 16.5,6.65L20.65,7M20.64,17L16.5,17.35C17.09,16.82 17.63,16.22 18.05,15.5C18.47,14.78 18.74,14 18.87,13.23L20.64,17Z"/></svg>
                     </div>
-                    <p data-i18n="whyNot.item1">Traditional alert systems require pressing a button - but emergencies don't wait</p>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time" data-i18n="dayStory.morning.time">Morning</h3>
+                        <p class="timeline-text" data-i18n="dayStory.morning.text">Elena wakes up at 7:15 AM, just like every day. The app notes this quietly. No alert. Her daughter Katya starts her workday without worry.</p>
+                    </div>
                 </div>
-                <div class="comparison-item">
-                    <div class="comparison-icon bad">
-                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+                <div class="timeline-phase">
+                    <div class="timeline-marker">
+                        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5C10.62,11.5 9.5,10.38 9.5,9C9.5,7.62 10.62,6.5 12,6.5C13.38,6.5 14.5,7.62 14.5,9C14.5,10.38 13.38,11.5 12,11.5Z"/></svg>
                     </div>
-                    <p data-i18n="whyNot.item2">Subscription services cost $30-50/month ($360-600/year) - safety shouldn't be a recurring tax</p>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time" data-i18n="dayStory.afternoon.time">Afternoon</h3>
+                        <p class="timeline-text" data-i18n="dayStory.afternoon.text">Elena walks to the neighborhood grocery store — a familiar route. The app recognizes her safe zone. Still no alert. Katya is in a meeting.</p>
+                    </div>
                 </div>
-                <div class="comparison-item">
-                    <div class="comparison-icon bad">
-                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+                <div class="timeline-phase timeline-phase-alert">
+                    <div class="timeline-marker timeline-marker-alert">
+                        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>
                     </div>
-                    <p data-i18n="whyNot.item3">Cloud-based solutions store your data on their servers - we keep everything on your device</p>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time" data-i18n="dayStory.alert.time">The Alert That Matters</h3>
+                        <p class="timeline-text" data-i18n="dayStory.alert.text">One Tuesday, Elena doesn't wake up by 10 AM. Then 11 AM. The app sends Katya an email: "Unusual sleep duration detected. Last known location: Home." Katya calls a neighbor who checks on Elena — she had a fever and couldn't get out of bed. She's fine now.</p>
+                    </div>
                 </div>
-                <div class="comparison-item">
-                    <div class="comparison-icon bad">
-                        <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg>
+            </div>
+            <p class="day-story-closing" data-i18n="dayStory.closing">99 days of trusted silence. 1 day of life-saving attention.</p>
+        </div>
+    </section>
+
+    <!-- Why Families Trust Us Section -->
+    <section class="trust-section reveal" id="trust">
+        <div class="container">
+            <h2 class="section-title" data-i18n="trust.title">Why Families Trust Us</h2>
+            <div class="features-grid">
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M7,7H17V10L21,6L17,2V5H5V11H7V7M17,17H7V14L3,18L7,22V19H19V13H17V17Z"/></svg>
                     </div>
-                    <p data-i18n="whyNot.item4">Generic thresholds don't know YOUR parent - we learn individual patterns</p>
+                    <h3 class="feature-title" data-i18n="trust.zero.title">Zero Interaction Needed</h3>
+                    <p class="feature-desc" data-i18n="trust.zero.desc">Your parent doesn't press buttons, wear devices, or answer check-in calls. They just live their life.</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="trust.price.title">One-Time $99, No Subscriptions</h3>
+                    <p class="feature-desc" data-i18n="trust.price.desc">Pay once. Protected forever. No monthly fees, no hidden costs.</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="trust.privacy.title">100% On-Device Privacy</h3>
+                    <p class="feature-desc" data-i18n="trust.privacy.desc">All data stays on their phone. No cloud servers, no company has access to their patterns.</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M21.33,12.91C21.42,12.15 21.09,11.41 20.47,10.99L19.4,10.27L19.59,9.04C19.68,8.27 19.35,7.5 18.7,7.07L17.66,6.35L17.85,5.12C17.94,4.35 17.6,3.58 16.96,3.16L15.88,2.41L15.85,2.4C15.69,2.3 15.5,2.22 15.33,2.17L14.61,2L13.5,1L12.91,1.09C12.15,1.18 11.41,0.85 10.99,0.23L10.27,0.81L9.04,0.62C8.27,0.53 7.5,0.86 7.07,1.51L6.35,2.55L5.12,2.36C4.35,2.27 3.58,2.61 3.16,3.25L2.41,4.33L2.4,4.36C2.3,4.52 2.22,4.71 2.17,4.88L2,5.6L1,6.71L1.09,7.3C1.18,8.06 0.85,8.8 0.23,9.22L0.81,9.94L0.62,11.17C0.53,11.94 0.86,12.71 1.51,13.14L2.55,13.86L2.36,15.09C2.27,15.86 2.61,16.63 3.25,17.05L4.33,17.8L4.36,17.81C4.52,17.91 4.71,17.99 4.88,18.04L5.6,18.21L6.71,19.21L7.3,19.12C8.06,19.03 8.8,19.36 9.22,19.98L9.94,19.4L11.17,19.59C11.94,19.68 12.71,19.35 13.14,18.7L13.86,17.66L15.09,17.85C15.86,17.94 16.63,17.6 17.05,16.96L17.8,15.88L17.81,15.85C17.91,15.69 17.99,15.5 18.04,15.33L18.21,14.61L19.21,13.5L19.12,12.91M10.29,16.42L5.5,11.62L7.29,9.84L10.29,12.84L17.17,5.96L18.96,7.75L10.29,16.42Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="trust.ai.title">AI That Learns THEIR Routine</h3>
+                    <p class="feature-desc" data-i18n="trust.ai.desc">Not generic thresholds — the AI learns your parent's unique sleep times, activity levels, and favorite places.</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M20.5,3L20.34,3.03L15,5.1L9,3L3.36,4.9C3.15,4.97 3,5.15 3,5.38V20.5A0.5,0.5 0 0,0 3.5,21L3.66,20.97L9,18.9L15,21L20.64,19.1C20.85,19.03 21,18.85 21,18.62V3.5A0.5,0.5 0 0,0 20.5,3M15,19L9,16.89V5L15,7.11V19Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="trust.travel.title">Travel-Aware Intelligence</h3>
+                    <p class="feature-desc" data-i18n="trust.travel.desc">Going on vacation? The app adapts automatically. No false alarms, just one friendly "they're traveling" notification.</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-i18n="trust.phone.title">Just Their Phone</h3>
+                    <p class="feature-desc" data-i18n="trust.phone.desc">No pendants, no base stations, no wristbands to charge. Their existing Android phone is all they need.</p>
                 </div>
             </div>
             <p class="mission-statement" data-i18n="whyNot.mission">This isn't about making money. We built this because we needed it ourselves.</p>
@@ -153,7 +268,7 @@
     </section>
 
     <!-- You're In Control Section -->
-    <section class="in-control" id="in-control">
+    <section class="in-control reveal" id="in-control">
         <div class="container">
             <h2 class="section-title" data-i18n="inControl.title">You're In Control</h2>
             <p class="section-subtitle" data-i18n="inControl.subtitle">Your privacy, your choice - always</p>
@@ -187,7 +302,7 @@
     </section>
 
     <!-- Under the Hood Section -->
-    <section class="under-the-hood" id="under-the-hood">
+    <section class="under-the-hood reveal" id="under-the-hood">
         <div class="container">
             <details class="tech-details">
                 <summary class="tech-summary">
@@ -199,7 +314,7 @@
                         <li data-i18n="underHood.item1">Powered by Google's Gemini Nano - on-device AI, no internet required for analysis</li>
                         <li data-i18n="underHood.item2">Detects: unusual stillness duration, abnormally long sleep, location deviations from safe zones</li>
                         <li data-i18n="underHood.item3">Context-aware: different thresholds for home vs. outside, day vs. night</li>
-                        <li data-i18n="underHood.item4">Monthly recalibration adapts to changing routines (seasonal, health changes)</li>
+                        <li data-i18n="underHood.item4">Weekly recalibration adapts to changing routines (seasonal, health changes)</li>
                         <li data-i18n="underHood.item5">Battery efficient: designed for less than 10% daily battery impact</li>
                     </ul>
                 </div>
@@ -208,7 +323,7 @@
     </section>
 
     <!-- Screenshots Section -->
-    <section class="screenshots" id="screenshots">
+    <section class="screenshots reveal" id="screenshots">
         <div class="container">
             <h2 class="section-title" data-i18n="screenshots.title">See It In Action</h2>
             <div class="screenshots-gallery">
@@ -220,7 +335,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq" id="faq">
+    <section class="faq reveal" id="faq">
         <div class="container">
             <h2 class="section-title" data-i18n="faq.title">Frequently Asked Questions</h2>
             <div class="faq-list">
@@ -289,7 +404,7 @@
     </section>
 
     <!-- Troubleshooting Section -->
-    <section class="faq" id="troubleshooting">
+    <section class="faq reveal" id="troubleshooting">
         <div class="container">
             <h2 class="section-title" data-i18n="troubleshooting.title">Troubleshooting</h2>
             <div class="faq-list">
@@ -318,8 +433,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="images/logo.png" alt="How Are You?!" class="footer-logo">
-                    <span class="footer-name">how are you?</span>
+                    <img src="images/logo.png" alt="How Are You?! Senior Safety" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
                 </div>
                 <div class="footer-links">
                     <a href="privacy-policy.html" class="footer-link" data-i18n="footer.privacy" data-privacy-link>Privacy Policy</a>

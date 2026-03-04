@@ -27,6 +27,21 @@ const translations = {
         'features.dignity.title': 'Dignity First',
         'features.dignity.desc': 'No intrusive notifications to your parent',
 
+        'scenarios.title': 'What We Detect',
+        'scenarios.subtitle': 'Real emergencies the app is built to catch',
+        'scenarios.falls.title': 'Falls at Home',
+        'scenarios.falls.desc': 'Your parent falls and can\'t reach their phone. The app detects hours of unusual stillness and alerts your family with their GPS location.',
+        'scenarios.medical.title': 'Medical Emergency',
+        'scenarios.medical.desc': 'A stroke or heart event leaves them unable to move. The app notices the sudden break from normal activity patterns.',
+        'scenarios.sleep.title': 'Didn\'t Wake Up on Time',
+        'scenarios.sleep.desc': 'It\'s 11 AM and they usually wake at 7. The app knows their sleep schedule and alerts you when something\'s off.',
+        'scenarios.wandered.title': 'Wandered to Unfamiliar Area',
+        'scenarios.wandered.desc': 'They\'ve left their usual neighborhood at an unusual hour. The app learned their safe zones and notices the deviation.',
+        'scenarios.silent.title': 'Phone Silent Too Long',
+        'scenarios.silent.desc': 'No phone activity for hours. Could mean the battery died — or it could mean they can\'t reach it.',
+        'scenarios.travel.title': 'Traveling Safely',
+        'scenarios.travel.desc': 'Your parent went on vacation. Instead of 7 days of false alarms, you get one "they appear to be traveling" notification and a "they\'re home" when they return.',
+
         'howItWorks.title': 'How It Works',
         'howItWorks.step1.title': 'Quick Setup',
         'howItWorks.step1.desc': 'Grant permissions, connect Gmail, add family emails. Takes just 3-5 minutes.',
@@ -35,11 +50,30 @@ const translations = {
         'howItWorks.step3.title': 'Active Protection',
         'howItWorks.step3.desc': 'Anomaly detection with automatic family alerts when something seems wrong.',
 
-        'whyNot.title': 'Why Not Traditional Solutions?',
-        'whyNot.item1': 'Traditional alert systems require pressing a button - but emergencies don\'t wait',
-        'whyNot.item2': 'Subscription services cost $30-50/month ($360-600/year) - safety shouldn\'t be a recurring tax',
-        'whyNot.item3': 'Cloud-based solutions store your data on their servers - we keep everything on your device',
-        'whyNot.item4': 'Generic thresholds don\'t know YOUR parent - we learn individual patterns',
+        'dayStory.title': 'A Day With How Are You?!',
+        'dayStory.subtitle': 'What protection looks like from your family\'s perspective',
+        'dayStory.morning.time': 'Morning',
+        'dayStory.morning.text': 'Elena wakes up at 7:15 AM, just like every day. The app notes this quietly. No alert. Her daughter Katya starts her workday without worry.',
+        'dayStory.afternoon.time': 'Afternoon',
+        'dayStory.afternoon.text': 'Elena walks to the neighborhood grocery store — a familiar route. The app recognizes her safe zone. Still no alert. Katya is in a meeting.',
+        'dayStory.alert.time': 'The Alert That Matters',
+        'dayStory.alert.text': 'One Tuesday, Elena doesn\'t wake up by 10 AM. Then 11 AM. The app sends Katya an email: "Unusual sleep duration detected. Last known location: Home." Katya calls a neighbor who checks on Elena — she had a fever and couldn\'t get out of bed. She\'s fine now.',
+        'dayStory.closing': '99 days of trusted silence. 1 day of life-saving attention.',
+
+        'trust.title': 'Why Families Trust Us',
+        'trust.zero.title': 'Zero Interaction Needed',
+        'trust.zero.desc': 'Your parent doesn\'t press buttons, wear devices, or answer check-in calls. They just live their life.',
+        'trust.price.title': 'One-Time $99, No Subscriptions',
+        'trust.price.desc': 'Pay once. Protected forever. No monthly fees, no hidden costs.',
+        'trust.privacy.title': '100% On-Device Privacy',
+        'trust.privacy.desc': 'All data stays on their phone. No cloud servers, no company has access to their patterns.',
+        'trust.ai.title': 'AI That Learns THEIR Routine',
+        'trust.ai.desc': 'Not generic thresholds — the AI learns your parent\'s unique sleep times, activity levels, and favorite places.',
+        'trust.travel.title': 'Travel-Aware Intelligence',
+        'trust.travel.desc': 'Going on vacation? The app adapts automatically. No false alarms, just one friendly "they\'re traveling" notification.',
+        'trust.phone.title': 'Just Their Phone',
+        'trust.phone.desc': 'No pendants, no base stations, no wristbands to charge. Their existing Android phone is all they need.',
+
         'whyNot.mission': 'This isn\'t about making money. We built this because we needed it ourselves.',
 
         'inControl.title': 'You\'re In Control',
@@ -53,7 +87,7 @@ const translations = {
         'underHood.item1': 'Powered by Google\'s Gemini Nano - on-device AI, no internet required for analysis',
         'underHood.item2': 'Detects: unusual stillness duration, abnormally long sleep, location deviations from safe zones',
         'underHood.item3': 'Context-aware: different thresholds for home vs. outside, day vs. night',
-        'underHood.item4': 'Monthly recalibration adapts to changing routines (seasonal, health changes)',
+        'underHood.item4': 'Weekly recalibration adapts to changing routines (seasonal, health changes)',
         'underHood.item5': 'Battery efficient: designed for less than 10% daily battery impact',
 
         'screenshots.title': 'See It In Action',
@@ -124,6 +158,21 @@ const translations = {
         'features.dignity.title': 'Достойнство Преди Всичко',
         'features.dignity.desc': 'Без натрапчиви известия към родителя ви',
 
+        'scenarios.title': 'Какво Разпознаваме',
+        'scenarios.subtitle': 'Реални спешни ситуации, за които приложението е създадено',
+        'scenarios.falls.title': 'Падане Вкъщи',
+        'scenarios.falls.desc': 'Родителят ви пада и не може да стигне до телефона си. Приложението засича часове необичайна неподвижност и известява семейството ви с GPS местоположение.',
+        'scenarios.medical.title': 'Медицинска Спешност',
+        'scenarios.medical.desc': 'Инсулт или сърдечен инцидент ги оставя неподвижни. Приложението забелязва внезапната промяна в нормалните модели на активност.',
+        'scenarios.sleep.title': 'Не Се Събуди Навреме',
+        'scenarios.sleep.desc': '11 часа е, а обикновено се събуждат в 7. Приложението знае графика им на сън и ви известява, когато нещо не е наред.',
+        'scenarios.wandered.title': 'Отклонение от Познат Район',
+        'scenarios.wandered.desc': 'Напуснали са обичайния си квартал в необичаен час. Приложението е научило безопасните им зони и забелязва отклонението.',
+        'scenarios.silent.title': 'Телефонът Мълчи Твърде Дълго',
+        'scenarios.silent.desc': 'Никаква активност на телефона от часове. Може да означава, че батерията е свършила — или че не могат да го достигнат.',
+        'scenarios.travel.title': 'Безопасно Пътуване',
+        'scenarios.travel.desc': 'Родителят ви е отишъл на почивка. Вместо 7 дни фалшиви аларми, получавате едно известие "изглежда пътуват" и "прибраха се" когато се върнат.',
+
         'howItWorks.title': 'Как Работи',
         'howItWorks.step1.title': 'Бърза Настройка',
         'howItWorks.step1.desc': 'Дайте разрешения, свържете Gmail, добавете имейли на семейството. Отнема само 3-5 минути.',
@@ -132,11 +181,30 @@ const translations = {
         'howItWorks.step3.title': 'Активна Защита',
         'howItWorks.step3.desc': 'Откриване на аномалии с автоматични известия до семейството при нещо нередно.',
 
-        'whyNot.title': 'Защо Не Традиционни Решения?',
-        'whyNot.item1': 'Традиционните системи изискват натискане на бутон - но спешните случаи не чакат',
-        'whyNot.item2': 'Абонаментните услуги струват $30-50/месец ($360-600/година) - безопасността не трябва да е повтарящ се данък',
-        'whyNot.item3': 'Облачните решения съхраняват данните ви на техните сървъри - ние пазим всичко на вашето устройство',
-        'whyNot.item4': 'Общите прагове не познават ВАШИЯ родител - ние научаваме индивидуалните модели',
+        'dayStory.title': 'Един Ден с How Are You?!',
+        'dayStory.subtitle': 'Как изглежда защитата от гледна точка на семейството',
+        'dayStory.morning.time': 'Сутрин',
+        'dayStory.morning.text': 'Елена се събужда в 7:15 сутринта, както всеки ден. Приложението отбелязва това тихо. Без известие. Дъщеря й Катя започва работния си ден без притеснения.',
+        'dayStory.afternoon.time': 'Следобед',
+        'dayStory.afternoon.text': 'Елена отива до квартален магазин — познат маршрут. Приложението разпознава безопасната й зона. Все още без известие. Катя е в среща.',
+        'dayStory.alert.time': 'Известието, Което Има Значение',
+        'dayStory.alert.text': 'Един вторник Елена не се събужда до 10 часа. После 11 часа. Приложението изпраща на Катя имейл: "Засечена необичайна продължителност на съня. Последно известно местоположение: Вкъщи." Катя се обажда на съседка, която проверява Елена — имала е температура и не е могла да стане от леглото. Сега е добре.',
+        'dayStory.closing': '99 дни доверена тишина. 1 ден животоспасяващо внимание.',
+
+        'trust.title': 'Защо Семействата Ни Се Доверяват',
+        'trust.zero.title': 'Нулево Взаимодействие',
+        'trust.zero.desc': 'Родителят ви не натиска бутони, не носи устройства, не отговаря на обаждания за проверка. Просто живее живота си.',
+        'trust.price.title': 'Еднократно $99, Без Абонаменти',
+        'trust.price.desc': 'Платете веднъж. Защитени завинаги. Без месечни такси, без скрити разходи.',
+        'trust.privacy.title': '100% Поверителност на Устройството',
+        'trust.privacy.desc': 'Всички данни остават на телефона им. Без облачни сървъри, никоя компания няма достъп до моделите им.',
+        'trust.ai.title': 'AI, Който Учи ТЯХНАТА Рутина',
+        'trust.ai.desc': 'Не общи прагове — AI научава уникалните часове на сън, нива на активност и любими места на вашия родител.',
+        'trust.travel.title': 'Интелигентност при Пътуване',
+        'trust.travel.desc': 'Отиват на почивка? Приложението се адаптира автоматично. Без фалшиви аларми, само едно приятелско известие "пътуват".',
+        'trust.phone.title': 'Само Телефонът Им',
+        'trust.phone.desc': 'Без медальони, без базови станции, без гривни за зареждане. Съществуващият им Android телефон е всичко необходимо.',
+
         'whyNot.mission': 'Това не е за пари. Създадохме го, защото самите ние имахме нужда от него.',
 
         'inControl.title': 'Вие Контролирате',
@@ -150,7 +218,7 @@ const translations = {
         'underHood.item1': 'Задвижван от Google Gemini Nano - AI на устройството, не е нужен интернет за анализ',
         'underHood.item2': 'Открива: необичайна неподвижност, ненормално дълъг сън, отклонения от безопасни зони',
         'underHood.item3': 'Контекстно осъзнат: различни прагове за вкъщи и навън, ден и нощ',
-        'underHood.item4': 'Месечно прекалибриране се адаптира към променящи се рутини (сезонни, здравни промени)',
+        'underHood.item4': 'Седмично прекалибриране се адаптира към променящи се рутини (сезонни, здравни промени)',
         'underHood.item5': 'Ефективен за батерията: проектиран за по-малко от 10% дневно въздействие',
 
         'screenshots.title': 'Вижте го в Действие',
@@ -221,6 +289,21 @@ const translations = {
         'features.dignity.title': 'Würde Zuerst',
         'features.dignity.desc': 'Keine aufdringlichen Benachrichtigungen an Ihre Eltern',
 
+        'scenarios.title': 'Was Wir Erkennen',
+        'scenarios.subtitle': 'Echte Notfälle, für die die App entwickelt wurde',
+        'scenarios.falls.title': 'Stürze zu Hause',
+        'scenarios.falls.desc': 'Ihr Elternteil stürzt und kann das Telefon nicht erreichen. Die App erkennt stundenlange ungewöhnliche Reglosigkeit und benachrichtigt Ihre Familie mit GPS-Standort.',
+        'scenarios.medical.title': 'Medizinischer Notfall',
+        'scenarios.medical.desc': 'Ein Schlaganfall oder Herzereignis macht sie bewegungsunfähig. Die App bemerkt den plötzlichen Bruch normaler Aktivitätsmuster.',
+        'scenarios.sleep.title': 'Nicht Rechtzeitig Aufgewacht',
+        'scenarios.sleep.desc': 'Es ist 11 Uhr und sie wachen normalerweise um 7 auf. Die App kennt ihren Schlafrhythmus und warnt Sie, wenn etwas nicht stimmt.',
+        'scenarios.wandered.title': 'In Unbekanntes Gebiet Gewandert',
+        'scenarios.wandered.desc': 'Sie haben ihre gewohnte Nachbarschaft zu einer ungewöhnlichen Stunde verlassen. Die App hat ihre sicheren Zonen gelernt und bemerkt die Abweichung.',
+        'scenarios.silent.title': 'Telefon Zu Lange Still',
+        'scenarios.silent.desc': 'Keine Telefonaktivität seit Stunden. Könnte bedeuten, dass der Akku leer ist — oder dass sie es nicht erreichen können.',
+        'scenarios.travel.title': 'Sicher Auf Reisen',
+        'scenarios.travel.desc': 'Ihr Elternteil ist in den Urlaub gefahren. Statt 7 Tagen Fehlalarmen erhalten Sie eine Benachrichtigung "scheint zu verreisen" und "ist wieder zu Hause" bei der Rückkehr.',
+
         'howItWorks.title': 'So Funktioniert Es',
         'howItWorks.step1.title': 'Schnelle Einrichtung',
         'howItWorks.step1.desc': 'Berechtigungen erteilen, Gmail verbinden, Familien-E-Mails hinzufügen. Dauert nur 3-5 Minuten.',
@@ -229,11 +312,30 @@ const translations = {
         'howItWorks.step3.title': 'Aktiver Schutz',
         'howItWorks.step3.desc': 'Anomalieerkennung mit automatischen Familienalarmen, wenn etwas nicht stimmt.',
 
-        'whyNot.title': 'Warum Nicht Traditionelle Lösungen?',
-        'whyNot.item1': 'Traditionelle Alarmsysteme erfordern das Drücken eines Knopfes - aber Notfälle warten nicht',
-        'whyNot.item2': 'Abo-Dienste kosten 30-50$/Monat (360-600$/Jahr) - Sicherheit sollte keine wiederkehrende Steuer sein',
-        'whyNot.item3': 'Cloud-basierte Lösungen speichern Ihre Daten auf deren Servern - wir behalten alles auf Ihrem Gerät',
-        'whyNot.item4': 'Allgemeine Schwellenwerte kennen IHREN Elternteil nicht - wir lernen individuelle Muster',
+        'dayStory.title': 'Ein Tag Mit How Are You?!',
+        'dayStory.subtitle': 'Wie Schutz aus der Perspektive Ihrer Familie aussieht',
+        'dayStory.morning.time': 'Morgens',
+        'dayStory.morning.text': 'Elena wacht um 7:15 Uhr auf, wie jeden Tag. Die App vermerkt das still. Kein Alarm. Ihre Tochter Katya beginnt ihren Arbeitstag ohne Sorgen.',
+        'dayStory.afternoon.time': 'Nachmittags',
+        'dayStory.afternoon.text': 'Elena geht zum Lebensmittelgeschäft in der Nachbarschaft — eine vertraute Route. Die App erkennt ihre sichere Zone. Immer noch kein Alarm. Katya ist in einer Besprechung.',
+        'dayStory.alert.time': 'Der Alarm, Der Zählt',
+        'dayStory.alert.text': 'An einem Dienstag wacht Elena nicht bis 10 Uhr auf. Dann 11 Uhr. Die App sendet Katya eine E-Mail: "Ungewöhnliche Schlafdauer erkannt. Letzter bekannter Standort: Zu Hause." Katya ruft eine Nachbarin an, die nach Elena sieht — sie hatte Fieber und konnte nicht aus dem Bett aufstehen. Es geht ihr jetzt gut.',
+        'dayStory.closing': '99 Tage vertrauensvolle Stille. 1 Tag lebensrettende Aufmerksamkeit.',
+
+        'trust.title': 'Warum Familien Uns Vertrauen',
+        'trust.zero.title': 'Keine Interaktion Nötig',
+        'trust.zero.desc': 'Ihr Elternteil drückt keine Knöpfe, trägt keine Geräte und beantwortet keine Kontrollanrufe. Sie leben einfach ihr Leben.',
+        'trust.price.title': 'Einmalig 99$, Keine Abonnements',
+        'trust.price.desc': 'Einmal zahlen. Für immer geschützt. Keine monatlichen Gebühren, keine versteckten Kosten.',
+        'trust.privacy.title': '100% Datenschutz Auf Dem Gerät',
+        'trust.privacy.desc': 'Alle Daten bleiben auf ihrem Telefon. Keine Cloud-Server, kein Unternehmen hat Zugang zu ihren Mustern.',
+        'trust.ai.title': 'KI, Die IHRE Routine Lernt',
+        'trust.ai.desc': 'Keine generischen Schwellenwerte — die KI lernt die einzigartigen Schlafzeiten, Aktivitätsniveaus und Lieblingsorte Ihres Elternteils.',
+        'trust.travel.title': 'Reiseintelligenz',
+        'trust.travel.desc': 'Im Urlaub? Die App passt sich automatisch an. Keine Fehlalarme, nur eine freundliche "verreist"-Benachrichtigung.',
+        'trust.phone.title': 'Nur Ihr Telefon',
+        'trust.phone.desc': 'Keine Anhänger, keine Basisstationen, keine Armbänder zum Laden. Ihr vorhandenes Android-Telefon ist alles, was sie brauchen.',
+
         'whyNot.mission': 'Es geht nicht ums Geld. Wir haben es gebaut, weil wir es selbst brauchten.',
 
         'inControl.title': 'Sie Haben Die Kontrolle',
@@ -247,7 +349,7 @@ const translations = {
         'underHood.item1': 'Angetrieben von Googles Gemini Nano - KI auf dem Gerät, kein Internet für Analysen erforderlich',
         'underHood.item2': 'Erkennt: ungewöhnliche Stillstandsdauer, abnormal langen Schlaf, Abweichungen von sicheren Zonen',
         'underHood.item3': 'Kontextbewusst: unterschiedliche Schwellenwerte für Zuhause vs. draußen, Tag vs. Nacht',
-        'underHood.item4': 'Monatliche Neukalibrierung passt sich ändernden Routinen an (saisonal, gesundheitliche Veränderungen)',
+        'underHood.item4': 'Wöchentliche Neukalibrierung passt sich ändernden Routinen an (saisonal, gesundheitliche Veränderungen)',
         'underHood.item5': 'Batterieeffizient: entwickelt für weniger als 10% tägliche Batterieauswirkung',
 
         'screenshots.title': 'Sehen Sie Es In Aktion',
@@ -395,9 +497,29 @@ function setupContactLink() {
     });
 }
 
+/**
+ * Scroll reveal animation using IntersectionObserver
+ */
+function setupScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal');
+    if (!revealElements.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => observer.observe(el));
+}
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', () => { init(); setupScrollReveal(); });
 } else {
     init();
+    setupScrollReveal();
 }
