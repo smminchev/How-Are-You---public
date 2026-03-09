@@ -200,7 +200,7 @@
 
     <main class="content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: 2025-12-18</p>
+        <p class="last-updated">Last updated: 2026-03-09</p>
 
         <p class="intro">
             This Privacy Policy describes how "How Are You?!" (the "App") collects, uses, and protects your information.
@@ -230,7 +230,7 @@
         <p>Your information is used exclusively for the following purposes:</p>
         <ul>
             <li><strong>Emergency detection</strong> - Statistical anomaly analysis detects unusual stillness, abnormally long sleep periods, and location deviations from safe zones</li>
-            <li><strong>Behavioral pattern learning</strong> - On-device AI using Gemini Nano analyzes your patterns during the learning phase</li>
+            <li><strong>Behavioral pattern learning</strong> - Google's Gemini AI processes anonymous behavioral summaries securely to analyze your patterns during the learning phase</li>
             <li><strong>Emergency alerts to family</strong> - When anomalies are detected, GPS coordinates and timestamp are sent to configured email addresses via Gmail API</li>
             <li><strong>Monthly pattern recalibration</strong> - Automatic threshold updates to adapt to changing routines</li>
         </ul>
@@ -245,12 +245,29 @@
         <h2>3. Data Storage and Security</h2>
         <p>We implement the highest privacy and security standards:</p>
         <ul>
-            <li><strong>100% local storage</strong> - All behavioral data is stored on your device only using Room database with SQLCipher encryption</li>
-            <li><strong>ZERO cloud transmission</strong> - No servers, no backend infrastructure, no cloud surveillance of your behavioral patterns</li>
+            <li><strong>All detailed data stored locally</strong> - All behavioral data is stored on your device only using Room database with SQLCipher encryption</li>
+            <li><strong>Anonymous summaries only</strong> - Only anonymous behavioral summaries (no GPS coordinates, no personal information) are sent to Google's Gemini AI via secure encrypted connection for safety analysis</li>
             <li><strong>Secure credential storage</strong> - OAuth tokens are stored securely in Android Keystore</li>
             <li><strong>Encrypted transmission</strong> - Emergency alerts are encrypted with TLS 1.3 when sent via Gmail API</li>
-            <li><strong>On-device AI processing</strong> - Gemini Nano runs entirely on your device with no cloud AI surveillance</li>
+            <li><strong>Secure AI processing</strong> - Google's Gemini AI processes anonymous behavioral summaries securely; no raw sensor data or GPS coordinates are transmitted</li>
         </ul>
+
+        <h3>Data Transmitted for AI Safety Analysis</h3>
+        <p>To provide accurate safety analysis, the app sends anonymous behavioral summaries to Google's Gemini AI via secure encrypted connection (HTTPS/TLS). This includes:</p>
+        <ul>
+            <li>Activity pattern summaries (e.g., "morning activity 7-9 AM, 5 days/week")</li>
+            <li>Stillness duration statistics (e.g., "average daytime rest: 2 hours")</li>
+            <li>Routine deviation indicators (e.g., "stillness exceeds learned threshold")</li>
+            <li>General location context (e.g., "at home", "at frequent location")</li>
+        </ul>
+        <p>This data does NOT include:</p>
+        <ul>
+            <li>GPS coordinates or specific addresses</li>
+            <li>Personal information (name, age, contacts)</li>
+            <li>Raw sensor data</li>
+            <li>Any data that could identify the user</li>
+        </ul>
+        <p>Google's AI processes the summary and returns a safety assessment. Google does not use this data for advertising or model training (paid API tier). See Google's Gemini API Terms of Service for details.</p>
 
         <h2>4. Data Sharing</h2>
         <p>Your data sharing is extremely limited:</p>
@@ -268,7 +285,7 @@
             <li><strong>Retention period:</strong> Behavioral data is retained until app uninstall OR "Reset Learning" button is triggered</li>
             <li><strong>Immediate deletion on uninstall:</strong> Android automatically deletes all app data when you uninstall</li>
             <li><strong>Immediate deletion on reset:</strong> The "Reset Learning" button (accessible from your device) deletes all behavioral data immediately - preserving dignity and autonomy</li>
-            <li><strong>No cloud backups:</strong> All data is on-device only and always deleted completely</li>
+            <li><strong>No cloud backups of your personal data:</strong> All detailed data is stored locally and always deleted completely</li>
             <li><strong>Complete control:</strong> You maintain full control over your data lifecycle</li>
         </ul>
 
@@ -348,7 +365,7 @@
                 <li><strong>Safe zone identification</strong> - Learning your regular locations (home, park, coffee shop)</li>
                 <li><strong>Location deviation alerts</strong> - Detecting when you've moved outside normal patterns</li>
             </ul>
-            <p><strong>Privacy reassurance:</strong> Your location is NEVER shared except during emergencies. All data stays on your device.</p>
+            <p><strong>Privacy reassurance:</strong> Your location is NEVER shared except during emergencies. Only anonymous behavioral summaries (without GPS coordinates) are sent for AI safety analysis.</p>
         </div>
 
         <div class="disclaimer">

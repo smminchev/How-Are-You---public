@@ -200,7 +200,7 @@
 
     <main class="content">
         <h1>Datenschutzerklärung</h1>
-        <p class="last-updated">Letzte Aktualisierung: 2025-12-18</p>
+        <p class="last-updated">Letzte Aktualisierung: 2026-03-09</p>
 
         <p class="intro">
             Diese Datenschutzerklärung beschreibt, wie "How Are You?!" (die "App") Ihre Informationen sammelt, verwendet und schützt.
@@ -230,7 +230,7 @@
         <p>Ihre Informationen werden ausschließlich für folgende Zwecke verwendet:</p>
         <ul>
             <li><strong>Notfallerkennung</strong> - Statistische Anomalieanalyse erkennt ungewöhnlichen Stillstand, abnormal lange Schlafperioden und Standortabweichungen von sicheren Zonen</li>
-            <li><strong>Verhaltensmuster-Lernen</strong> - KI auf dem Gerät mit Gemini Nano analysiert Ihre Muster während der Lernphase</li>
+            <li><strong>Verhaltensmuster-Lernen</strong> - Googles Gemini AI verarbeitet anonyme Verhaltenszusammenfassungen sicher, um Ihre Muster während der Lernphase zu analysieren</li>
             <li><strong>Notfallalarme an Familie</strong> - Wenn Anomalien erkannt werden, werden GPS-Koordinaten und Zeitstempel an konfigurierte E-Mail-Adressen via Gmail API gesendet</li>
             <li><strong>Monatliche Muster-Neukalibrierung</strong> - Automatische Schwellenwert-Updates zur Anpassung an sich ändernde Routinen</li>
         </ul>
@@ -245,12 +245,29 @@
         <h2>3. Datenspeicherung und Sicherheit</h2>
         <p>Wir implementieren die höchsten Datenschutz- und Sicherheitsstandards:</p>
         <ul>
-            <li><strong>100% lokale Speicherung</strong> - Alle Verhaltensdaten werden nur auf Ihrem Gerät gespeichert, mit Room-Datenbank und SQLCipher-Verschlüsselung</li>
-            <li><strong>NULL Cloud-Übertragung</strong> - Keine Server, keine Backend-Infrastruktur, keine Cloud-Überwachung Ihrer Verhaltensmuster</li>
+            <li><strong>Alle detaillierten Daten lokal gespeichert</strong> - Alle Verhaltensdaten werden nur auf Ihrem Gerät gespeichert, mit Room-Datenbank und SQLCipher-Verschlüsselung</li>
+            <li><strong>Nur anonyme Zusammenfassungen</strong> - Nur anonyme Verhaltenszusammenfassungen (keine GPS-Koordinaten, keine persönlichen Informationen) werden über eine sichere verschlüsselte Verbindung an Googles Gemini AI zur Sicherheitsanalyse gesendet</li>
             <li><strong>Sichere Anmeldedatenspeicherung</strong> - OAuth-Tokens werden sicher im Android Keystore gespeichert</li>
             <li><strong>Verschlüsselte Übertragung</strong> - Notfallalarme werden mit TLS 1.3 verschlüsselt, wenn sie via Gmail API gesendet werden</li>
-            <li><strong>KI-Verarbeitung auf dem Gerät</strong> - Gemini Nano läuft vollständig auf Ihrem Gerät ohne Cloud-KI-Überwachung</li>
+            <li><strong>Sichere AI-Verarbeitung</strong> - Googles Gemini AI verarbeitet anonyme Verhaltenszusammenfassungen sicher; keine Rohsensordaten oder GPS-Koordinaten werden übertragen</li>
         </ul>
+
+        <h3>Für die AI-Sicherheitsanalyse übertragene Daten</h3>
+        <p>Um eine genaue Sicherheitsanalyse zu gewährleisten, sendet die App anonyme Verhaltenszusammenfassungen an Googles Gemini AI über eine sichere verschlüsselte Verbindung (HTTPS/TLS). Dies umfasst:</p>
+        <ul>
+            <li>Zusammenfassungen der Aktivitätsmuster (z.B. "Morgenaktivität 7-9 Uhr, 5 Tage/Woche")</li>
+            <li>Statistiken zur Stillstandsdauer (z.B. "durchschnittliche Tagesruhe: 2 Stunden")</li>
+            <li>Indikatoren für Routineabweichungen (z.B. "Stillstand überschreitet gelernten Schwellenwert")</li>
+            <li>Allgemeiner Standortkontext (z.B. "zu Hause", "an einem häufig besuchten Ort")</li>
+        </ul>
+        <p>Diese Daten enthalten NICHT:</p>
+        <ul>
+            <li>GPS-Koordinaten oder spezifische Adressen</li>
+            <li>Persönliche Informationen (Name, Alter, Kontakte)</li>
+            <li>Rohsensordaten</li>
+            <li>Jegliche Daten, die den Benutzer identifizieren könnten</li>
+        </ul>
+        <p>Googles AI verarbeitet die Zusammenfassung und gibt eine Sicherheitsbewertung zurück. Google verwendet diese Daten nicht für Werbung oder Modelltraining (kostenpflichtige API-Stufe). Siehe Googles Gemini API-Nutzungsbedingungen für Details.</p>
 
         <h2>4. Datenweitergabe</h2>
         <p>Die Weitergabe Ihrer Daten ist äußerst begrenzt:</p>
@@ -268,7 +285,7 @@
             <li><strong>Aufbewahrungszeitraum:</strong> Verhaltensdaten werden bis zur App-Deinstallation ODER Aktivierung der "Lernen Zurücksetzen"-Schaltfläche aufbewahrt</li>
             <li><strong>Sofortige Löschung bei Deinstallation:</strong> Android löscht automatisch alle App-Daten bei der Deinstallation</li>
             <li><strong>Sofortige Löschung beim Zurücksetzen:</strong> Die "Lernen Zurücksetzen"-Schaltfläche (von Ihrem Gerät aus zugänglich) löscht alle Verhaltensdaten sofort - unter Wahrung von Würde und Autonomie</li>
-            <li><strong>Keine Cloud-Backups:</strong> Alle Daten sind nur auf dem Gerät und werden immer vollständig gelöscht</li>
+            <li><strong>Keine Cloud-Backups Ihrer persönlichen Daten:</strong> Alle detaillierten Daten werden lokal gespeichert und immer vollständig gelöscht</li>
             <li><strong>Vollständige Kontrolle:</strong> Sie behalten die volle Kontrolle über den Lebenszyklus Ihrer Daten</li>
         </ul>
 
@@ -348,7 +365,7 @@
                 <li><strong>Sichere Zonen-Identifikation</strong> - Lernen Ihrer regelmäßigen Standorte (Zuhause, Park, Café)</li>
                 <li><strong>Standortabweichungsalarme</strong> - Erkennen, wenn Sie sich außerhalb normaler Muster bewegt haben</li>
             </ul>
-            <p><strong>Datenschutzgarantie:</strong> Ihr Standort wird NIEMALS geteilt, außer in Notfällen. Alle Daten bleiben auf Ihrem Gerät.</p>
+            <p><strong>Datenschutzgarantie:</strong> Ihr Standort wird NIEMALS geteilt, außer in Notfällen. Nur anonyme Verhaltenszusammenfassungen (ohne GPS-Koordinaten) werden für die AI-Sicherheitsanalyse gesendet.</p>
         </div>
 
         <div class="disclaimer">
