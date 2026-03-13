@@ -161,7 +161,7 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3 class="step-title" data-i18n="howItWorks.step1.title">Quick Setup</h3>
-                    <p class="step-desc" data-i18n="howItWorks.step1.desc">Grant permissions, connect Gmail, add family emails. Takes just 3-5 minutes.</p>
+                    <p class="step-desc" data-i18n="howItWorks.step1.desc">Grant permissions, add family emails. Takes just 3-5 minutes.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
@@ -263,7 +263,7 @@
                     <p class="feature-desc" data-i18n="trust.phone.desc">No pendants, no base stations, no wristbands to charge. Their existing Android phone is all they need.</p>
                 </div>
             </div>
-            <p class="mission-statement" data-i18n="whyNot.mission">This isn't about making money. We built this because we needed it ourselves.</p>
+            <p class="mission-statement" data-i18n="whyNot.mission">We built this because someone we love was in a difficult situation, and we wished something like this existed.</p>
         </div>
     </section>
 
@@ -315,7 +315,7 @@
                         <li data-i18n="underHood.item2">Detects: unusual stillness duration, abnormally long sleep, location deviations from safe zones</li>
                         <li data-i18n="underHood.item3">Context-aware: different thresholds for home vs. outside, day vs. night</li>
                         <li data-i18n="underHood.item4">Weekly recalibration adapts to changing routines (seasonal, health changes)</li>
-                        <li data-i18n="underHood.item5">Battery efficient: designed for less than 10% daily battery impact</li>
+                        <li data-i18n="underHood.item5">Battery efficient: designed for less than 1% daily battery impact</li>
                     </ul>
                 </div>
             </details>
@@ -349,11 +349,11 @@
                 </details>
                 <details class="faq-item">
                     <summary data-i18n="faq.q3.question">Is my parent's data safe?</summary>
-                    <p data-i18n="faq.q3.answer">Yes. All detailed data (GPS history, movement patterns, behavioral data) stays on the device. For safety analysis, only anonymous behavioral summaries are sent via secure encrypted connection to Google's Gemini AI — no GPS coordinates, no personal information. Emergency alerts are sent via Gmail to family members.</p>
+                    <p data-i18n="faq.q3.answer">Yes. All detailed data is stored on the device. For safety analysis, behavioral summaries and general location context are sent securely to Google's AI — similar to what any maps or weather app uses. No names or personal identifiers are ever shared. Emergency alerts are sent via encrypted email to family members.</p>
                 </details>
                 <details class="faq-item">
                     <summary data-i18n="faq.q4.question">What if the app sends false alerts?</summary>
-                    <p data-i18n="faq.q4.answer">The AI continuously learns and adapts. False alerts decrease over time as the system better understands individual patterns. You can also adjust sensitivity in settings.</p>
+                    <p data-i18n="faq.q4.answer">The AI continuously learns and adapts. False alerts decrease over time as the system better understands individual patterns.</p>
                 </details>
                 <details class="faq-item">
                     <summary data-i18n="faq.q5.question">How much does it cost?</summary>
@@ -397,7 +397,7 @@
                 </details>
                 <details class="faq-item">
                     <summary data-i18n="faq.q15.question">How much battery does the app use?</summary>
-                    <p data-i18n="faq.q15.answer">The app uses smart sensor polling that adapts to activity. During stillness, sensor polling reduces by 80%. Typical battery usage is 3-8% per day. WiFi-assisted location helps reduce GPS battery drain. The app is designed for less than 10% daily impact.</p>
+                    <p data-i18n="faq.q15.answer">The app uses an adaptive heartbeat that reduces sensor activity during stillness. Typical battery usage is less than 1% per day. WiFi-assisted location helps reduce GPS battery drain.</p>
                 </details>
             </div>
         </div>
@@ -414,7 +414,7 @@
                 </details>
                 <details class="faq-item">
                     <summary data-i18n="troubleshooting.email.question">Alert emails are not being delivered</summary>
-                    <p data-i18n="troubleshooting.email.answer">1. Go to Settings > Email Configuration and ensure you see "Signed in as...". 2. If not signed in, tap "Sign in with Google" and grant permissions. 3. Verify all recipient email addresses are valid. 4. Ensure the phone has active internet. 5. Wait 10 minutes and try again if you've sent many emails recently (Gmail rate limiting).</p>
+                    <p data-i18n="troubleshooting.email.answer">1. Verify all recipient email addresses are correct in Settings > Recipients. 2. Ensure the phone has active internet. 3. Try sending a test alert from Settings. 4. If it still fails, check the diagnostic export for error details.</p>
                 </details>
                 <details class="faq-item">
                     <summary data-i18n="troubleshooting.killed.question">Monitoring stops or notification disappears</summary>
@@ -422,7 +422,7 @@
                 </details>
                 <details class="faq-item">
                     <summary data-i18n="troubleshooting.battery.question">Battery draining quickly</summary>
-                    <p data-i18n="troubleshooting.battery.answer">1. Ensure WiFi is enabled - GPS uses less battery with WiFi-assisted location. 2. The app typically uses 3-8% battery per day. Higher usage may indicate GPS issues. 3. If battery drain is severe, restart the phone. 4. The app automatically reduces sensor polling during periods of stillness to save battery.</p>
+                    <p data-i18n="troubleshooting.battery.answer">1. Ensure WiFi is enabled - GPS uses less battery with WiFi-assisted location. 2. The app typically uses less than 1% battery per day. Higher usage may indicate GPS issues. 3. If battery drain is severe, restart the phone. 4. The app automatically reduces sensor activity during periods of stillness to save battery.</p>
                 </details>
             </div>
         </div>
