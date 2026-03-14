@@ -497,7 +497,7 @@ const privacyLinks = {
 };
 
 // Contact email (obfuscated)
-const emailParts = ['stoyan', '.', 'minchev', '@', 'gmail', '.', 'com'];
+const emailParts = ['developer', '@', 'howareu', '.', 'app'];
 
 // Current language
 let currentLang = 'en';
