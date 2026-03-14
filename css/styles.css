@@ -1140,3 +1140,125 @@ summary:focus {
         height: 120px;
     }
 }
+
+/* ========================================
+   How It Compares Section
+   ======================================== */
+.compare-section {
+    background: var(--gradient-section-1);
+}
+
+.compare-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.compare-card {
+    background: var(--color-bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    transition: all 0.3s ease;
+}
+
+.compare-card:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.1);
+}
+
+.compare-category {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.compare-row {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+    padding: 4px 0;
+}
+
+.compare-row p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+}
+
+.compare-x {
+    flex-shrink: 0;
+    color: #f87171;
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+    width: 20px;
+}
+
+.compare-check {
+    flex-shrink: 0;
+    color: var(--color-success);
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+    width: 20px;
+}
+
+.compare-section.revealed .compare-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+.compare-section.revealed .compare-card:nth-child(1) { animation-delay: 0s; }
+.compare-section.revealed .compare-card:nth-child(2) { animation-delay: 0.1s; }
+.compare-section.revealed .compare-card:nth-child(3) { animation-delay: 0.15s; }
+.compare-section.revealed .compare-card:nth-child(4) { animation-delay: 0.2s; }
+.compare-section.revealed .compare-card:nth-child(5) { animation-delay: 0.25s; }
+
+/* ========================================
+   Is This For You Section
+   ======================================== */
+.use-cases {
+    background: var(--gradient-section-2);
+}
+
+.use-cases .features-grid {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.use-cases.revealed .usecase-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+.use-cases.revealed .usecase-card:nth-child(1) { animation-delay: 0s; }
+.use-cases.revealed .usecase-card:nth-child(2) { animation-delay: 0.1s; }
+.use-cases.revealed .usecase-card:nth-child(3) { animation-delay: 0.2s; }
+.use-cases.revealed .usecase-card:nth-child(4) { animation-delay: 0.3s; }
+
+@media (min-width: 768px) {
+    .compare-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .use-cases .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .use-cases .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .compare-section.revealed .compare-card,
+    .use-cases.revealed .usecase-card {
+        opacity: 1;
+    }
+}

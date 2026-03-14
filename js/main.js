@@ -136,7 +136,36 @@ const translations = {
 
         'footer.privacy': 'Privacy Policy',
         'footer.contact': 'Contact',
-        'footer.copyright': '© 2026 How Are You?! All rights reserved.'
+        'footer.copyright': '© 2026 How Are You?! All rights reserved.',
+
+        'useCases.title': 'Is This For You?',
+        'useCases.subtitle': 'Families in these situations find How Are You?! most valuable',
+        'useCases.alone.title': 'My parent lives alone',
+        'useCases.alone.desc': 'No one is there to notice if something goes wrong. A fall at 2 AM, a medical episode during the day — the app watches when no one else can.',
+        'useCases.far.title': 'I live far from my parent',
+        'useCases.far.desc': 'You can\'t drop by to check. Maybe you\'re in another city, or another country. The app bridges the distance with real-time safety awareness.',
+        'useCases.refuses.title': 'My parent won\'t wear a medical alert',
+        'useCases.refuses.desc': 'They see the pendant as a sign of weakness. They don\'t want to feel old. How Are You?! runs on their phone — something they already carry every day.',
+        'useCases.peace.title': 'I just want to know they\'re okay',
+        'useCases.peace.desc': 'Not every family faces an emergency. Sometimes you just want the quiet confidence that if something did happen, you\'d know. That\'s what this app gives you.',
+
+        'compare.title': 'How It Compares',
+        'compare.subtitle': 'Traditional elderly monitoring vs. a smarter approach',
+        'compare.pendants.title': 'Medical Alert Pendants',
+        'compare.pendants.old': 'Requires pressing a button. Useless if they\'re unconscious or confused.',
+        'compare.pendants.new': 'Detects emergencies automatically. No button needed.',
+        'compare.watches.title': 'Smartwatch Fall Detection',
+        'compare.watches.old': 'Needs daily charging. Many elderly find them uncomfortable or forget to wear them.',
+        'compare.watches.new': 'Uses their existing phone. Nothing new to wear or charge.',
+        'compare.cameras.title': 'Camera Monitoring',
+        'compare.cameras.old': 'Your parent feels watched in their own home. Invasive and dignity-stripping.',
+        'compare.cameras.new': 'Completely invisible. They just live their life normally.',
+        'compare.checkins.title': 'Daily Check-in Calls',
+        'compare.checkins.old': 'Creates anxiety on both sides. They feel like a burden. You panic when they don\'t answer.',
+        'compare.checkins.new': 'Zero interaction needed. You only hear from the app when it matters.',
+        'compare.cost.title': 'Monthly Monitoring Services',
+        'compare.cost.old': 'Traditional services cost $30-50/month — that\'s $360-600 per year, every year.',
+        'compare.cost.new': '$99 once, then just $2/year. Same protection, fraction of the price.'
     },
     bg: {
         'hero.title': 'Спокойствие за Вашите близки',
@@ -267,7 +296,36 @@ const translations = {
 
         'footer.privacy': 'Политика за поверителност',
         'footer.contact': 'Контакт',
-        'footer.copyright': '© 2026 How Are You?! Всички права запазени.'
+        'footer.copyright': '© 2026 How Are You?! Всички права запазени.',
+
+        'useCases.title': 'За вас ли е това?',
+        'useCases.subtitle': 'Семейства в тези ситуации намират How Are You?! за най-полезно',
+        'useCases.alone.title': 'Родителят ми живее сам',
+        'useCases.alone.desc': 'Няма кой да забележи, ако нещо се случи. Падане в 2 часа сутринта, медицински инцидент през деня — приложението наблюдава, когато никой друг не може.',
+        'useCases.far.title': 'Живея далеч от родителя си',
+        'useCases.far.desc': 'Не можете да отскочите за проверка. Може да сте в друг град или друга държава. Приложението преодолява разстоянието с осведоменост за безопасността в реално време.',
+        'useCases.refuses.title': 'Родителят ми отказва да носи медицинска аларма',
+        'useCases.refuses.desc': 'Те виждат медальона като знак за слабост. Не искат да се чувстват стари. How Are You?! работи на телефона им — нещо, което вече носят всеки ден.',
+        'useCases.peace.title': 'Просто искам да знам, че са добре',
+        'useCases.peace.desc': 'Не всяко семейство се сблъсква със спешен случай. Понякога просто искате тихата увереност, че ако нещо се случи, ще разберете. Това ви дава това приложение.',
+
+        'compare.title': 'Как се сравнява',
+        'compare.subtitle': 'Традиционен мониторинг за възрастни срещу по-интелигентен подход',
+        'compare.pendants.title': 'Медицински аларми с бутон',
+        'compare.pendants.old': 'Изисква натискане на бутон. Безполезно ако са в безсъзнание или объркани.',
+        'compare.pendants.new': 'Разпознава спешни ситуации автоматично. Без бутони.',
+        'compare.watches.title': 'Смарт часовник с разпознаване на падания',
+        'compare.watches.old': 'Нуждае се от ежедневно зареждане. Много възрастни хора не ги носят.',
+        'compare.watches.new': 'Използва съществуващия им телефон. Нищо ново за носене или зареждане.',
+        'compare.cameras.title': 'Камери за наблюдение',
+        'compare.cameras.old': 'Родителят ви се чувства наблюдаван в собствения си дом. Натрапчиво.',
+        'compare.cameras.new': 'Напълно невидимо. Просто живеят живота си нормално.',
+        'compare.checkins.title': 'Ежедневни обаждания',
+        'compare.checkins.old': 'Създава тревожност. Те се чувстват като тежест. Вие паникьосвате, когато не вдигат.',
+        'compare.checkins.new': 'Не се изисква нищо от тях. Чувате от приложението само когато има значение.',
+        'compare.cost.title': 'Месечни абонаменти за мониторинг',
+        'compare.cost.old': 'Традиционните услуги струват $30-50/месец — $360-600 на година, всяка година.',
+        'compare.cost.new': '$99 еднократно, след това $2/година. Същата защита, малка част от цената.'
     },
     de: {
         'hero.title': 'Seelenfrieden für Ihre Liebsten',
@@ -398,7 +456,36 @@ const translations = {
 
         'footer.privacy': 'Datenschutzerklärung',
         'footer.contact': 'Kontakt',
-        'footer.copyright': '© 2026 How Are You?! Alle Rechte vorbehalten.'
+        'footer.copyright': '© 2026 How Are You?! Alle Rechte vorbehalten.',
+
+        'useCases.title': 'Ist das etwas für Sie?',
+        'useCases.subtitle': 'Familien in diesen Situationen finden How Are You?! am wertvollsten',
+        'useCases.alone.title': 'Mein Elternteil lebt allein',
+        'useCases.alone.desc': 'Niemand ist da, um zu bemerken, wenn etwas passiert. Ein Sturz um 2 Uhr nachts, ein medizinischer Vorfall tagsüber — die App wacht, wenn niemand sonst es kann.',
+        'useCases.far.title': 'Ich lebe weit von meinem Elternteil entfernt',
+        'useCases.far.desc': 'Sie können nicht kurz vorbeischauen. Vielleicht sind Sie in einer anderen Stadt oder einem anderen Land. Die App überbrückt die Entfernung mit Sicherheitsbewusstsein in Echtzeit.',
+        'useCases.refuses.title': 'Mein Elternteil weigert sich, einen Notrufknopf zu tragen',
+        'useCases.refuses.desc': 'Sie sehen den Anhänger als Zeichen von Schwäche. Sie wollen sich nicht alt fühlen. How Are You?! läuft auf ihrem Telefon — etwas, das sie bereits jeden Tag bei sich tragen.',
+        'useCases.peace.title': 'Ich möchte einfach wissen, dass es ihnen gut geht',
+        'useCases.peace.desc': 'Nicht jede Familie erlebt einen Notfall. Manchmal möchte man einfach die ruhige Gewissheit, dass man es erfahren würde, wenn etwas passiert. Das gibt Ihnen diese App.',
+
+        'compare.title': 'Im Vergleich',
+        'compare.subtitle': 'Traditionelle Seniorenüberwachung vs. ein intelligenterer Ansatz',
+        'compare.pendants.title': 'Medizinische Notruf-Anhänger',
+        'compare.pendants.old': 'Erfordert Knopfdruck. Nutzlos bei Bewusstlosigkeit oder Verwirrung.',
+        'compare.pendants.new': 'Erkennt Notfälle automatisch. Kein Knopf nötig.',
+        'compare.watches.title': 'Smartwatch-Sturzerkennung',
+        'compare.watches.old': 'Muss täglich geladen werden. Viele Senioren finden sie unbequem oder vergessen sie.',
+        'compare.watches.new': 'Nutzt ihr vorhandenes Telefon. Nichts Neues zum Tragen oder Laden.',
+        'compare.cameras.title': 'Kameraüberwachung',
+        'compare.cameras.old': 'Ihr Elternteil fühlt sich im eigenen Zuhause beobachtet. Aufdringlich.',
+        'compare.cameras.new': 'Völlig unsichtbar. Sie leben einfach normal weiter.',
+        'compare.checkins.title': 'Tägliche Kontrollanrufe',
+        'compare.checkins.old': 'Erzeugt Angst auf beiden Seiten. Sie fühlen sich als Last. Sie geraten in Panik, wenn niemand abnimmt.',
+        'compare.checkins.new': 'Keine Interaktion nötig. Die App meldet sich nur, wenn es wichtig ist.',
+        'compare.cost.title': 'Monatliche Überwachungsdienste',
+        'compare.cost.old': 'Traditionelle Dienste kosten 30-50$/Monat — 360-600$ pro Jahr, jedes Jahr.',
+        'compare.cost.new': 'Einmalig 99$, dann nur 2$/Jahr. Gleicher Schutz, ein Bruchteil der Kosten.'
     }
 };
 
