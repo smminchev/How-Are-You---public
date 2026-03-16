@@ -23,7 +23,8 @@ const translations = {
         'features.privacy.title': 'Your Privacy, Protected',
         'features.privacy.desc': 'Your data stays on your phone — AI safety analysis via secure encrypted connection',
         'features.price.title': 'Simple Pricing',
-        'features.price.desc': '$99 with first year included. $2/year after that',
+        'features.price.desc': '$49 with 14-day money-back guarantee. $5/year after Year 1',
+        'features.price.why': 'No hardware. No call center. No monthly fees. Just intelligent software on the phone your parent already has.',
         'features.dignity.title': 'Dignity First',
         'features.dignity.desc': 'No intrusive notifications to your parent',
 
@@ -63,8 +64,8 @@ const translations = {
         'trust.title': 'Why Families Trust Us',
         'trust.zero.title': 'Zero Interaction Needed',
         'trust.zero.desc': 'Your parent doesn\'t press buttons, wear devices, or answer check-in calls. They just live their life.',
-        'trust.price.title': '$99 + $2/year After Year 1',
-        'trust.price.desc': 'First year included. Small annual fee keeps AI analysis active. No hidden costs.',
+        'trust.price.title': '$49 + 14-Day Money-Back Guarantee',
+        'trust.price.desc': 'Try it risk-free. If it doesn\'t work on your parent\'s phone, full refund within 14 days. $5/year after Year 1 for AI analysis.',
         'trust.privacy.title': 'Your Privacy, Protected',
         'trust.privacy.desc': 'All detailed data stays on their phone. Anonymous behavioral summaries analyzed securely — no tracking, no surveillance.',
         'trust.ai.title': 'AI That Learns THEIR Routine',
@@ -102,7 +103,9 @@ const translations = {
         'faq.q4.question': 'What if the app sends false alerts?',
         'faq.q4.answer': 'The AI continuously learns and adapts. False alerts decrease over time as the system better understands individual patterns.',
         'faq.q5.question': 'Do I need to pay monthly?',
-        'faq.q5.answer': '$99 includes the first year. After that, a small fee ($2/year) keeps the AI safety analysis active. Even without the subscription, core safety monitoring continues.',
+        'faq.q5.answer': '$49 with the first year of AI analysis included and a 14-day money-back guarantee. After that, just $5/year to keep AI safety analysis active. No hardware, no call center, no monthly fees — just intelligent software on the phone your parent already has.',
+        'faq.q5b.question': 'How do I request a refund?',
+        'faq.q5b.answer': 'Email developer@howareu.app within 14 days of purchase for a full refund, no questions asked. You can also request a refund directly through the Google Play Store (automatic within 48 hours of purchase). Refunds are processed within 3-5 business days.',
         'faq.q6.question': 'What Android version is required?',
         'faq.q6.answer': 'Any Android phone running Android 14 or higher.',
         'faq.q7.question': 'Can my parent reset or disable it?',
@@ -165,7 +168,7 @@ const translations = {
         'compare.checkins.new': 'Zero interaction needed. You only hear from the app when it matters.',
         'compare.cost.title': 'Monthly Monitoring Services',
         'compare.cost.old': 'Traditional services cost $30-50/month — that\'s $360-600 per year, every year.',
-        'compare.cost.new': '$99 once, then just $2/year. Same protection, fraction of the price.'
+        'compare.cost.new': '$49 once, then just $5/year. 14-day money-back guarantee. Same protection, fraction of the price.'
     },
     bg: {
         'hero.title': 'Спокойствие за Вашите близки',
@@ -183,7 +186,8 @@ const translations = {
         'features.privacy.title': 'Вашата поверителност, защитена',
         'features.privacy.desc': 'Данните ви остават на телефона — AI анализ за безопасност чрез сигурна криптирана връзка',
         'features.price.title': 'Ясна цена',
-        'features.price.desc': '$99 с включена първа година. $2/година след това',
+        'features.price.desc': '$49 с 14-дневна гаранция за връщане на парите. $5/година след година 1',
+        'features.price.why': 'Без хардуер. Без кол център. Без месечни такси. Само интелигентен софтуер на телефона, който родителят ви вече има.',
         'features.dignity.title': 'Достойнство преди всичко',
         'features.dignity.desc': 'Без натрапчиви известия към родителя ви',
 
@@ -223,8 +227,8 @@ const translations = {
         'trust.title': 'Защо семействата ни се доверяват',
         'trust.zero.title': 'Не изисква нищо',
         'trust.zero.desc': 'Родителят ви не натиска бутони, не носи устройства, не отговаря на обаждания за проверка. Просто живее живота си.',
-        'trust.price.title': '$99 + $2/година след година 1',
-        'trust.price.desc': 'Първата година е включена. Малка годишна такса поддържа AI анализа. Без скрити разходи.',
+        'trust.price.title': '$49 + 14-дневна гаранция за връщане на парите',
+        'trust.price.desc': 'Опитайте без риск. Ако не работи на телефона на родителя ви, пълно възстановяване в рамките на 14 дни. $5/година след година 1 за AI анализ.',
         'trust.privacy.title': 'Вашата поверителност, защитена',
         'trust.privacy.desc': 'Всички подробни данни остават на телефона им. Анонимни поведенчески обобщения се анализират сигурно — без проследяване, без наблюдение.',
         'trust.ai.title': 'AI, който учи ТЯХНАТА рутина',
@@ -262,7 +266,9 @@ const translations = {
         'faq.q4.question': 'Какво ако приложението изпраща фалшиви известия?',
         'faq.q4.answer': 'AI непрекъснато се учи и адаптира. Фалшивите известия намаляват с времето, тъй като системата по-добре разбира личните навици.',
         'faq.q5.question': 'Трябва ли да плащам месечно?',
-        'faq.q5.answer': '$99 включва първата година. След това малка такса ($2/година) поддържа AI анализа активен. Дори без абонамент, основният мониторинг за безопасност продължава.',
+        'faq.q5.answer': '$49 с включена първа година AI анализ и 14-дневна гаранция за връщане на парите. След това само $5/година за AI анализ. Без хардуер, без кол център, без месечни такси — само интелигентен софтуер на телефона, който родителят ви вече има.',
+        'faq.q5b.question': 'Как да поискам възстановяване на сумата?',
+        'faq.q5b.answer': 'Изпратете имейл до developer@howareu.app в рамките на 14 дни от покупката за пълно възстановяване, без въпроси. Можете също да заявите чрез Google Play Store (автоматично до 48 часа от покупката). Възстановяването се обработва в рамките на 3-5 работни дни.',
         'faq.q6.question': 'Каква версия на Android е необходима?',
         'faq.q6.answer': 'Всеки Android телефон с Android 14 или по-нова версия.',
         'faq.q7.question': 'Може ли родителят ми да го нулира или деактивира?',
@@ -325,7 +331,7 @@ const translations = {
         'compare.checkins.new': 'Не се изисква нищо от тях. Чувате от приложението само когато има значение.',
         'compare.cost.title': 'Месечни абонаменти за мониторинг',
         'compare.cost.old': 'Традиционните услуги струват $30-50/месец — $360-600 на година, всяка година.',
-        'compare.cost.new': '$99 еднократно, след това $2/година. Същата защита, малка част от цената.'
+        'compare.cost.new': '$49 еднократно, след това $5/година. 14-дневна гаранция за връщане на парите. Същата защита, малка част от цената.'
     },
     de: {
         'hero.title': 'Seelenfrieden für Ihre Liebsten',
@@ -343,7 +349,8 @@ const translations = {
         'features.privacy.title': 'Ihr Datenschutz, Geschützt',
         'features.privacy.desc': 'Ihre Daten bleiben auf Ihrem Telefon — AI-Sicherheitsanalyse über sichere verschlüsselte Verbindung',
         'features.price.title': 'Einfache Preisgestaltung',
-        'features.price.desc': '99$ mit erstem Jahr inklusive. 2$/Jahr danach',
+        'features.price.desc': '49$ mit 14-Tage-Geld-zurück-Garantie. 5$/Jahr nach Jahr 1',
+        'features.price.why': 'Keine Hardware. Kein Callcenter. Keine monatlichen Gebühren. Nur intelligente Software auf dem Telefon, das Ihr Elternteil bereits hat.',
         'features.dignity.title': 'Würde Zuerst',
         'features.dignity.desc': 'Keine aufdringlichen Benachrichtigungen an Ihre Eltern',
 
@@ -383,8 +390,8 @@ const translations = {
         'trust.title': 'Warum Familien Uns Vertrauen',
         'trust.zero.title': 'Keine Interaktion Nötig',
         'trust.zero.desc': 'Ihr Elternteil drückt keine Knöpfe, trägt keine Geräte und beantwortet keine Kontrollanrufe. Sie leben einfach ihr Leben.',
-        'trust.price.title': '99$ + 2$/Jahr Nach Jahr 1',
-        'trust.price.desc': 'Erstes Jahr inklusive. Kleine Jahresgebühr hält die AI-Analyse aktiv. Keine versteckten Kosten.',
+        'trust.price.title': '49$ + 14-Tage-Geld-zurück-Garantie',
+        'trust.price.desc': 'Testen Sie es risikofrei. Wenn es auf dem Telefon Ihres Elternteils nicht funktioniert, volle Rückerstattung innerhalb von 14 Tagen. 5$/Jahr nach Jahr 1 für KI-Analyse.',
         'trust.privacy.title': 'Ihr Datenschutz, Geschützt',
         'trust.privacy.desc': 'Alle detaillierten Daten bleiben auf ihrem Telefon. Anonyme Verhaltensübersichten werden sicher analysiert — kein Tracking, keine Überwachung.',
         'trust.ai.title': 'KI, Die IHRE Routine Lernt',
@@ -422,7 +429,9 @@ const translations = {
         'faq.q4.question': 'Was wenn die App Fehlalarme sendet?',
         'faq.q4.answer': 'Die KI lernt und passt sich kontinuierlich an. Fehlalarme nehmen mit der Zeit ab, da das System individuelle Muster besser versteht.',
         'faq.q5.question': 'Muss ich monatlich bezahlen?',
-        'faq.q5.answer': '99$ beinhaltet das erste Jahr. Danach hält eine kleine Gebühr (2$/Jahr) die AI-Sicherheitsanalyse aktiv. Auch ohne Abonnement läuft die Kern-Sicherheitsüberwachung weiter.',
+        'faq.q5.answer': '49$ mit erstem Jahr KI-Analyse inklusive und 14-Tage-Geld-zurück-Garantie. Danach nur 5$/Jahr für KI-Analyse. Keine Hardware, kein Callcenter, keine monatlichen Gebühren — nur intelligente Software auf dem Telefon, das Ihr Elternteil bereits hat.',
+        'faq.q5b.question': 'Wie fordere ich eine Rückerstattung an?',
+        'faq.q5b.answer': 'Senden Sie eine E-Mail an developer@howareu.app innerhalb von 14 Tagen nach dem Kauf für eine volle Rückerstattung, ohne Fragen. Sie können auch direkt über den Google Play Store eine Rückerstattung anfordern (automatisch innerhalb von 48 Stunden nach dem Kauf). Rückerstattungen werden innerhalb von 3-5 Werktagen bearbeitet.',
         'faq.q6.question': 'Welche Android-Version ist erforderlich?',
         'faq.q6.answer': 'Jedes Android-Telefon mit Android 14 oder höher.',
         'faq.q7.question': 'Kann mein Elternteil es zurücksetzen oder deaktivieren?',
@@ -485,7 +494,7 @@ const translations = {
         'compare.checkins.new': 'Keine Interaktion nötig. Die App meldet sich nur, wenn es wichtig ist.',
         'compare.cost.title': 'Monatliche Überwachungsdienste',
         'compare.cost.old': 'Traditionelle Dienste kosten 30-50$/Monat — 360-600$ pro Jahr, jedes Jahr.',
-        'compare.cost.new': 'Einmalig 99$, dann nur 2$/Jahr. Gleicher Schutz, ein Bruchteil der Kosten.'
+        'compare.cost.new': 'Einmalig 49$, dann nur 5$/Jahr. 14-Tage-Geld-zurück-Garantie. Gleicher Schutz, ein Bruchteil der Kosten.'
     }
 };
 
