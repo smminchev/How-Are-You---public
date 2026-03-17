@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI мониторинг за безопасност на възрастни родители, живеещи сами. Научава техните навици, разпознава падания и спешни случаи, известява семейството. Без хардуер, без гривни — само Android телефонът им.">
+    <meta name="author" content="How Are You?!">
+    <meta name="robots" content="index, follow">
+    <title>Добре ли си?! — AI Мониторинг за Безопасност на Възрастни Родители</title>
+
+    <!-- Canonical & Language Alternates -->
+    <link rel="canonical" href="https://howareu.app/bg/">
+    <link rel="alternate" hreflang="en" href="https://howareu.app/">
+    <link rel="alternate" hreflang="bg" href="https://howareu.app/bg/">
+    <link rel="alternate" hreflang="de" href="https://howareu.app/de/">
+    <link rel="alternate" hreflang="x-default" href="https://howareu.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://howareu.app/bg/">
+    <meta property="og:title" content="Добре ли си?! — AI Мониторинг за Безопасност на Възрастни Родители">
+    <meta property="og:description" content="AI мониторинг за безопасност на възрастни родители, живеещи сами. Научава техните навици, разпознава падания и спешни случаи, известява семейството. Без хардуер, без гривни — само Android телефонът им.">
+    <meta property="og:image" content="https://howareu.app/images/logo.png">
+    <meta property="og:site_name" content="Добре ли си?! Безопасност за възрастни">
+    <meta property="og:locale" content="bg_BG">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="de_DE">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Добре ли си?! — AI Мониторинг за Безопасност на Възрастни Родители">
+    <meta name="twitter:description" content="AI мониторинг за безопасност на възрастни родители, живеещи сами. Научава техните навици, разпознава падания и спешни случаи, известява семейството. Без хардуер, без гривни — само Android телефонът им.">
+    <meta name="twitter:image" content="https://howareu.app/images/logo.png">
+    <meta name="google-play-app" content="app-id=com.howareyou">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "How Are You?!",
+        "url": "https://howareu.app",
+        "logo": "https://howareu.app/images/logo.png",
+        "description": "AI мониторинг за безопасност на възрастни родители, живеещи сами"
+    }
+    </script>
+
+    <!-- Structured Data: Software Application -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Добре ли си?! Безопасност за възрастни",
+        "operatingSystem": "Android 14+",
+        "applicationCategory": "HealthApplication",
+        "description": "AI приложение за мониторинг на безопасността, което научава ежедневните навици на вашия възрастен родител и известява семейството при потенциални спешни случаи като падания, медицински инциденти, аномалии в съня и отклонения от обичайните локации. Без хардуер, без гривни, без ежедневни обаждания. Работи безшумно на съществуващия им Android телефон.",
+        "offers": {
+            "@type": "Offer",
+            "price": "49.00",
+            "priceCurrency": "USD",
+            "description": "Еднократна покупка с 14-дневна гаранция за връщане на парите. Първата година AI анализ е включена. $5/година след това."
+        },
+        "featureList": [
+            "7-дневна AI фаза на обучение, която изгражда персонализирани поведенчески правила",
+            "24/7 поведенчески мониторинг без необходимост от взаимодействие",
+            "Разпознаване на падания и необичайна неподвижност",
+            "Разпознаване на аномалии в съня — известия когато не се събуждат навреме",
+            "Обучение на безопасни зони и известия при отклонение от локации",
+            "Интелигентност при пътуване — без фалшиви аларми по време на почивки",
+            "GPS местоположение включено в спешните известия",
+            "Имейл известия до членовете на семейството с координати",
+            "Седмична AI настройка, която се адаптира към променящи се рутини",
+            "По-малко от 1% дневно въздействие върху батерията"
+        ],
+        "screenshot": "https://howareu.app/images/screenshots/device1.png",
+        "author": {
+            "@type": "Organization",
+            "name": "How Are You?!"
+        }
+    }
+    </script>
+
+    <!-- Structured Data: HowTo -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Как да настроите Добре ли си?! Безопасност за възрастни",
+        "description": "Настройте AI мониторинг за безопасност на вашия възрастен родител в три прости стъпки.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Бърза настройка",
+                "text": "Инсталирайте приложението на Android телефона на родителя си. Дайте разрешения и добавете имейл адресите на семейството. Отнема само 3-5 минути."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Фаза на обучение",
+                "text": "AI наблюдава ежедневните навици в продължение на 7 дни — кога се събуждат, типични нива на активност, редовни локации. Базов мониторинг е активен от Ден 1, персонализираните критерии се усъвършенстват до Ден 7."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Активна защита",
+                "text": "След фазата на обучение приложението наблюдава 24/7 с персонализирани критерии и изпраща автоматични известия до семейството, когато нещо изглежда нередно."
+            }
+        ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "Какви спешни случаи може да открие?", "acceptedAnswer": {"@type": "Answer", "text": "Приложението открива необичайна неподвижност (потенциални падания или медицински спешни случаи), ненормално дълги периоди на сън и отклонения от установените безопасни зони. То научава какво е нормално конкретно за ВАШИЯ родител."}},
+            {"@type": "Question", "name": "Как работи 7-дневната фаза на обучение?", "acceptedAnswer": {"@type": "Answer", "text": "През първите 7 дни AI наблюдава ежедневните навици - кога се събуждат, типични нива на активност, редовни локации. Базов мониторинг е активен от Ден 1, но персонализираните критерии се усъвършенстват до Ден 7."}},
+            {"@type": "Question", "name": "Безопасни ли са данните на родителя ми?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Всички подробни данни се съхраняват на устройството. За анализ на безопасността обобщени данни за поведението и общ контекст за местоположение се изпращат сигурно до AI на Google — подобно на всяко приложение за карти или време. Никога не се споделят имена или лични идентификатори. Спешните известия се изпращат чрез криптиран имейл до членовете на семейството."}},
+            {"@type": "Question", "name": "Какво ако приложението изпраща фалшиви известия?", "acceptedAnswer": {"@type": "Answer", "text": "AI непрекъснато се учи и адаптира. Фалшивите известия намаляват с времето, тъй като системата по-добре разбира личните навици."}},
+            {"@type": "Question", "name": "Трябва ли да плащам месечно?", "acceptedAnswer": {"@type": "Answer", "text": "$49 с включена първа година AI анализ и 14-дневна гаранция за връщане на парите. След това само $5/година за AI анализ. Без хардуер, без кол център, без месечни такси — само интелигентен софтуер на телефона, който родителят ви вече има."}},
+            {"@type": "Question", "name": "Как да поискам възстановяване на сумата?", "acceptedAnswer": {"@type": "Answer", "text": "Изпратете имейл до developer@howareu.app в рамките на 14 дни от покупката за пълно възстановяване, без въпроси. Можете също да заявите чрез Google Play Store (автоматично до 48 часа от покупката). Възстановяването се обработва в рамките на 3-5 работни дни."}},
+            {"@type": "Question", "name": "Как предлагате това само за $49?", "acceptedAnswer": {"@type": "Answer", "text": "Вярваме в прозрачността. Съвременните AI инструменти за разработка позволяват на малък екип да създаде и поддържа това, за което преди бяха нужни цели отдели от програмисти, тестери, дизайнери и мениджъри. А тъй като всичко работи на телефона на родителя ви, не плащаме за сървъри, облачно съхранение или центрове за данни. Без хардуер за производство, без кол център за обслужване. Спестяванията отиват директно при семействата."}},
+            {"@type": "Question", "name": "Каква версия на Android е необходима?", "acceptedAnswer": {"@type": "Answer", "text": "Всеки Android телефон с Android 14 или по-нова версия."}},
+            {"@type": "Question", "name": "Може ли родителят ми да го нулира или деактивира?", "acceptedAnswer": {"@type": "Answer", "text": "Да, абсолютно. Бутонът \"Нулиране на Обучението\" е лесно достъпен и незабавно изтрива всички научени данни. Те също могат да деинсталират приложението по всяко време - без въпроси."}},
+            {"@type": "Question", "name": "Какво се случва ако батерията на телефона се изтощи?", "acceptedAnswer": {"@type": "Answer", "text": "Приложението не може да наблюдава, когато телефонът е изключен. Въпреки това, продължителен период без никакви данни сам по себе си може да задейства известие до членовете на семейството, показващо че нещо може да не е наред."}},
+            {"@type": "Question", "name": "Работи ли без WiFi или интернет?", "acceptedAnswer": {"@type": "Answer", "text": "Основният мониторинг за безопасност работи офлайн. AI-подобреният анализ изисква интернет, но основите за безопасност (засичане на спешност) винаги работят. Интернет връзка е необходима за изпращане на спешни известия по имейл."}},
+            {"@type": "Question", "name": "Какво ако родителят ми остави телефона си вкъщи?", "acceptedAnswer": {"@type": "Answer", "text": "Приложението следи местоположението на телефона. Ако родителят ви често оставя телефона си вкъщи, това ще бъде научено като нормално поведение. Необичайни ситуации (телефон неподвижен твърде дълго) все още могат да задействат известия."}},
+            {"@type": "Question", "name": "Защо трябва да \"Игнорирам оптимизацията на батерията\"?", "acceptedAnswer": {"@type": "Answer", "text": "Android се опитва да убие приложения, работещи на заден план, за да спести енергия. За приложение за безопасност това е опасно, защото спира мониторинга. \"Игнориране на оптимизациите\" казва на Android, че това приложение е критично и не трябва да се убива."}},
+            {"@type": "Question", "name": "Телефонът ми продължава да убива приложението. Какво да направя?", "acceptedAnswer": {"@type": "Answer", "text": "Някои производители (Samsung, Xiaomi, Huawei, Honor, OPPO) агресивно убиват фонови приложения. Деактивирайте оптимизацията на батерията за това приложение и проверете настройките за пестене на енергия на производителя."}},
+            {"@type": "Question", "name": "Не виждам известие. Работи ли приложението?", "acceptedAnswer": {"@type": "Answer", "text": "Да! Приложението е проектирано да бъде \"инсталирай и забрави\". Известието е нарочно тихо и скрито, докато използвате телефона, за да не ви притеснява. За да проверите: отворете приложението - ако виждате таблото, мониторингът е активен."}},
+            {"@type": "Question", "name": "Виждам предупреждение \"Може да попречи на системата да заспи\". Проблем ли е?", "acceptedAnswer": {"@type": "Answer", "text": "Това предупреждение е нормално за 24/7 приложение за безопасност. Означава, че приложението работи правилно, поддържайки сензорите активни за откриване на спешни случаи."}},
+            {"@type": "Question", "name": "Колко батерия използва приложението?", "acceptedAnswer": {"@type": "Answer", "text": "Приложението използва адаптивен пулс, който намалява сензорната активност при неподвижност. Типичното използване на батерията е по-малко от 1% на ден."}}
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="../" class="logo">
+                <img src="../images/logo.png" alt="Добре ли си?! Лого за безопасност на възрастни" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
+            </a>
+            <nav class="nav">
+                <div class="language-switcher">
+                    <a href="../index.html" class="lang-btn">EN</a>
+                    <a href="index.html" class="lang-btn active">BG</a>
+                    <a href="../de/index.html" class="lang-btn">DE</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+        <div class="hero-shape hero-shape-4"></div>
+        <div class="container">
+            <h1 class="hero-title">Спокойствие за Вашите близки</h1>
+            <p class="hero-subtitle">AI мониторинг за безопасност, който научава рутината на родителя ви и ви известява при извънредни ситуации - без ежедневни обаждания</p>
+            <div class="hero-cta">
+                <a href="https://play.google.com/store/apps/details?id=com.howareyou" class="btn btn-primary" id="play-store-link">
+                    <svg class="play-icon" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+                    <span>Изтегли от Google Play</span>
+                </a>
+            </div>
+            <p class="hero-reviews">
+                <a href="https://play.google.com/store/apps/details?id=com.howareyou" class="reviews-link">Вижте какво казват потребителите в Google Play</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features reveal" id="features">
+        <div class="container">
+            <h2 class="section-title">Основни функции</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">7-дневно обучение</h3>
+                    <p class="feature-desc">AI научава уникалните ежедневни навици само за една седмица</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">24/7 Мониторинг</h3>
+                    <p class="feature-desc">Непрекъсната защита без да се налага нищо да правите</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Интелигентни известия</h3>
+                    <p class="feature-desc">Имейл известия с GPS координати при нужда</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.82 8.71,12.47 12,12.47C15.29,12.47 18,13.79 18,15.47C17.76,16 17.47,16.5 17.13,17Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Вашата поверителност, защитена</h3>
+                    <p class="feature-desc">Данните ви остават на телефона — AI анализ за безопасност чрез сигурна криптирана връзка</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Ясна цена</h3>
+                    <p class="feature-desc">$49 с 14-дневна гаранция за връщане на парите. $5/година след година 1</p>
+                    <p class="feature-desc feature-desc-secondary">Създадено от малък екип с модерни AI инструменти — без нужда от големи отдели. Без сървъри, без хардуер за производство. Спестяванията отиват директно при вас.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Достойнство преди всичко</h3>
+                    <p class="feature-desc">Без натрапчиви известия към родителя ви</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Detect Section -->
+    <section class="scenarios reveal" id="scenarios">
+        <div class="container">
+            <h2 class="section-title">Какво разпознаваме</h2>
+            <p class="section-subtitle">Реални спешни ситуации, за които приложението е създадено</p>
+            <div class="features-grid">
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M11,7H13V13H11V7M11,15H13V17H11V15Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Падане вкъщи</h3>
+                    <p class="feature-desc">Родителят ви пада и не може да стигне до телефона си. Приложението засича часове необичайна неподвижност и известява семейството ви с GPS местоположение.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Медицинска спешност</h3>
+                    <p class="feature-desc">Инсулт или сърдечен инцидент ги оставя неподвижни. Приложението забелязва внезапната промяна в обичайната активност.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Не се събуди навреме</h3>
+                    <p class="feature-desc">11 часа е, а обикновено се събуждат в 7. Приложението знае графика им на сън и ви известява, когато нещо не е наред.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5C10.62,11.5 9.5,10.38 9.5,9C9.5,7.62 10.62,6.5 12,6.5C13.38,6.5 14.5,7.62 14.5,9C14.5,10.38 13.38,11.5 12,11.5Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Отклонение от познат район</h3>
+                    <p class="feature-desc">Напуснали са обичайния си квартал в необичаен час. Приложението е научило безопасните им зони и забелязва отклонението.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Телефонът не е активен твърде дълго</h3>
+                    <p class="feature-desc">Никаква активност на телефона от часове. Може да означава, че батерията е свършила — или че не могат да стигнат до него.</p>
+                </div>
+                <div class="feature-card scenario-card">
+                    <div class="feature-icon scenario-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M20.5,3L20.34,3.03L15,5.1L9,3L3.36,4.9C3.15,4.97 3,5.15 3,5.38V20.5A0.5,0.5 0 0,0 3.5,21L3.66,20.97L9,18.9L15,21L20.64,19.1C20.85,19.03 21,18.85 21,18.62V3.5A0.5,0.5 0 0,0 20.5,3M15,19L9,16.89V5L15,7.11V19Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Безопасно пътуване</h3>
+                    <p class="feature-desc">Родителят ви е отишъл на почивка. Вместо 7 дни фалшиви аларми, получавате едно известие "изглежда пътуват" и "прибраха се" когато се върнат.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works reveal" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Как работи</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Бърза настройка</h3>
+                    <p class="step-desc">Дайте разрешения, добавете имейли на семейството. Отнема само 3-5 минути.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Фаза на обучение</h3>
+                    <p class="step-desc">Базов мониторинг активен от Ден 1. AI настройва критериите до Ден 7.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Активна защита</h3>
+                    <p class="step-desc">Откриване на аномалии с автоматични известия до семейството при нещо нередно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A Day With How Are You?! Section -->
+    <section class="day-story reveal" id="day-story">
+        <div class="container">
+            <h2 class="section-title">Един Ден с How Are You?!</h2>
+            <p class="section-subtitle">Как изглежда защитата от гледна точка на семейството</p>
+            <div class="timeline">
+                <div class="timeline-phase">
+                    <div class="timeline-marker">
+                        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,2L14.39,5.42C13.65,5.15 12.84,5 12,5C11.16,5 10.35,5.15 9.61,5.42L12,2M3.34,7L7.5,6.65C6.9,7.16 6.36,7.78 5.93,8.5C5.5,9.22 5.25,9.95 5.11,10.69L3.34,7M3.36,17L5.12,13.23C5.26,14 5.53,14.78 5.95,15.5C6.37,16.22 6.91,16.82 7.5,17.35L3.36,17M20.65,7L18.88,10.68C18.74,9.94 18.5,9.22 18.07,8.5C17.64,7.78 17.1,7.16 16.5,6.65L20.65,7M20.64,17L16.5,17.35C17.09,16.82 17.63,16.22 18.05,15.5C18.47,14.78 18.74,14 18.87,13.23L20.64,17Z"/></svg>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">Сутрин</h3>
+                        <p class="timeline-text">Елена се събужда в 7:15 сутринта, както всеки ден. Приложението отбелязва това тихо. Без известие. Дъщеря й Катя започва работния си ден без притеснения.</p>
+                    </div>
+                </div>
+                <div class="timeline-phase">
+                    <div class="timeline-marker">
+                        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5C10.62,11.5 9.5,10.38 9.5,9C9.5,7.62 10.62,6.5 12,6.5C13.38,6.5 14.5,7.62 14.5,9C14.5,10.38 13.38,11.5 12,11.5Z"/></svg>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">Следобед</h3>
+                        <p class="timeline-text">Елена отива до квартален магазин — познат маршрут. Приложението разпознава безопасната й зона. Все още без известие. Катя е в среща.</p>
+                    </div>
+                </div>
+                <div class="timeline-phase timeline-phase-alert">
+                    <div class="timeline-marker timeline-marker-alert">
+                        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-time">Известието, което има значение</h3>
+                        <p class="timeline-text">Един вторник Елена не се събужда до 10 часа. После 11 часа. Приложението изпраща на Катя имейл: "Засечена необичайна продължителност на съня. Последно известно местоположение: Вкъщи." Катя се обажда на съседка, която проверява Елена — имала е температура и не е могла да стане от леглото. Сега е добре.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="day-story-closing">99 дни спокойна тишина. 1 ден животоспасяващо внимание.</p>
+        </div>
+    </section>
+
+    <!-- Is This For You? Section -->
+    <section class="use-cases reveal" id="use-cases">
+        <div class="container">
+            <h2 class="section-title">За вас ли е това?</h2>
+            <p class="section-subtitle">Семейства в тези ситуации намират How Are You?! за най-полезно</p>
+            <div class="features-grid">
+                <div class="feature-card usecase-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Родителят ми живее сам</h3>
+                    <p class="feature-desc">Няма кой да забележи, ако нещо се случи. Падане в 2 часа сутринта, медицински инцидент през деня — приложението наблюдава, когато никой друг не може.</p>
+                </div>
+                <div class="feature-card usecase-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Живея далеч от родителя си</h3>
+                    <p class="feature-desc">Не можете да отскочите за проверка. Може да сте в друг град или друга държава. Приложението преодолява разстоянието с осведоменост за безопасността в реално време.</p>
+                </div>
+                <div class="feature-card usecase-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Родителят ми отказва да носи медицинска аларма</h3>
+                    <p class="feature-desc">Те виждат медальона като знак за слабост. Не искат да се чувстват стари. How Are You?! работи на телефона им — нещо, което вече носят всеки ден.</p>
+                </div>
+                <div class="feature-card usecase-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Просто искам да знам, че са добре</h3>
+                    <p class="feature-desc">Не всяко семейство се сблъсква със спешен случай. Понякога просто искате тихата увереност, че ако нещо се случи, ще разберете. Това ви дава това приложение.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Families Trust Us Section -->
+    <section class="trust-section reveal" id="trust">
+        <div class="container">
+            <h2 class="section-title">Защо семействата ни се доверяват</h2>
+            <div class="features-grid">
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M7,7H17V10L21,6L17,2V5H5V11H7V7M17,17H7V14L3,18L7,22V19H19V13H17V17Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Не изисква нищо</h3>
+                    <p class="feature-desc">Родителят ви не натиска бутони, не носи устройства, не отговаря на обаждания за проверка. Просто живее живота си.</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">$49 + 14-дневна гаранция за връщане на парите</h3>
+                    <p class="feature-desc">Опитайте без риск. Ако не работи на телефона на родителя ви, пълно възстановяване в рамките на 14 дни. $5/година след година 1 за AI анализ.</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Вашата поверителност, защитена</h3>
+                    <p class="feature-desc">Всички подробни данни остават на телефона им. Анонимни поведенчески обобщения се анализират сигурно — без проследяване, без наблюдение.</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M19,1L17.74,3.75L15,5L17.74,6.26L19,9L20.25,6.26L23,5L20.25,3.75M9,4L6.5,9.5L1,12L6.5,14.5L9,20L11.5,14.5L17,12L11.5,9.5"/></svg>
+                    </div>
+                    <h3 class="feature-title">AI, който учи ТЯХНАТА рутина</h3>
+                    <p class="feature-desc">Без статични граници — AI научава уникалните часове на сън, нива на активност и любими места на вашия родител.</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M20.5,3L20.34,3.03L15,5.1L9,3L3.36,4.9C3.15,4.97 3,5.15 3,5.38V20.5A0.5,0.5 0 0,0 3.5,21L3.66,20.97L9,18.9L15,21L20.64,19.1C20.85,19.03 21,18.85 21,18.62V3.5A0.5,0.5 0 0,0 20.5,3M15,19L9,16.89V5L15,7.11V19Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Интелигентност при пътуване</h3>
+                    <p class="feature-desc">Отиват на почивка? Приложението се адаптира автоматично. Без фалшиви аларми, само едно кратко известие "пътува".</p>
+                </div>
+                <div class="feature-card trust-card">
+                    <div class="feature-icon trust-icon">
+                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Само телефонът им</h3>
+                    <p class="feature-desc">Без медальони, без базови станции, без гривни за зареждане. Съществуващият им Android телефон е всичко необходимо.</p>
+                </div>
+            </div>
+            <p class="mission-statement">Създадохме това, защото близък човек беше в трудна ситуация и ни се искаше нещо подобно да съществува.</p>
+        </div>
+    </section>
+
+    <!-- How It Compares Section -->
+    <section class="compare-section reveal" id="compare">
+        <div class="container">
+            <h2 class="section-title">Как се сравнява</h2>
+            <p class="section-subtitle">Традиционен мониторинг за възрастни срещу по-интелигентен подход</p>
+            <div class="compare-grid">
+                <div class="compare-card">
+                    <h3 class="compare-category">Медицински аларми с бутон</h3>
+                    <div class="compare-row">
+                        <span class="compare-x">&times;</span>
+                        <p>Изисква натискане на бутон. Безполезно ако са в безсъзнание или объркани.</p>
+                    </div>
+                    <div class="compare-row">
+                        <span class="compare-check">&check;</span>
+                        <p>Разпознава спешни ситуации автоматично. Без бутони.</p>
+                    </div>
+                </div>
+                <div class="compare-card">
+                    <h3 class="compare-category">Смарт часовник с разпознаване на падания</h3>
+                    <div class="compare-row">
+                        <span class="compare-x">&times;</span>
+                        <p>Нуждае се от ежедневно зареждане. Много възрастни хора не ги носят.</p>
+                    </div>
+                    <div class="compare-row">
+                        <span class="compare-check">&check;</span>
+                        <p>Използва съществуващия им телефон. Нищо ново за носене или зареждане.</p>
+                    </div>
+                </div>
+                <div class="compare-card">
+                    <h3 class="compare-category">Камери за наблюдение</h3>
+                    <div class="compare-row">
+                        <span class="compare-x">&times;</span>
+                        <p>Родителят ви се чувства наблюдаван в собствения си дом. Натрапчиво.</p>
+                    </div>
+                    <div class="compare-row">
+                        <span class="compare-check">&check;</span>
+                        <p>Напълно невидимо. Просто живеят живота си нормално.</p>
+                    </div>
+                </div>
+                <div class="compare-card">
+                    <h3 class="compare-category">Ежедневни обаждания</h3>
+                    <div class="compare-row">
+                        <span class="compare-x">&times;</span>
+                        <p>Създава тревожност. Те се чувстват като тежест. Вие паникьосвате, когато не вдигат.</p>
+                    </div>
+                    <div class="compare-row">
+                        <span class="compare-check">&check;</span>
+                        <p>Не се изисква нищо от тях. Чувате от приложението само когато има значение.</p>
+                    </div>
+                </div>
+                <div class="compare-card">
+                    <h3 class="compare-category">Месечни абонаменти за мониторинг</h3>
+                    <div class="compare-row">
+                        <span class="compare-x">&times;</span>
+                        <p>Традиционните услуги струват $30-50/месец — $360-600 на година, всяка година.</p>
+                    </div>
+                    <div class="compare-row">
+                        <span class="compare-check">&check;</span>
+                        <p>$49 еднократно, след това $5/година. 14-дневна гаранция за връщане на парите. Същата защита, малка част от цената.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- You're In Control Section -->
+    <section class="in-control reveal" id="in-control">
+        <div class="container">
+            <h2 class="section-title">Вие контролирате</h2>
+            <p class="section-subtitle">Вашата поверителност, ваш избор - винаги</p>
+            <div class="control-grid">
+                <div class="control-item">
+                    <div class="control-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z"/></svg>
+                    </div>
+                    <p>Подробните ви данни остават на устройството — без проследяване, без наблюдение, без споделяне на лични данни</p>
+                </div>
+                <div class="control-item">
+                    <div class="control-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/></svg>
+                    </div>
+                    <p>Вижте точно какво е научило приложението за навиците ви</p>
+                </div>
+                <div class="control-item">
+                    <div class="control-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"/></svg>
+                    </div>
+                    <p>Бутонът "Нулиране на Обучението" незабавно изтрива всички данни - ваш избор</p>
+                </div>
+                <div class="control-item">
+                    <div class="control-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/></svg>
+                    </div>
+                    <p>Никакви известия не ви безпокоят при нормална работа</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Under the Hood Section -->
+    <section class="under-the-hood reveal" id="under-the-hood">
+        <div class="container">
+            <details class="tech-details">
+                <summary class="tech-summary">
+                    <h2>Под капака</h2>
+                    <span class="toggle-icon"></span>
+                </summary>
+                <div class="tech-content">
+                    <ul class="tech-list">
+                        <li>Задвижван от Google Gemini AI — бърз, точен анализ за безопасност. Основният мониторинг работи дори офлайн</li>
+                        <li>Открива: необичайна неподвижност, необичайно дълъг сън, отклонения от безопасни зони</li>
+                        <li>Разбира контекста: различни критерии за вкъщи и навън, ден и нощ</li>
+                        <li>Седмична настройка се адаптира към променящи се рутини (сезонни, здравни промени)</li>
+                        <li>Ефективен за батерията: проектиран за по-малко от 1% дневно въздействие</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots reveal" id="screenshots">
+        <div class="container">
+            <h2 class="section-title">Вижте го в действие</h2>
+            <div class="screenshots-gallery">
+                <img src="../images/screenshots/device1.png" alt="Табло — Обучение на навиците ви с индикатор за прогрес" class="screenshot">
+                <img src="../images/screenshots/device2.png" alt="Проследяване на активността — Местоположения, движения и периоди на почивка" class="screenshot">
+                <img src="../images/screenshots/device7.png" alt="Помощ и поддръжка — Политика за поверителност, научете как данните ви са защитени" class="screenshot">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq reveal" id="faq">
+        <div class="container">
+            <h2 class="section-title">Често задавани въпроси</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Какви спешни случаи може да открие?</summary>
+                    <p>Приложението открива необичайна неподвижност (потенциални падания или медицински спешни случаи), ненормално дълги периоди на сън и отклонения от установените безопасни зони. То научава какво е нормално конкретно за ВАШИЯ родител.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Как работи 7-дневната фаза на обучение?</summary>
+                    <p>През първите 7 дни AI наблюдава ежедневните навици - кога се събуждат, типични нива на активност, редовни локации. Базов мониторинг е активен от Ден 1, но персонализираните критерии се усъвършенстват до Ден 7.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Безопасни ли са данните на родителя ми?</summary>
+                    <p>Да. Всички подробни данни се съхраняват на устройството. За анализ на безопасността обобщени данни за поведението и общ контекст за местоположение се изпращат сигурно до AI на Google — подобно на всяко приложение за карти или време. Никога не се споделят имена или лични идентификатори. Спешните известия се изпращат чрез криптиран имейл до членовете на семейството.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Какво ако приложението изпраща фалшиви известия?</summary>
+                    <p>AI непрекъснато се учи и адаптира. Фалшивите известия намаляват с времето, тъй като системата по-добре разбира личните навици.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Колко струва?</summary>
+                    <p>$49 с включена първа година AI анализ и 14-дневна гаранция за връщане на парите. След това само $5/година за AI анализ. Без хардуер, без кол център, без месечни такси — само интелигентен софтуер на телефона, който родителят ви вече има.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Как да поискам възстановяване на сумата?</summary>
+                    <p>Изпратете имейл до developer@howareu.app в рамките на 14 дни от покупката за пълно възстановяване, без въпроси. Можете също да заявите чрез Google Play Store (автоматично до 48 часа от покупката). Възстановяването се обработва в рамките на 3-5 работни дни.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Как предлагате това само за $49?</summary>
+                    <p>Вярваме в прозрачността. Съвременните AI инструменти за разработка позволяват на малък екип да създаде и поддържа това, за което преди бяха нужни цели отдели от програмисти, тестери, дизайнери и мениджъри. А тъй като всичко работи на телефона на родителя ви, не плащаме за сървъри, облачно съхранение или центрове за данни. Без хардуер за производство, без кол център за обслужване. Спестяванията отиват директно при семействата.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Каква версия на Android е необходима?</summary>
+                    <p>Всеки Android телефон с Android 14 или по-нова версия.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Може ли родителят ми да го нулира или деактивира?</summary>
+                    <p>Да, абсолютно. Бутонът "Нулиране на Обучението" е лесно достъпен и незабавно изтрива всички научени данни. Те също могат да деинсталират приложението по всяко време - без въпроси.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Какво се случва ако батерията на телефона се изтощи?</summary>
+                    <p>Приложението не може да наблюдава, когато телефонът е изключен. Въпреки това, продължителен период без никакви данни сам по себе си може да задейства известие до членовете на семейството, показващо че нещо може да не е наред.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Работи ли без WiFi или интернет?</summary>
+                    <p>Основният мониторинг за безопасност работи офлайн. AI-подобреният анализ изисква интернет, но основите за безопасност (засичане на спешност) винаги работят. Интернет връзка е необходима за изпращане на спешни известия по имейл.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Какво ако родителят ми остави телефона си вкъщи?</summary>
+                    <p>Приложението следи местоположението на телефона. Ако родителят ви често оставя телефона си вкъщи, това ще бъде научено като нормално поведение. Необичайни ситуации (телефон неподвижен твърде дълго) все още могат да задействат известия.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Защо трябва да "Игнорирам оптимизацията на батерията"?</summary>
+                    <p>Android се опитва да убие приложения, работещи на заден план, за да спести енергия. За приложение за безопасност това е опасно, защото спира мониторинга. "Игнориране на оптимизациите" казва на Android, че това приложение е критично и не трябва да се убива.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Телефонът ми продължава да убива приложението. Какво да направя?</summary>
+                    <p>Някои производители (Samsung, Xiaomi, Huawei, Honor, OPPO) агресивно убиват фонови приложения. Отидете в Настройки > Разрешения и поправете проблемите. Деактивирайте оптимизацията на батерията за това приложение. За Samsung/Xiaomi/Huawei: проверете настройките за пестене на енергия на производителя и добавете приложението в изключенията.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Не виждам известие. Работи ли приложението?</summary>
+                    <p>Да! Приложението е проектирано да бъде "инсталирай и забрави". Известието е нарочно тихо и скрито, докато използвате телефона, за да не ви притеснява. За да проверите: отворете приложението - ако виждате таблото, мониторингът е активен.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Виждам предупреждение "Може да попречи на системата да заспи". Проблем ли е?</summary>
+                    <p>Това предупреждение е нормално за 24/7 приложение за безопасност. Означава, че приложението работи правилно, поддържайки сензорите активни за откриване на спешни случаи. Приложението работи перфектно с това предупреждение. За Honor/Huawei можете да го заглушите в Настройки > Батерия > Енергоемки приложения.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Колко батерия използва приложението?</summary>
+                    <p>Приложението използва адаптивен пулс, който намалява сензорната активност при неподвижност. Типичното използване на батерията е по-малко от 1% на ден. WiFi-подпомогнатото местоположение помага за намаляване на GPS разхода.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Troubleshooting Section -->
+    <section class="faq reveal" id="troubleshooting">
+        <div class="container">
+            <h2 class="section-title">Отстраняване на проблеми</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>GPS местоположението не се обновява</summary>
+                    <p>1. Отворете Настройки на Android > Местоположение и се уверете, че е включено. 2. Задайте точност на местоположението на "Висока точност". 3. Отворете разрешенията на приложението и задайте Местоположение на "Позволи винаги". 4. Рестартирайте телефона и изчакайте 5 минути. 5. Ако сте навън, осигурете ясна видимост към небето за 2 минути.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Имейл известията не се доставят</summary>
+                    <p>1. Проверете дали всички имейл адреси на получатели са правилни в Настройки > Получатели. 2. Уверете се, че телефонът има активен интернет. 3. Опитайте да изпратите тестово известие от Настройки. 4. Ако все още не работи, проверете диагностичния експорт за детайли.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Мониторингът спира или известието изчезва</summary>
+                    <p>1. Отидете в Настройки > Разрешения и поправете проблемите. 2. Деактивирайте оптимизацията на батерията: Настройки > Приложения > How Are You?! > Батерия > Неограничено. 3. Заключете приложението в последни приложения (задръжте картата на приложението и натиснете иконата за заключване). 4. За Xiaomi/Huawei/Samsung/Honor: проверете настройките за пестене на енергия на производителя.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Батерията се изтощава бързо</summary>
+                    <p>1. Уверете се, че WiFi е включен - GPS използва по-малко батерия с WiFi-подпомогнато местоположение. 2. Приложението обикновено използва по-малко от 1% батерия на ден. По-високо използване може да означава проблеми с GPS. 3. Ако изтощаването е сериозно, рестартирайте телефона. 4. Приложението автоматично намалява сензорната активност при неподвижност.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="Добре ли си?! Безопасност за възрастни" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy-policy-bg.html" class="footer-link" data-privacy-link>Политика за поверителност</a>
+                    <a href="#" class="footer-link contact-link">Контакт</a>
+                    <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Общност</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 How Are You?! Всички права запазени.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
