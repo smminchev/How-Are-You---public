@@ -418,6 +418,42 @@ section {
 .scenarios.revealed .scenario-card:nth-child(6) { animation-delay: 0.5s; }
 
 /* ========================================
+   Alert Preview Section
+   ======================================== */
+.alert-preview {
+    background: var(--gradient-section-2);
+}
+
+.alert-preview-gallery {
+    display: flex;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+}
+
+.alert-preview-item {
+    flex: 0 1 380px;
+    text-align: center;
+}
+
+.alert-preview-img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--color-border);
+}
+
+.alert-preview-caption {
+    margin-top: var(--spacing-sm);
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ========================================
    How It Works Section — Connected Timeline
    ======================================== */
 .how-it-works {
