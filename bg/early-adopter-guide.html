@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добре ли си?! — Ръководство за ранни потребители</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7C3AED;
+            --primary-dark: #6D28D9;
+            --primary-light: #A78BFA;
+            --accent: #3B82F6;
+            --success: #22C55E;
+            --error: #EF4444;
+            --bg-deep: #0f0b2a;
+            --bg-section: #130f30;
+            --bg-card: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.10);
+            --border-hover: rgba(255,255,255,0.20);
+            --text: #f0eef6;
+            --text-secondary: rgba(255,255,255,0.7);
+            --text-muted: rgba(255,255,255,0.5);
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--text);
+            background: var(--bg-deep);
+        }
+        .page { max-width: 780px; margin: 0 auto; padding: 0 32px; }
+        .hero {
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 40%, #2563eb 100%);
+            padding: 48px 32px 40px; text-align: center; position: relative; overflow: hidden; margin-bottom: 0;
+        }
+        .hero::before { content: ''; position: absolute; width: 300px; height: 300px; border-radius: 50%; background: white; opacity: 0.05; top: -100px; left: -80px; }
+        .hero::after { content: ''; position: absolute; width: 200px; height: 200px; border-radius: 50%; background: white; opacity: 0.04; bottom: -60px; right: -40px; }
+        .hero-logo { width: 72px; height: 72px; border-radius: 18px; margin: 0 auto 16px; display: block; position: relative; z-index: 1; }
+        .hero h1 { font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 8px; position: relative; z-index: 1; }
+        .hero .subtitle { font-size: 17px; color: rgba(255,255,255,0.8); font-weight: 400; position: relative; z-index: 1; }
+        .hero .badge { display: inline-block; margin-top: 16px; padding: 6px 20px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 24px; font-size: 13px; font-weight: 600; color: #fff; letter-spacing: 0.5px; position: relative; z-index: 1; }
+        .section { padding: 36px 32px; }
+        .section-alt { background: linear-gradient(180deg, #130f30 0%, #1a1145 100%); }
+        .section-base { background: linear-gradient(180deg, #1a1145 0%, #130f30 100%); }
+        .section-intro { text-align: center; color: var(--text-secondary); margin-bottom: 28px; font-size: 15px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .step { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 20px; position: relative; page-break-inside: avoid; }
+        .step-header { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+        .step-number { width: 48px; height: 48px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; color: var(--primary-light); border-radius: 50%; background: var(--bg-deep); border: 3px solid transparent; background-image: linear-gradient(var(--bg-deep), var(--bg-deep)), linear-gradient(135deg, var(--primary), var(--accent)); background-origin: border-box; background-clip: padding-box, border-box; }
+        .step-title { font-size: 18px; font-weight: 600; color: var(--text); }
+        .step p, .step li { color: var(--text-secondary); margin-bottom: 8px; }
+        .step ol, .step ul { padding-left: 20px; }
+        .step li { padding-left: 4px; margin-bottom: 6px; }
+        .link-box { display: block; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff !important; text-align: center; padding: 14px 24px; border-radius: var(--radius); font-weight: 600; font-size: 15px; text-decoration: none; margin: 14px 0; word-break: break-all; }
+        .link-url { display: block; font-size: 12px; font-weight: 400; opacity: 0.85; margin-top: 4px; word-break: break-all; }
+        .callout { border-left: 4px solid var(--primary); background: rgba(124, 58, 237, 0.08); padding: 14px 18px; border-radius: 0 var(--radius) var(--radius) 0; margin: 14px 0; font-size: 14px; color: var(--text-secondary); }
+        .callout-warning { border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.08); }
+        .callout-success { border-left-color: var(--success); background: rgba(34, 197, 94, 0.08); }
+        .callout strong { color: var(--text); }
+        .screenshot-row { display: flex; gap: 16px; margin: 16px 0; justify-content: center; flex-wrap: wrap; }
+        .screenshot-item { text-align: center; flex: 0 1 320px; }
+        .screenshot-item img { max-width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+        .screenshot-caption { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+        .download-grid { display: flex; gap: 16px; margin: 16px 0; }
+        .download-card { flex: 1; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; }
+        .download-card .icon { font-size: 32px; margin-bottom: 8px; }
+        .download-card h4 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+        .download-card p { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
+        .download-card a { display: inline-block; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; padding: 10px 20px; border-radius: var(--radius); font-weight: 600; font-size: 13px; text-decoration: none; }
+        .promo-box { text-align: center; padding: 24px; background: linear-gradient(135deg, rgba(124,58,237,0.15) 0%, rgba(59,130,246,0.10) 100%); border: 2px dashed var(--primary-light); border-radius: var(--radius-lg); margin: 16px 0; }
+        .promo-box .label { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; }
+        .promo-code { font-size: 28px; font-weight: 800; font-family: 'Courier New', monospace; color: var(--primary-light); letter-spacing: 3px; padding: 8px 0; }
+        .promo-box .note { font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+        .redeem-steps { counter-reset: redeem; list-style: none; padding: 0; }
+        .redeem-steps li { counter-increment: redeem; display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .redeem-steps li:last-child { border-bottom: none; }
+        .redeem-steps li::before { content: counter(redeem); flex-shrink: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--primary-light); border-radius: 50%; background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.3); }
+        .redeem-steps li span { color: var(--text-secondary); padding-top: 4px; }
+        .redeem-steps li strong { color: var(--text); }
+        .footer { background: linear-gradient(180deg, var(--bg-section) 0%, #0a0720 100%); border-top: 1px solid var(--border); padding: 32px; text-align: center; }
+        .footer p { color: var(--text-muted); font-size: 14px; margin-bottom: 8px; }
+        .footer a { color: var(--primary-light); text-decoration: none; }
+        .footer .thanks { font-style: italic; color: var(--primary-light); font-size: 16px; margin-top: 16px; padding: 16px; background: var(--bg-card); border-radius: var(--radius); border-left: 4px solid var(--primary); }
+        .lang-switcher {
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            display: flex;
+            gap: 4px;
+            z-index: 2;
+        }
+        .lang-btn {
+            padding: 6px 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.7);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .lang-btn:hover {
+            border-color: var(--primary-light);
+            background: rgba(124, 58, 237, 0.15);
+            color: #fff;
+        }
+        .lang-btn.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        @media print { body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; } .step { page-break-inside: avoid; } .hero { page-break-after: avoid; } }
+        @media (max-width: 600px) { .download-grid { flex-direction: column; } .screenshot-row { flex-direction: column; align-items: center; } .hero h1 { font-size: 26px; } }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <nav class="lang-switcher">
+            <a href="../early-adopter-guide.html" class="lang-btn">EN</a>
+            <a href="early-adopter-guide.html" class="lang-btn active">BG</a>
+            <a href="../de/early-adopter-guide.html" class="lang-btn">DE</a>
+        </nav>
+        <img src="../images/logo.png" alt="Добре ли си?! Лого" class="hero-logo">
+        <h1>Ръководство за ранни потребители</h1>
+        <p class="subtitle">Инсталирайте приложението за по-малко от 5 минути</p>
+        <span class="badge">ПРОГРАМА ЗА РАНЕН ДОСТЪП</span>
+    </div>
+
+    <div class="section section-alt">
+        <div class="page">
+            <p class="section-intro">
+                Благодарим ви, че се присъединихте! Вие сте сред първите, които изпробват <strong style="color: var(--text);">Добре ли си?!</strong> — приложение, което използва изкуствен интелект, за да пази възрастните родители. Без гривни, без камери, без ежедневни обаждания. Само техният Android телефон.
+            </p>
+            <p class="section-intro" style="margin-top: -12px;">
+                Следвайте стъпките по-долу. Всичко отнема около 5 минути.
+            </p>
+        </div>
+    </div>
+
+    <!-- Стъпка 1 -->
+    <div class="section section-base">
+        <div class="page">
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Присъединете се към групата за ранни потребители</div>
+                </div>
+                <p>Отворете линка по-долу и натиснете <strong style="color: var(--text);">"Присъединяване към групата"</strong> (или "Заявка за присъединяване"). Това регистрира вашия Google акаунт, за да можете да изтеглите приложението.</p>
+
+                <a href="https://groups.google.com/g/howareu-early-adopters" class="link-box">
+                    Присъединете се към Google групата
+                    <span class="link-url">groups.google.com/g/howareu-early-adopters</span>
+                </a>
+
+                <div class="callout callout-warning">
+                    <strong>Използвайте същия Google акаунт, който е на вашия Android телефон.</strong> Ако имате повече от един Google акаунт, уверете се, че избирате този, който телефонът ви използва.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Стъпка 2 -->
+    <div class="section section-alt">
+        <div class="page">
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Приемете поканата за тестване</div>
+                </div>
+                <p>Отворете този линк. Ще видите страница от Google Play:</p>
+
+                <a href="https://play.google.com/apps/testing/com.howareyou" class="link-box">
+                    Отворете поканата за тестване
+                    <span class="link-url">play.google.com/apps/testing/com.howareyou</span>
+                </a>
+
+                <p>Натиснете зеления бутон <strong style="color: var(--text);">"Become a tester"</strong> (Стани тестър):</p>
+
+                <div class="screenshot-row">
+                    <div class="screenshot-item">
+                        <img src="../images/becomeearlyadopter.png" alt="Екран за ставане на тестър със зеления бутон">
+                        <p class="screenshot-caption">Натиснете "Become a tester"</p>
+                    </div>
+                </div>
+
+                <p>След като приемете, страницата се променя. Ще видите <strong style="color: var(--text);">"You are a tester"</strong> (Вие сте тестър) и линк за изтегляне на приложението:</p>
+
+                <div class="screenshot-row">
+                    <div class="screenshot-item">
+                        <img src="../images/becomeearlyadopter2.png" alt="Екран за потвърждение, че сте тестър">
+                        <p class="screenshot-caption">Вече сте тестър — натиснете "download it on Google Play"</p>
+                    </div>
+                </div>
+
+                <div class="callout callout-success">
+                    <strong>Готово!</strong> Вече сте регистрирани. Продължете към Стъпка 3, за да изтеглите приложението.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Стъпка 3 -->
+    <div class="section section-base">
+        <div class="page">
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Изтеглете приложението</div>
+                </div>
+                <p>Изберете което е по-удобно за вас:</p>
+
+                <div class="download-grid">
+                    <div class="download-card">
+                        <div class="icon">&#128241;</div>
+                        <h4>На телефона</h4>
+                        <p>Отворете този линк директно на вашия Android телефон и натиснете "Инсталиране"</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.howareyou">Отвори Google Play</a>
+                    </div>
+                    <div class="download-card">
+                        <div class="icon">&#127760;</div>
+                        <h4>От компютър</h4>
+                        <p>Посетете нашия сайт от всяко устройство и натиснете "Изтегляне"</p>
+                        <a href="https://howareu.app">Посетете howareu.app</a>
+                    </div>
+                </div>
+
+                <div class="callout">
+                    <strong>Ако Google Play каже "Приложението не е налично"</strong> — върнете се на Стъпка 1 и проверете дали сте се присъединили към групата и сте приели поканата със същия Google акаунт, който е на телефона ви.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Стъпка 4 -->
+    <div class="section section-alt">
+        <div class="page">
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Използвайте вашия промо код</div>
+                </div>
+                <p>Като ранен потребител получавате приложението <strong style="color: var(--success);">напълно безплатно</strong>. Вашият личен промо код ще бъде споделен в Google групата.</p>
+
+                <div class="promo-box">
+                    <div class="label">Вашият промо код</div>
+                    <div class="promo-code">XXXX-XXXX-XXXX</div>
+                    <div class="note">Проверете Google групата за вашия личен код</div>
+                </div>
+
+                <p>Ето как да го използвате:</p>
+
+                <ul class="redeem-steps">
+                    <li><span>Отворете приложението и отидете на <strong>екрана за абонамент</strong></span></li>
+                    <li><span>Натиснете <strong>"Абонирай се"</strong> — това ще отвори Google Play за плащане</span></li>
+                    <li><span>Вижте <strong>списъка с методи за плащане</strong></span></li>
+                    <li><span>Превъртете до <strong>дъното на списъка</strong> и натиснете <strong>"Redeem code"</strong> (Използвай код)</span></li>
+                    <li><span>Въведете или поставете вашия промо код и натиснете <strong>"Redeem"</strong> (Използвай)</span></li>
+                </ul>
+
+                <div class="callout callout-success">
+                    <strong>Това е!</strong> Приложението вече е напълно отключено без никакви разходи за вас. Не е нужна кредитна карта.
+                </div>
+
+                <div class="callout callout-warning">
+                    <strong>Всеки код работи само веднъж</strong> и е свързан с един Google акаунт. Моля, не споделяйте кода си с други хора.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Стъпка 5 -->
+    <div class="section section-base">
+        <div class="page">
+            <div class="step">
+                <div class="step-header">
+                    <div class="step-number">5</div>
+                    <div class="step-title">Настройте приложението</div>
+                </div>
+                <p>Отворете приложението и следвайте стъпките на екрана. Настройката отнема около 3 минути:</p>
+
+                <ul class="redeem-steps">
+                    <li><span><strong>Разрешете достъп</strong> — приложението се нуждае от разрешения за местоположение и активност, за да следи безопасността</span></li>
+                    <li><span><strong>Изключете оптимизацията на батерията</strong> — това позволява на приложението да работи на заден план 24/7 (приложението ще ви насочи)</span></li>
+                    <li><span><strong>Добавете имейл на близък</strong> — това е човекът, който ще получи известие, ако бъде засечено нещо необичайно</span></li>
+                </ul>
+
+                <div class="callout">
+                    <strong>След настройката:</strong> Приложението започва 7-дневна фаза на обучение, през която тихо наблюдава ежедневните навици. След това мониторингът започва автоматично. Не е нужно да правите нищо друго — създадено е да работи без намеса.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong style="color: var(--text);">Нуждаете се от помощ?</strong></p>
+        <p>Имейл: <a href="mailto:developer@howareu.app">developer@howareu.app</a></p>
+        <p>Google група: <a href="https://groups.google.com/g/howareu-early-adopters">howareu-early-adopters</a></p>
+        <p>Уебсайт: <a href="https://howareu.app">howareu.app</a></p>
+
+        <div class="thanks">
+            Благодарим ви, че сте ранен потребител.<br>
+            Вашата обратна връзка ни помага да изградим по-безопасен свят за възрастните родители, които живеят сами.
+        </div>
+
+        <p style="margin-top: 20px; font-size: 12px; opacity: 0.4;">&copy; 2026 Добре ли си?!</p>
+    </div>
+
+</body>
+</html>
