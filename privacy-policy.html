@@ -200,7 +200,7 @@
 
     <main class="content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: 2026-03-09</p>
+        <p class="last-updated">Last updated: 2026-04-07</p>
 
         <p class="intro">
             This Privacy Policy describes how "How Are You?!" (the "App") collects, uses, and protects your information.
@@ -222,7 +222,6 @@
             <li><strong>Motion sensor data</strong> (accelerometer, gyroscope, barometer) - Used to detect activity levels and unusual stillness</li>
             <li><strong>Activity patterns</strong> (sleep schedules, stillness duration, daily routines) - Learned during the learning phase</li>
             <li><strong>Email addresses</strong> - Alert recipients configured by family members</li>
-            <li><strong>Device identifiers</strong> (Android ID) - Used for app functionality only</li>
             <li><strong>Safe zone patterns</strong> (home, park, coffee shop locations) - Learned from your regular movement patterns</li>
         </ul>
 
@@ -268,14 +267,38 @@
         </ul>
         <p>Google's AI processes the summary and returns a safety assessment. Google does not use this data for advertising or model training (paid API tier). See Google's Gemini API Terms of Service for details.</p>
 
-        <h2>4. Data Sharing</h2>
-        <p>Your data sharing is extremely limited:</p>
+        <h2>4. Data Sharing and Sub-Processors</h2>
+        <p>To deliver core safety functionality, the App shares specific data with two contracted third-party processors. Each operates under a Data Processing Agreement (where applicable under GDPR Article 28) and processes data solely on our behalf, for the limited purposes described below. We do not sell your data, do not share it with advertising networks, do not use it for analytics, and do not share it with anyone other than the two named processors below.</p>
+
+        <h3>Named Sub-Processors</h3>
         <ul>
-            <li><strong>Emergency alerts ONLY:</strong> GPS coordinates, timestamp, and anomaly description are sent to configured family email addresses when an emergency is detected</li>
-            <li><strong>NO third-party sharing:</strong> Zero analytics services, zero ad networks, zero tracking pixels</li>
-            <li><strong>NO data selling:</strong> We will never sell or license your data</li>
-            <li><strong>NO secondary use:</strong> Your data is used only for emergency detection</li>
-            <li><strong>NO marketing:</strong> We do not use your data for promotional purposes</li>
+            <li><strong>Google LLC — Gemini API.</strong> We send anonymized behavioral summaries (motion patterns, stillness durations, approximate location cluster centroids) to Google's Gemini API for AI-based safety analysis and weekly recalibration of personalized thresholds. No names, no email addresses, no raw GPS coordinates of your home, and no device identifiers are transmitted. Google's terms for Gemini API usage are available at <a href="https://ai.google.dev/terms">https://ai.google.dev/terms</a>. Under the paid API tier, Google does not use this data for advertising or model training.</li>
+            <li><strong>Resend, Inc. — Transactional email delivery.</strong> When a safety alert is triggered, the alert email content (including the monitored user's current GPS coordinates and the configured family recipient email addresses) is transmitted to Resend solely for delivery of the alert email. Resend processes this data only to send the email and does not retain it for any other purpose. Resend's privacy policy is available at <a href="https://resend.com/legal/privacy-policy">https://resend.com/legal/privacy-policy</a>.</li>
+        </ul>
+
+        <h3>What we never do</h3>
+        <ul>
+            <li><strong>No advertising or analytics:</strong> Zero advertising networks, zero analytics services, zero tracking pixels, zero third-party SDKs for marketing.</li>
+            <li><strong>No data sales:</strong> We will never sell, license, or rent your data to anyone.</li>
+            <li><strong>No secondary use:</strong> Data is used solely for the safety detection purposes described in Section 2.</li>
+            <li><strong>No additional sharing:</strong> Beyond Google LLC and Resend, Inc. (named above), we do not share data with any other third party.</li>
+        </ul>
+
+        <h3>International Data Transfers</h3>
+        <p>Both Google LLC and Resend, Inc. are headquartered in the United States. When you use the App in the European Economic Area (including Bulgaria and Germany), the United Kingdom, or Switzerland, your data may be transferred to, processed, and stored in the United States or other jurisdictions where these sub-processors operate.</p>
+        <p>These transfers are governed by:</p>
+        <ul>
+            <li><strong>Standard Contractual Clauses</strong> approved by the European Commission under GDPR Article 46, incorporated into the data processing agreements with both sub-processors.</li>
+            <li><strong>Google's certifications</strong> under the EU–US Data Privacy Framework, where applicable.</li>
+            <li><strong>Resend's contractual safeguards</strong> for cross-border transfers, including Standard Contractual Clauses incorporated into their standard Data Processing Agreement.</li>
+        </ul>
+        <p>By installing and using the App in a region subject to cross-border data transfer regulations, you consent to these transfers as a necessary condition for the safety monitoring functionality to operate.</p>
+
+        <h3>Lawful Basis for Processing (GDPR)</h3>
+        <p>For users in the European Economic Area, the United Kingdom, and Switzerland, our legal bases for processing personal data under GDPR Article 6 are:</p>
+        <ul>
+            <li><strong>Consent (Article 6(1)(a)):</strong> By installing the App, granting the requested permissions, and configuring email recipients, both the monitored person and their caregivers explicitly consent to the data collection, processing, and sharing described in this policy. Consent may be withdrawn at any time by uninstalling the App or by using the in-app "Reset Learning" function.</li>
+            <li><strong>Legitimate interests (Article 6(1)(f)):</strong> Safety monitoring of vulnerable elderly users to prevent harm, with the explicit knowledge and consent of the monitored person and their caregivers. This interest is not overridden by individual rights and freedoms because monitoring is opt-in, can be disabled at any time, and is limited to the minimum data necessary for safety detection.</li>
         </ul>
 
         <h2>5. Data Retention and Deletion</h2>
@@ -315,9 +338,10 @@
         </ul>
 
         <h2>9. Contact Information</h2>
-        <p>If you have questions about this Privacy Policy or the app:</p>
+        <p>If you have questions about this Privacy Policy, the App, or wish to exercise any of your data protection rights under GDPR or other applicable privacy laws:</p>
         <ul>
-            <li><strong>Developer email:</strong> <a href="mailto:stoyan.minchev@gmail.com">stoyan.minchev@gmail.com</a></li>
+            <li><strong>General contact and data protection inquiries:</strong> <a href="mailto:developer@howareu.app">developer@howareu.app</a></li>
+            <li><strong>Response time:</strong> We aim to respond to all data protection inquiries within 30 days as required by GDPR Article 12.</li>
         </ul>
 
         <div class="disclaimer">
@@ -375,7 +399,7 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 How Are You?! All rights reserved. | <a href="mailto:stoyan.minchev@gmail.com">Contact</a></p>
+        <p>&copy; 2026 How Are You?! All rights reserved. | <a href="mailto:developer@howareu.app">Contact</a></p>
     </footer>
 </body>
 </html>

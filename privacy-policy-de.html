@@ -200,7 +200,7 @@
 
     <main class="content">
         <h1>Datenschutzerklärung</h1>
-        <p class="last-updated">Letzte Aktualisierung: 2026-03-09</p>
+        <p class="last-updated">Letzte Aktualisierung: 2026-04-07</p>
 
         <p class="intro">
             Diese Datenschutzerklärung beschreibt, wie "How Are You?!" (die "App") Ihre Informationen sammelt, verwendet und schützt.
@@ -222,7 +222,6 @@
             <li><strong>Bewegungssensordaten</strong> (Beschleunigungsmesser, Gyroskop, Barometer) - Verwendet zur Erkennung von Aktivitätsniveaus und ungewöhnlicher Stillstand</li>
             <li><strong>Aktivitätsmuster</strong> (Schlafpläne, Stillstandsdauer, tägliche Routinen) - Während der Lernphase gelernt</li>
             <li><strong>E-Mail-Adressen</strong> - Von Familienmitgliedern konfigurierte Alarmempfänger</li>
-            <li><strong>Gerätekennungen</strong> (Android ID) - Nur für App-Funktionalität verwendet</li>
             <li><strong>Sichere Zonenmuster</strong> (Zuhause, Park, Café-Standorte) - Aus Ihren regelmäßigen Bewegungsmustern gelernt</li>
         </ul>
 
@@ -268,14 +267,38 @@
         </ul>
         <p>Googles AI verarbeitet die Zusammenfassung und gibt eine Sicherheitsbewertung zurück. Google verwendet diese Daten nicht für Werbung oder Modelltraining (kostenpflichtige API-Stufe). Siehe Googles Gemini API-Nutzungsbedingungen für Details.</p>
 
-        <h2>4. Datenweitergabe</h2>
-        <p>Die Weitergabe Ihrer Daten ist äußerst begrenzt:</p>
+        <h2>4. Datenweitergabe und Auftragsverarbeiter</h2>
+        <p>Um die zentrale Sicherheitsfunktionalität bereitzustellen, gibt die App bestimmte Daten an zwei vertraglich gebundene Auftragsverarbeiter weiter. Jeder dieser Verarbeiter handelt im Rahmen einer Auftragsverarbeitungsvereinbarung (soweit gemäß Art. 28 DSGVO anwendbar) und verarbeitet Daten ausschließlich in unserem Auftrag, für die unten beschriebenen begrenzten Zwecke. Wir verkaufen Ihre Daten nicht, geben sie nicht an Werbenetzwerke weiter, nutzen sie nicht für Analysen und teilen sie mit niemandem außer den beiden unten ausdrücklich genannten Auftragsverarbeitern.</p>
+
+        <h3>Namentlich genannte Auftragsverarbeiter</h3>
         <ul>
-            <li><strong>NUR Notfallalarme:</strong> GPS-Koordinaten, Zeitstempel und Anomaliebeschreibung werden an konfigurierte Familien-E-Mail-Adressen gesendet, wenn ein Notfall erkannt wird</li>
-            <li><strong>KEINE Weitergabe an Dritte:</strong> Null Analysedienste, null Werbenetzwerke, null Tracking-Pixel</li>
-            <li><strong>KEIN Datenverkauf:</strong> Wir werden Ihre Daten niemals verkaufen oder lizenzieren</li>
-            <li><strong>KEINE Sekundärnutzung:</strong> Ihre Daten werden nur für Notfallerkennung verwendet</li>
-            <li><strong>KEIN Marketing:</strong> Wir verwenden Ihre Daten nicht für Werbezwecke</li>
+            <li><strong>Google LLC — Gemini API.</strong> Wir senden anonymisierte Verhaltenszusammenfassungen (Bewegungsmuster, Stillstandsdauern, ungefähre Standort-Cluster-Mittelpunkte) an die Gemini API von Google für KI-basierte Sicherheitsanalyse und wöchentliche Neukalibrierung personalisierter Schwellenwerte. Es werden keine Namen, keine E-Mail-Adressen, keine rohen GPS-Koordinaten Ihres Zuhauses und keine Gerätekennungen übertragen. Die Nutzungsbedingungen von Google für die Gemini API sind unter <a href="https://ai.google.dev/terms">https://ai.google.dev/terms</a> verfügbar. Im kostenpflichtigen API-Tarif verwendet Google diese Daten nicht für Werbung oder Modelltraining.</li>
+            <li><strong>Resend, Inc. — Transaktionale E-Mail-Zustellung.</strong> Wenn ein Sicherheitsalarm ausgelöst wird, wird der Inhalt der Alarm-E-Mail (einschließlich der aktuellen GPS-Koordinaten der überwachten Person und der konfigurierten E-Mail-Adressen der Familienmitglieder) ausschließlich zur Zustellung der Alarm-E-Mail an Resend übertragen. Resend verarbeitet diese Daten nur zum Versand der E-Mail und speichert sie nicht für andere Zwecke. Die Datenschutzerklärung von Resend ist unter <a href="https://resend.com/legal/privacy-policy">https://resend.com/legal/privacy-policy</a> verfügbar.</li>
+        </ul>
+
+        <h3>Was wir niemals tun</h3>
+        <ul>
+            <li><strong>Keine Werbung oder Analytik:</strong> Null Werbenetzwerke, null Analysedienste, null Tracking-Pixel, null SDKs von Dritten für Marketing.</li>
+            <li><strong>Kein Datenverkauf:</strong> Wir werden Ihre Daten niemals an irgendjemanden verkaufen, lizenzieren oder vermieten.</li>
+            <li><strong>Keine Sekundärnutzung:</strong> Daten werden ausschließlich für die in Abschnitt 2 beschriebenen Sicherheitserkennungszwecke verwendet.</li>
+            <li><strong>Keine zusätzliche Weitergabe:</strong> Über Google LLC und Resend, Inc. (oben namentlich genannt) hinaus geben wir keine Daten an Dritte weiter.</li>
+        </ul>
+
+        <h3>Internationale Datenübermittlung</h3>
+        <p>Sowohl Google LLC als auch Resend, Inc. haben ihren Hauptsitz in den Vereinigten Staaten. Wenn Sie die App im Europäischen Wirtschaftsraum (einschließlich Bulgarien und Deutschland), im Vereinigten Königreich oder in der Schweiz nutzen, können Ihre Daten in die Vereinigten Staaten oder andere Rechtsordnungen, in denen diese Auftragsverarbeiter tätig sind, übertragen, dort verarbeitet und gespeichert werden.</p>
+        <p>Diese Übermittlungen unterliegen folgenden Schutzmaßnahmen:</p>
+        <ul>
+            <li><strong>Standardvertragsklauseln</strong> der Europäischen Kommission gemäß Art. 46 DSGVO, integriert in die Auftragsverarbeitungsvereinbarungen mit beiden Auftragsverarbeitern.</li>
+            <li><strong>Zertifizierungen von Google</strong> nach dem EU–US Data Privacy Framework, soweit anwendbar.</li>
+            <li><strong>Vertragliche Schutzmaßnahmen von Resend</strong> für grenzüberschreitende Übermittlungen, einschließlich Standardvertragsklauseln, die in deren Standard-Auftragsverarbeitungsvereinbarung integriert sind.</li>
+        </ul>
+        <p>Mit der Installation und Nutzung der App in einer Region, die grenzüberschreitenden Datentransferbestimmungen unterliegt, willigen Sie in diese Übermittlungen als notwendige Voraussetzung für die Funktion der Sicherheitsüberwachung ein.</p>
+
+        <h3>Rechtsgrundlage für die Verarbeitung (DSGVO)</h3>
+        <p>Für Nutzer im Europäischen Wirtschaftsraum, im Vereinigten Königreich und in der Schweiz sind unsere Rechtsgrundlagen für die Verarbeitung personenbezogener Daten gemäß Art. 6 DSGVO:</p>
+        <ul>
+            <li><strong>Einwilligung (Art. 6 Abs. 1 lit. a):</strong> Mit der Installation der App, der Erteilung der angeforderten Berechtigungen und der Konfiguration der E-Mail-Empfänger willigen sowohl die überwachte Person als auch ihre Angehörigen ausdrücklich in die in dieser Richtlinie beschriebene Erhebung, Verarbeitung und Weitergabe von Daten ein. Die Einwilligung kann jederzeit durch Deinstallation der App oder durch Verwendung der In-App-Funktion "Lernen zurücksetzen" widerrufen werden.</li>
+            <li><strong>Berechtigte Interessen (Art. 6 Abs. 1 lit. f):</strong> Sicherheitsüberwachung schutzbedürftiger älterer Nutzer zur Schadensvermeidung, mit dem ausdrücklichen Wissen und der Einwilligung der überwachten Person und ihrer Angehörigen. Dieses berechtigte Interesse wird nicht durch individuelle Rechte und Freiheiten überwogen, da die Überwachung optional ist, jederzeit deaktiviert werden kann und auf das für die Sicherheitserkennung erforderliche Mindestmaß an Daten beschränkt ist.</li>
         </ul>
 
         <h2>5. Datenspeicherung und Löschung</h2>
@@ -315,9 +338,10 @@
         </ul>
 
         <h2>9. Kontaktinformationen</h2>
-        <p>Bei Fragen zu dieser Datenschutzerklärung oder der App:</p>
+        <p>Bei Fragen zu dieser Datenschutzerklärung, zur App oder wenn Sie eines Ihrer Datenschutzrechte gemäß DSGVO oder anderen anwendbaren Datenschutzgesetzen ausüben möchten:</p>
         <ul>
-            <li><strong>Entwickler-E-Mail:</strong> <a href="mailto:stoyan.minchev@gmail.com">stoyan.minchev@gmail.com</a></li>
+            <li><strong>Allgemeiner Kontakt und Datenschutzanfragen:</strong> <a href="mailto:developer@howareu.app">developer@howareu.app</a></li>
+            <li><strong>Reaktionszeit:</strong> Wir bemühen uns, alle Datenschutzanfragen innerhalb von 30 Tagen zu beantworten, wie es Art. 12 DSGVO vorschreibt.</li>
         </ul>
 
         <div class="disclaimer">
@@ -375,7 +399,7 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 How Are You?! Alle Rechte vorbehalten. | <a href="mailto:stoyan.minchev@gmail.com">Kontakt</a></p>
+        <p>&copy; 2026 How Are You?! Alle Rechte vorbehalten. | <a href="mailto:developer@howareu.app">Kontakt</a></p>
     </footer>
 </body>
 </html>
