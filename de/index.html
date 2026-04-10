@@ -57,7 +57,7 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "How Are You?! Senior Safety",
-        "operatingSystem": "Android 14+",
+        "operatingSystem": "Android 9+",
         "applicationCategory": "HealthApplication",
         "description": "KI-gestützte Sicherheitsüberwachungs-App, die die täglichen Routinen Ihres älteren Elternteils lernt und Familienmitglieder bei potenziellen Notfällen wie Stürzen, medizinischen Ereignissen, Schlafanomalien und Standortabweichungen benachrichtigt. Keine Hardware, keine Armbänder, keine täglichen Kontrollanrufe. Arbeitet leise auf ihrem vorhandenen Android-Telefon.",
         "offers": {
@@ -127,7 +127,7 @@
             {"@type": "Question", "name": "Muss ich monatlich bezahlen?", "acceptedAnswer": {"@type": "Answer", "text": "Die App ist kostenlos und enthält eine 21-tägige Testphase. Danach kostet das Abo 49 $/Jahr im ersten Jahr und nur 5 $/Jahr ab dem zweiten Jahr (automatische Verlängerung). Keine Hardware, kein Callcenter, keine monatlichen Gebühren — nur intelligente Software auf dem Telefon, das Ihr Elternteil bereits hat."}},
             {"@type": "Question", "name": "Wie kann ich mein Abonnement kündigen?", "acceptedAnswer": {"@type": "Answer", "text": "Sie können Ihr Abonnement jederzeit über Google Play kündigen: Öffnen Sie Google Play > Zahlungen & Abos > Abos > How Are You?! > Kündigen. Nach der Kündigung bleibt die App bis zum Ende des aktuellen Abrechnungszeitraums aktiv. Während der 21-tägigen Testphase können Sie jederzeit kündigen, ohne dass Kosten anfallen."}},
             {"@type": "Question", "name": "Wie können Sie das für nur 49 $/Jahr anbieten?", "acceptedAnswer": {"@type": "Answer", "text": "Wir setzen auf Transparenz. Moderne KI-Entwicklungswerkzeuge ermöglichen es einem kleinen Team, das zu entwickeln und zu pflegen, wofür früher ganze Abteilungen aus Entwicklern, Testern, Designern und Managern nötig waren. Und da alles auf dem Telefon Ihres Elternteils läuft, zahlen wir nicht für Server, Cloud-Speicher oder Rechenzentren. Keine Hardware-Produktion, kein Callcenter. Diese Einsparungen geben wir direkt an Familien weiter."}},
-            {"@type": "Question", "name": "Welche Android-Version ist erforderlich?", "acceptedAnswer": {"@type": "Answer", "text": "Jedes Android-Telefon mit Android 14 oder höher."}},
+            {"@type": "Question", "name": "Welche Android-Version ist erforderlich?", "acceptedAnswer": {"@type": "Answer", "text": "Jedes Android-Telefon mit Android 9 oder höher."}},
             {"@type": "Question", "name": "Kann mein Elternteil es zurücksetzen oder deaktivieren?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, absolut. Die Schaltfläche \"Lernen Zurücksetzen\" ist leicht zugänglich und löscht sofort alle gelernten Daten. Sie können die App auch jederzeit deinstallieren — ohne Fragen."}},
             {"@type": "Question", "name": "Was passiert, wenn der Handyakku leer ist?", "acceptedAnswer": {"@type": "Answer", "text": "Die App kann nicht überwachen, wenn das Telefon ausgeschaltet ist. Ein längerer Zeitraum ohne Daten kann jedoch selbst einen Alarm an Familienmitglieder auslösen, der darauf hinweist, dass etwas nicht stimmen könnte."}},
             {"@type": "Question", "name": "Funktioniert es ohne WLAN oder Internet?", "acceptedAnswer": {"@type": "Answer", "text": "Die Kern-Sicherheitsüberwachung funktioniert offline. AI-erweiterte Analyse erfordert Internet, aber Sicherheitsgrundlagen (Notfallerkennung) funktionieren immer. Internetverbindung ist erforderlich, um Notfallalarme per E-Mail zu senden."}},
@@ -136,7 +136,10 @@
             {"@type": "Question", "name": "Mein Telefon beendet die App ständig. Was soll ich tun?", "acceptedAnswer": {"@type": "Answer", "text": "Einige Hersteller (Samsung, Xiaomi, Huawei, Honor, OPPO) beenden Hintergrund-Apps aggressiv. Deaktivieren Sie die Batterieoptimierung für diese App und überprüfen Sie die herstellerspezifischen Energiespareinstellungen."}},
             {"@type": "Question", "name": "Ich sehe keine Benachrichtigung. Läuft die App?", "acceptedAnswer": {"@type": "Answer", "text": "Ja! Die App ist als \"Installieren und Vergessen\" konzipiert. Die Benachrichtigung ist absichtlich lautlos und verborgen, während Sie Ihr Telefon benutzen. Zur Überprüfung: Öffnen Sie die App - wenn Sie das Dashboard sehen, ist die Überwachung aktiv."}},
             {"@type": "Question", "name": "Ich sehe eine Warnung \"Kann Ihr System am Einschlafen hindern\". Ist das ein Problem?", "acceptedAnswer": {"@type": "Answer", "text": "Diese Warnung ist normal für eine 24/7-Sicherheits-App. Sie bedeutet, dass die App korrekt funktioniert, indem sie Sensoren aktiv hält, um Notfälle zu erkennen."}},
-            {"@type": "Question", "name": "Wie viel Akku verbraucht die App?", "acceptedAnswer": {"@type": "Answer", "text": "Die App verwendet einen adaptiven Herzschlag, der die Sensoraktivität bei Stillstand reduziert. Typischer Akkuverbrauch beträgt weniger als 1% pro Tag."}}
+            {"@type": "Question", "name": "Wie viel Akku verbraucht die App?", "acceptedAnswer": {"@type": "Answer", "text": "Die App verwendet einen adaptiven Herzschlag, der die Sensoraktivität bei Stillstand reduziert. Typischer Akkuverbrauch beträgt weniger als 1% pro Tag."}},
+            {"@type": "Question", "name": "Funktioniert es auf Pixel- und Stock-Android-Telefonen?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Version 2.171.0 hat einmalige Einrichtungsschritte speziell für Pixel und andere Stock-Android-Telefone (Nothing, Motorola, die meisten Carrier-Builds) hinzugefügt. Ab Android 13 sind zwei Akku-Funktionen standardmäßig aktiviert, die Überwachungs-Apps nach etwa drei Monaten ohne Öffnen lautlos beenden: App-Aktivität pausieren, wenn nicht verwendet, und die adaptive Akkunutzung. Der Einrichtungsablauf führt Sie durch die Deaktivierung beider."}},
+            {"@type": "Question", "name": "Was ist App-Aktivität pausieren, wenn nicht verwendet, und warum muss ich es deaktivieren?", "acceptedAnswer": {"@type": "Answer", "text": "Es ist eine Android-Funktion, die Apps, die Sie etwa drei Monate nicht geöffnet haben, automatisch beendet und ihre Berechtigungen entzieht. Für eine Sicherheits-App, die für eine ältere Person installiert ist, die sie nie öffnet, garantiert dies, dass die Überwachung nach einigen Monaten lautlos endet. Die Deaktivierung während der Einrichtung ist der einzige Weg, die Überwachung langfristig am Laufen zu halten."}},
+            {"@type": "Question", "name": "Ich habe die App vor Version 2.171.0 installiert. Wie füge ich die neuen Pixel-Einstellungen hinzu?", "acceptedAnswer": {"@type": "Answer", "text": "Öffnen Sie die App und gehen Sie zu Einstellungen, Gerätezuverlässigkeit, tippen Sie auf den Gerätenamen. Der Pixel-spezifische Anleitungsbildschirm führt Sie durch die vier Schritte. Möglicherweise sehen Sie nach dem Update auch eine einmalige Eingabeaufforderung auf dem Dashboard, die denselben Bildschirm automatisch öffnet."}}
         ]
     }
     </script>
@@ -620,7 +623,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>Welche Android-Version ist erforderlich?</summary>
-                    <p>Jedes Android-Telefon mit Android 14 oder höher.</p>
+                    <p>Jedes Android-Telefon mit Android 9 oder höher.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Kann mein Elternteil es zurücksetzen oder deaktivieren?</summary>
@@ -658,6 +661,18 @@
                     <summary>Wie viel Akku verbraucht die App?</summary>
                     <p>Die App verwendet einen adaptiven Herzschlag, der die Sensoraktivität bei Stillstand reduziert. Typischer Akkuverbrauch beträgt weniger als 1% pro Tag. WLAN-unterstützte Ortung hilft, den GPS-Akkuverbrauch zu reduzieren.</p>
                 </details>
+                <details class="faq-item">
+                    <summary>Funktioniert es auf Pixel- und Stock-Android-Telefonen?</summary>
+                    <p>Ja — und Version 2.171.0 hat einmalige Einrichtungsschritte speziell für Pixel und andere Stock-Android-Telefone (Nothing, Motorola, die meisten Carrier-Builds) hinzugefügt. Ab Android 13 sind zwei Akku-Funktionen standardmäßig aktiviert, die Überwachungs-Apps nach etwa drei Monaten ohne Öffnen lautlos beenden: „App-Aktivität pausieren, wenn nicht verwendet" und die adaptive Akkunutzung. Der Einrichtungsablauf führt Sie nun durch die Deaktivierung beider, sodass die Überwachung unbegrenzt weiterläuft.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Was ist „App-Aktivität pausieren, wenn nicht verwendet" und warum muss ich es deaktivieren?</summary>
+                    <p>Es ist eine Android-Funktion, die Apps, die Sie etwa drei Monate nicht geöffnet haben, automatisch beendet und ihre Berechtigungen entzieht. Für eine Sicherheits-App, die für eine ältere Person installiert ist, die sie nie öffnet, garantiert dies, dass die Überwachung nach einigen Monaten lautlos endet. Die Deaktivierung (mit einem Tipp während der Einrichtung) ist der einzige Weg, die Überwachung langfristig am Laufen zu halten.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Ich habe die App vor Version 2.171.0 installiert. Wie füge ich die neuen Pixel-Einstellungen hinzu?</summary>
+                    <p>Öffnen Sie die App und gehen Sie zu Einstellungen → Gerätezuverlässigkeit → tippen Sie auf den Gerätenamen. Der Pixel-spezifische Anleitungsbildschirm führt Sie durch die vier Schritte. Möglicherweise sehen Sie nach dem Update auch eine einmalige Eingabeaufforderung auf dem Dashboard, die denselben Bildschirm automatisch öffnet. Nach Abschluss fragt die App nichts mehr.</p>
+                </details>
             </div>
         </div>
     </section>
@@ -682,6 +697,10 @@
                 <details class="faq-item">
                     <summary>Akku entlädt sich schnell</summary>
                     <p>1. Stellen Sie sicher, dass WLAN aktiviert ist - GPS verbraucht weniger Akku mit WLAN-unterstützter Ortung. 2. Die App verbraucht normalerweise weniger als 1% Akku pro Tag. Höherer Verbrauch kann auf GPS-Probleme hinweisen. 3. Bei starker Entladung starten Sie das Telefon neu. 4. Die App reduziert automatisch die Sensoraktivität bei Stillstand, um Akku zu sparen.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Pixel / Stock-Android: Überwachung gestoppt nach Systemupdate oder Wochen ohne Telefonnutzung</summary>
+                    <p>Pixel und andere Stock-Android-Telefone haben zwei Akku-Funktionen, die die Überwachung lautlos beenden können: „App-Aktivität pausieren, wenn nicht verwendet" und die adaptive Akkunutzung. Öffnen Sie die App → Einstellungen → Gerätezuverlässigkeit → tippen Sie auf den Gerätenamen und folgen Sie den vier Schritten: (1) deaktivieren Sie „App-Aktivität pausieren, wenn nicht verwendet", (2) setzen Sie die Akkunutzung auf „Uneingeschränkt", (3) bestätigen Sie, dass „Hintergrundeinschränkung" AUS ist, (4) bestätigen Sie erneut, dass die Akku-Optimierung deaktiviert ist. Das Dashboard-Banner sollte innerhalb weniger Minuten grün werden.</p>
                 </details>
             </div>
         </div>
