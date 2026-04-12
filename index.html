@@ -76,6 +76,7 @@
             "GPS location included in emergency alerts",
             "Email alerts to family members with coordinates",
             "Weekly AI recalibration adapts to changing routines",
+            "Self-healing monitoring — automatic recovery with family email alerts if monitoring stops",
             "Less than 1% daily battery impact"
         ],
         "screenshot": "https://howareu.app/images/screenshots/device1.png",
@@ -132,12 +133,14 @@
             {"@type": "Question", "name": "Does it work without WiFi or internet?", "acceptedAnswer": {"@type": "Answer", "text": "Core safety monitoring works offline. AI-enhanced analysis requires internet, but safety floors (emergency detection) always work. Internet is needed to send emergency alerts via email."}},
             {"@type": "Question", "name": "What if my parent leaves their phone at home?", "acceptedAnswer": {"@type": "Answer", "text": "The app monitors the phone's location. If your parent frequently leaves their phone at home, this will be learned as normal behavior. Unusual patterns may still trigger alerts."}},
             {"@type": "Question", "name": "Why must I Ignore Battery Optimizations?", "acceptedAnswer": {"@type": "Answer", "text": "Android tries to kill apps that run in the background to save power. For a safety app, this is dangerous because it stops monitoring. Ignoring optimizations tells Android that this app is critical and must not be killed."}},
-            {"@type": "Question", "name": "The app keeps getting killed by my phone. What do I do?", "acceptedAnswer": {"@type": "Answer", "text": "Some manufacturers (Samsung, Xiaomi, Huawei, Honor, OPPO) aggressively kill background apps. Disable Battery Optimization for this app and check manufacturer-specific power saving settings."}},
+            {"@type": "Question", "name": "The app keeps getting killed by my phone. What do I do?", "acceptedAnswer": {"@type": "Answer", "text": "Some manufacturers (Samsung, Xiaomi, Huawei, Honor, OPPO) aggressively kill background apps. The app includes multiple self-healing layers that automatically restart monitoring. If it cannot recover, it sends your family an email and shows a Tap to fix notification on the phone. Open the app, go to Settings, Device Reliability, tap your phone brand for step-by-step instructions."}},
             {"@type": "Question", "name": "I don't see a notification. Is the app running?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The app is designed to be install and forget. The notification is intentionally silent and hidden. To verify: open the app - if you see the dashboard, monitoring is active."}},
             {"@type": "Question", "name": "I see a warning May keep your system from sleeping. Is this a problem?", "acceptedAnswer": {"@type": "Answer", "text": "This warning is normal for a 24/7 safety app. It means the app is working correctly by keeping sensors active to detect emergencies."}},
             {"@type": "Question", "name": "How much battery does the app use?", "acceptedAnswer": {"@type": "Answer", "text": "The app uses an adaptive heartbeat that reduces sensor activity during stillness. Typical battery usage is less than 1% per day."}},
             {"@type": "Question", "name": "Does it work on Pixel and stock Android phones?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Version 2.171.0 added one-time setup steps specifically for Pixel and other stock Android phones (Nothing, Motorola, most carrier builds). On Android 13 and newer, two battery features are turned on by default that quietly stop monitoring apps after about three months of not opening them: Pause app activity if unused, and Adaptive Battery. The setup flow walks you through disabling both."}},
-            {"@type": "Question", "name": "What is Pause app activity if unused and why must I disable it?", "acceptedAnswer": {"@type": "Answer", "text": "It is an Android feature that automatically force-stops apps you have not opened in about three months and revokes their permissions. For a safety app installed for an elderly user who never opens it, this guarantees monitoring will silently die after a few months. Disabling it during setup is the only way to keep monitoring running long term."}},
+            {"@type": "Question", "name": "What happens if my phone's manufacturer kills the app?", "acceptedAnswer": {"@type": "Answer", "text": "The app has built-in self-healing. If your phone manufacturer stops monitoring, the app automatically tries to restart itself using multiple recovery layers. If it cannot recover on its own, it sends an email to your family members explaining that monitoring has paused and asks them to open the app on the phone to fix it. A notification also appears on the phone with a simple Tap to fix button."}},
+            {"@type": "Question", "name": "I received an email saying monitoring has stopped. What do I do?", "acceptedAnswer": {"@type": "Answer", "text": "Open the app on the monitored phone. You will see a recovery screen showing exactly what needs to be fixed, with step-by-step instructions specific to the phone brand. Tap the fix button, follow the steps, and monitoring restarts automatically."}},
+            {"@type": "Question", "name": "What is Pause app activity if unused and why does it matter?", "acceptedAnswer": {"@type": "Answer", "text": "Android can automatically stop apps that have not been opened in about three months and revoke their permissions. For a safety app installed for someone who never opens it, this would silently stop monitoring. During setup, the app asks you to disable this feature in one tap. If it gets re-enabled after a system update, the app detects this and guides you through fixing it."}},
             {"@type": "Question", "name": "I already installed the app before version 2.171.0. How do I add the new Pixel settings?", "acceptedAnswer": {"@type": "Answer", "text": "Open the app and go to Settings, Device Reliability, tap your device name. The Pixel-specific guidance screen walks you through the four steps. You may also see a one-time prompt on the dashboard after updating, which opens the same screen automatically."}}
         ]
     }
@@ -646,7 +649,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>The app keeps getting killed by my phone. What do I do?</summary>
-                    <p>Some manufacturers (Samsung, Xiaomi, Huawei, Honor, OPPO) aggressively kill background apps. Go to Settings > Permissions and fix any issues. Disable Battery Optimization for this app. On Samsung/Xiaomi/Huawei: check manufacturer-specific power saving settings and add the app to exceptions. Lock the app in recent apps if possible.</p>
+                    <p>Some manufacturers (Samsung, Xiaomi, Huawei, Honor, OPPO) aggressively kill background apps. The app includes multiple self-healing layers that automatically restart monitoring. If it cannot recover, it sends your family an email and shows a "Tap to fix" notification on the phone. To prevent this: open the app, go to Settings → Device Reliability → tap your phone brand for step-by-step instructions. On most phones, one or two toggles fix it permanently.</p>
                 </details>
                 <details class="faq-item">
                     <summary>I don't see a notification. Is the app running?</summary>
@@ -665,12 +668,20 @@
                     <p>Yes — and version 2.171.0 added one-time setup steps specifically for Pixel and other stock Android phones (Nothing, Motorola, most carrier builds). On Android 13 and newer, two battery features are turned on by default that quietly stop monitoring apps after about three months of not opening them: "Pause app activity if unused" and Adaptive Battery. The setup flow now walks you through disabling both, so monitoring keeps running indefinitely.</p>
                 </details>
                 <details class="faq-item">
-                    <summary>What is "Pause app activity if unused" and why must I disable it?</summary>
-                    <p>It is an Android feature that automatically force-stops apps you haven't opened in about three months and revokes their permissions. For a safety app installed for an elderly user who never opens it, this guarantees monitoring will silently die after a few months. Disabling it (one-tap during setup) is the only way to keep monitoring running for the long term.</p>
-                </details>
-                <details class="faq-item">
                     <summary>I already installed the app before version 2.171.0. How do I add the new Pixel settings?</summary>
                     <p>Open the app and go to Settings → Device Reliability → tap your device name. The Pixel-specific guidance screen will walk you through the four steps. You may also see a one-time prompt on the dashboard after updating, which opens the same screen automatically. Once completed, the app will not ask for anything again.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What happens if my phone's manufacturer kills the app?</summary>
+                    <p>The app has built-in self-healing. If your phone manufacturer stops monitoring, the app automatically tries to restart itself using multiple recovery layers. If it cannot recover on its own, it sends an email to your family members explaining that monitoring has paused and asks them to open the app on the phone to fix it. A notification also appears on the phone with a simple "Tap to fix" button. One tap restores everything.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>I received an email saying monitoring has stopped. What do I do?</summary>
+                    <p>Open the app on the monitored phone. You will see a recovery screen showing exactly what needs to be fixed, with step-by-step instructions specific to the phone brand. Tap the fix button, follow the steps, and monitoring restarts automatically. If you cannot access the phone yourself, ask the person who has it to open the app — one tap is all it takes.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What is "Pause app activity if unused" and why does it matter?</summary>
+                    <p>Android can automatically stop apps that haven't been opened in about three months and revoke their permissions. For a safety app installed for someone who never opens it, this would silently stop monitoring. During setup, the app asks you to disable this feature in one tap. If it gets re-enabled after a system update, the app detects this and guides you through fixing it.</p>
                 </details>
             </div>
         </div>
@@ -691,11 +702,15 @@
                 </details>
                 <details class="faq-item">
                     <summary>Monitoring stops or notification disappears</summary>
-                    <p>1. Go to Settings > Permissions and fix any issues shown. 2. Disable Battery Optimization: Android Settings > Apps > How Are You?! > Battery > Unrestricted. 3. Lock the app in recent apps (long-press the app card and tap the lock icon). 4. On Xiaomi/Huawei/Samsung/Honor: check manufacturer-specific power saving settings and add the app to exceptions.</p>
+                    <p>The app includes self-healing layers that automatically restart monitoring in most cases. If monitoring cannot recover, your family receives an email alert and a "Tap to fix" notification appears on the phone. To fix: 1. Open the app — if you see a recovery screen, tap the fix button and follow the on-screen steps for your phone brand. 2. If no recovery screen, go to Settings → Device Reliability → tap your phone brand and follow the steps. 3. Disable Battery Optimization: Android Settings → Apps → How Are You?! → Battery → Unrestricted. 4. On Xiaomi/Huawei/Honor/OPPO: check manufacturer-specific power saving settings and add the app to exceptions.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Battery draining quickly</summary>
                     <p>1. Ensure WiFi is enabled - GPS uses less battery with WiFi-assisted location. 2. The app typically uses less than 1% battery per day. Higher usage may indicate GPS issues. 3. If battery drain is severe, restart the phone. 4. The app automatically reduces sensor activity during periods of stillness to save battery.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Family received "Monitoring has stopped" email</summary>
+                    <p>This means the app detected that a critical permission was revoked or the phone manufacturer stopped the background service, and it could not recover automatically. Someone needs to open the app on the monitored phone. A recovery screen will appear showing what is wrong and how to fix it, with step-by-step instructions for that specific phone brand. One tap restores monitoring. This email is sent at most once per day to avoid repeated alerts for the same issue.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Pixel / stock Android: monitoring stopped after a system update or weeks of not using the phone</summary>
