@@ -176,6 +176,199 @@ a:hover {
 }
 
 /* ========================================
+   Primary Navigation Menu
+   ======================================== */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.primary-nav {
+    list-style: none;
+    display: none;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+}
+
+.primary-nav li {
+    margin: 0;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: 8px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+    color: #fff;
+    background: rgba(124, 58, 237, 0.18);
+}
+
+.nav-link.nav-cta {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    color: #fff;
+    padding: 8px 16px;
+    margin-left: 6px;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.35);
+}
+
+.nav-link.nav-cta:hover {
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 18px rgba(124, 58, 237, 0.55);
+}
+
+/* Hamburger toggle — mobile only */
+.nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.nav-toggle:hover {
+    border-color: var(--color-primary-light);
+    background: rgba(124, 58, 237, 0.1);
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile: nav slides down from below header as full-width panel */
+@media (max-width: 767px) {
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: var(--spacing-sm);
+        background: rgba(15, 11, 42, 0.96);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: max-height 0.3s ease, visibility 0s linear 0.3s;
+    }
+
+    .nav.is-open {
+        max-height: 420px;
+        visibility: visible;
+        transition: max-height 0.3s ease, visibility 0s linear 0s;
+    }
+
+    .primary-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 12px 14px;
+        font-size: 1rem;
+    }
+
+    .nav-link.nav-cta {
+        margin-left: 0;
+        margin-top: 6px;
+        text-align: center;
+    }
+
+    /* Keep lang switcher compact next to hamburger on mobile */
+    .lang-btn {
+        padding: 5px 9px;
+        font-size: 14px;
+    }
+
+    /* Trim logo wordmark on narrow screens so header-right fits */
+    .logo-text {
+        font-size: var(--font-size-sm);
+    }
+
+    .logo-accent {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo-text {
+        display: none;
+    }
+}
+
+/* Desktop: inline primary nav, hide hamburger */
+@media (min-width: 768px) {
+    .primary-nav {
+        display: flex;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav {
+        gap: var(--spacing-sm);
+    }
+}
+
+/* Sticky header clearance on anchor jumps (fixed header is ~72px tall) */
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+/* ========================================
    Hero Section — Gradient + Floating Shapes
    ======================================== */
 .hero {
@@ -251,6 +444,42 @@ a:hover {
 
 .hero-cta {
     margin-bottom: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.play-badge-link {
+    display: inline-block;
+    line-height: 0;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    border-radius: 12px;
+    outline: none;
+}
+
+.play-badge-link:hover,
+.play-badge-link:focus-visible {
+    transform: translateY(-2px) scale(1.03);
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.35));
+}
+
+.play-badge-link:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 4px;
+}
+
+.play-badge-img {
+    display: block;
+    width: 220px;
+    height: auto;
+}
+
+.hero-cta-caption {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    margin: 0;
+    letter-spacing: 0.01em;
 }
 
 .btn {

@@ -154,18 +154,32 @@
                 <img src="images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
                 <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
             </a>
-            <nav class="nav">
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav">
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="#use-cases" class="nav-link">For Whom</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
                 <div class="language-switcher">
                     <a href="index.html" class="lang-btn active">EN</a>
                     <a href="bg/index.html" class="lang-btn">BG</a>
                     <a href="de/index.html" class="lang-btn">DE</a>
                 </div>
-            </nav>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="top">
         <div class="hero-shape hero-shape-1"></div>
         <div class="hero-shape hero-shape-2"></div>
         <div class="hero-shape hero-shape-3"></div>
@@ -174,12 +188,10 @@
             <h1 class="hero-title">Peace of Mind for Your Loved Ones</h1>
             <p class="hero-subtitle">AI-powered safety monitoring that learns your parent's routines and alerts you to emergencies - without daily check-in calls</p>
             <div class="hero-cta">
-                <p style="display:inline-block;background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:12px 24px;font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:16px;">Coming Soon to Google Play</p>
-                <br>
-                <p style="color:rgba(255,255,255,0.85);font-size:1rem;max-width:500px;margin:0 auto 16px;">Smart, silent monitoring that watches over your elderly parents 24/7. No daily check-in calls needed.</p>
-                <a href="mailto:developer@howareu.app?subject=How%20Are%20You%3F!%20-%20Interested&body=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20the%20app." class="btn btn-primary">
-                    <span>Get in Touch</span>
+                <a href="https://play.google.com/store/apps/details?id=com.howareyou" target="_blank" rel="noopener" class="play-badge-link" aria-label="Get How Are You?! on Google Play">
+                    <img src="images/google-play-badge-en.png" alt="Get it on Google Play" class="play-badge-img" width="220" height="85" loading="eager">
                 </a>
+                <p class="hero-cta-caption">21-day free trial · Android 9+ · No credit card required</p>
             </div>
         </div>
     </section>

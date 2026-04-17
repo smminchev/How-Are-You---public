@@ -155,18 +155,32 @@
                 <img src="../images/logo.png" alt="Wie geht's?! Sicherheits-App für Senioren Logo" class="logo-img">
                 <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
             </a>
-            <nav class="nav">
+            <nav class="nav" id="primary-nav" aria-label="Hauptmenü">
+                <ul class="primary-nav">
+                    <li><a href="#features" class="nav-link">Funktionen</a></li>
+                    <li><a href="#how-it-works" class="nav-link">So funktioniert's</a></li>
+                    <li><a href="#use-cases" class="nav-link">Für wen</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
                 <div class="language-switcher">
                     <a href="../index.html" class="lang-btn">EN</a>
                     <a href="../bg/index.html" class="lang-btn">BG</a>
                     <a href="index.html" class="lang-btn active">DE</a>
                 </div>
-            </nav>
+                <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="top">
         <div class="hero-shape hero-shape-1"></div>
         <div class="hero-shape hero-shape-2"></div>
         <div class="hero-shape hero-shape-3"></div>
@@ -175,12 +189,10 @@
             <h1 class="hero-title">Seelenfrieden für Ihre Liebsten</h1>
             <p class="hero-subtitle">KI-gestützte Sicherheitsüberwachung, die die Routinen Ihrer Eltern lernt und Sie bei Notfällen benachrichtigt - ohne tägliche Kontrollanrufe</p>
             <div class="hero-cta">
-                <p style="display:inline-block;background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:12px 24px;font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:16px;">Bald bei Google Play verfügbar</p>
-                <br>
-                <p style="color:rgba(255,255,255,0.85);font-size:1rem;max-width:500px;margin:0 auto 16px;">Wir suchen Early Adopter, die die App testen und uns helfen, sie zu verbessern. Wenn Sie ein älteres Elternteil haben, das allein lebt, melden Sie sich!</p>
-                <a href="mailto:developer@howareu.app?subject=Early%20Adopter%20-%20Wie%20geht%27s%3F!&body=Hallo%2C%20ich%20m%C3%B6chte%20die%20App%20testen." class="btn btn-primary">
-                    <span>Early Adopter werden</span>
+                <a href="https://play.google.com/store/apps/details?id=com.howareyou&hl=de" target="_blank" rel="noopener" class="play-badge-link" aria-label="Wie geht's?! bei Google Play laden">
+                    <img src="../images/google-play-badge-de.png" alt="Jetzt bei Google Play" class="play-badge-img" width="220" height="85" loading="eager">
                 </a>
+                <p class="hero-cta-caption">21 Tage kostenlos testen · Android 9+ · Ohne Kreditkarte</p>
             </div>
         </div>
     </section>

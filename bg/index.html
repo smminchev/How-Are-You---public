@@ -154,18 +154,32 @@
                 <img src="../images/logo.png" alt="Добре ли си?! Лого за безопасност на възрастни" class="logo-img">
                 <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
             </a>
-            <nav class="nav">
+            <nav class="nav" id="primary-nav" aria-label="Основна навигация">
+                <ul class="primary-nav">
+                    <li><a href="#features" class="nav-link">Функции</a></li>
+                    <li><a href="#how-it-works" class="nav-link">Как работи</a></li>
+                    <li><a href="#use-cases" class="nav-link">За кого</a></li>
+                    <li><a href="#faq" class="nav-link">Въпроси</a></li>
+                    <li><a href="#top" class="nav-link nav-cta">Изтегли</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
                 <div class="language-switcher">
                     <a href="../index.html" class="lang-btn">EN</a>
                     <a href="index.html" class="lang-btn active">BG</a>
                     <a href="../de/index.html" class="lang-btn">DE</a>
                 </div>
-            </nav>
+                <button class="nav-toggle" aria-label="Отвори менюто" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="top">
         <div class="hero-shape hero-shape-1"></div>
         <div class="hero-shape hero-shape-2"></div>
         <div class="hero-shape hero-shape-3"></div>
@@ -174,12 +188,10 @@
             <h1 class="hero-title">Спокойствие за Вашите близки</h1>
             <p class="hero-subtitle">AI мониторинг за безопасност, който научава рутината на родителя ви и ви известява при извънредни ситуации - без ежедневни обаждания</p>
             <div class="hero-cta">
-                <p style="display:inline-block;background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.2);border-radius:12px;padding:12px 24px;font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:16px;">Очаквайте скоро в Google Play</p>
-                <br>
-                <p style="color:rgba(255,255,255,0.85);font-size:1rem;max-width:500px;margin:0 auto 16px;">Търсим ранни потребители, които искат да тестват приложението и да ни помогнат да го подобрим. Ако имате възрастен родител, който живее сам, свържете се с нас!</p>
-                <a href="mailto:developer@howareu.app?subject=%D0%A0%D0%B0%D0%BD%D0%B5%D0%BD%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%20-%20%D0%94%D0%BE%D0%B1%D1%80%D0%B5%20%D0%BB%D0%B8%20%D1%81%D0%B8%3F!&body=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%B5%D0%B9%D1%82%D0%B5%2C%20%D0%B1%D0%B8%D1%85%20%D0%B8%D1%81%D0%BA%D0%B0%D0%BB%20%D0%B4%D0%B0%20%D1%82%D0%B5%D1%81%D1%82%D0%B2%D0%B0%D0%BC%20%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%D1%82%D0%BE." class="btn btn-primary">
-                    <span>Станете ранен потребител</span>
+                <a href="https://play.google.com/store/apps/details?id=com.howareyou&hl=bg" target="_blank" rel="noopener" class="play-badge-link" aria-label="Изтеглете Добре ли си?! от Google Play">
+                    <img src="../images/google-play-badge-bg.png" alt="Вземи от Google Play" class="play-badge-img" width="220" height="85" loading="eager">
                 </a>
+                <p class="hero-cta-caption">21-дневен безплатен пробен период · Android 9+ · Без кредитна карта</p>
             </div>
         </div>
     </section>
