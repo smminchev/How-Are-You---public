@@ -200,7 +200,7 @@
 
     <main class="content">
         <h1>Datenschutzerklärung</h1>
-        <p class="last-updated">Letzte Aktualisierung: 2026-04-07</p>
+        <p class="last-updated">Letzte Aktualisierung: 2026-04-21</p>
 
         <p class="intro">
             Diese Datenschutzerklärung beschreibt, wie "How Are You?!" (die "App") Ihre Informationen sammelt, verwendet und schützt.
@@ -266,6 +266,16 @@
             <li>E-Mail-Adressen oder Kontokennungen</li>
         </ul>
         <p>Googles AI verarbeitet die Zusammenfassung und gibt eine Sicherheitsbewertung zurück. Google verwendet diese Daten nicht für Werbung oder Modelltraining (kostenpflichtige API-Stufe). Siehe Googles Gemini API-Nutzungsbedingungen für Details.</p>
+
+        <h3>Push-Benachrichtigungen für Überwachungs-Survival</h3>
+        <p>Um kontinuierliche Sicherheitsüberwachung zu gewährleisten, erhält die App etwa alle 6 Stunden stille Push-Benachrichtigungen. Diese Benachrichtigungen:</p>
+        <ul>
+            <li><strong>Enthalten keine persönlichen Daten</strong> — nur einen Zeitstempel und einen Nachrichtentyp-Bezeichner</li>
+            <li><strong>Werden nicht auf dem Gerät angezeigt</strong> — es sind stille Datenmeldungen, die nur verwendet werden, um zu überprüfen, ob der Überwachungsdienst läuft</li>
+            <li><strong>Ermöglichen automatische Wiederherstellung</strong> — wenn der Telefonhersteller den Hintergrunddienst gestoppt hat, helfen diese Push-Meldungen beim Neustart</li>
+            <li><strong>Verhindern OS-Hibernation</strong> — die regelmäßige Zustellung teilt Android mit, dass die App noch verwendet wird, und verhindert so den automatischen Entzug von Berechtigungen nach Monaten der Inaktivität</li>
+        </ul>
+        <p>Push-Benachrichtigungen werden über Firebase Cloud Messaging (Google LLC) zugestellt. Siehe Firebase-Nutzungsbedingungen: <a href="https://firebase.google.com/terms">https://firebase.google.com/terms</a>.</p>
 
         <h2>4. Datenweitergabe und Auftragsverarbeiter</h2>
         <p>Um die zentrale Sicherheitsfunktionalität bereitzustellen, gibt die App bestimmte Daten an zwei vertraglich gebundene Auftragsverarbeiter weiter. Jeder dieser Verarbeiter handelt im Rahmen einer Auftragsverarbeitungsvereinbarung (soweit gemäß Art. 28 DSGVO anwendbar) und verarbeitet Daten ausschließlich in unserem Auftrag, für die unten beschriebenen begrenzten Zwecke. Wir verkaufen Ihre Daten nicht, geben sie nicht an Werbenetzwerke weiter, nutzen sie nicht für Analysen und teilen sie mit niemandem außer den beiden unten ausdrücklich genannten Auftragsverarbeitern.</p>

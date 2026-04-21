@@ -200,7 +200,7 @@
 
     <main class="content">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: 2026-04-07</p>
+        <p class="last-updated">Last updated: 2026-04-21</p>
 
         <p class="intro">
             This Privacy Policy describes how "How Are You?!" (the "App") collects, uses, and protects your information.
@@ -266,6 +266,16 @@
             <li>Email addresses or account identifiers</li>
         </ul>
         <p>Google's AI processes the summary and returns a safety assessment. Google does not use this data for advertising or model training (paid API tier). See Google's Gemini API Terms of Service for details.</p>
+
+        <h3>Push Notifications for Monitoring Survival</h3>
+        <p>To ensure continuous safety monitoring, the app receives silent push notifications approximately every 6 hours. These notifications:</p>
+        <ul>
+            <li><strong>Contain no personal data</strong> — only a timestamp and message type identifier</li>
+            <li><strong>Do not display on the device</strong> — they are silent data messages used only to verify the monitoring service is running</li>
+            <li><strong>Enable automatic recovery</strong> — if the phone manufacturer has stopped the background service, these pushes help restart it</li>
+            <li><strong>Prevent OS hibernation</strong> — regular delivery tells Android the app is still in use, preventing automatic permission revocation after months of inactivity</li>
+        </ul>
+        <p>Push notifications are delivered via Firebase Cloud Messaging (Google LLC). See Firebase Terms of Service: <a href="https://firebase.google.com/terms">https://firebase.google.com/terms</a>.</p>
 
         <h2>4. Data Sharing and Sub-Processors</h2>
         <p>To deliver core safety functionality, the App shares specific data with two contracted third-party processors. Each operates under a Data Processing Agreement (where applicable under GDPR Article 28) and processes data solely on our behalf, for the limited purposes described below. We do not sell your data, do not share it with advertising networks, do not use it for analytics, and do not share it with anyone other than the two named processors below.</p>
