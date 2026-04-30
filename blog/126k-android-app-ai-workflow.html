@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Most developers trying AI coding tools hit the same wall. They open a chat, type &quot;build me a todo...">
+    <meta name="author" content="Stoyan Minchev">
+    <meta name="robots" content="index, follow">
+    <title>I built a 126K-line Android app with AI — here is the workflow that actually worked for me — How Are You?! Blog</title>
+
+    <link rel="canonical" href="https://howareu.app/blog/126k-android-app-ai-workflow.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://howareu.app/blog/126k-android-app-ai-workflow.html">
+    <meta property="og:title" content="I built a 126K-line Android app with AI — here is the workflow that actually worked for me">
+    <meta property="og:description" content="Most developers trying AI coding tools hit the same wall. They open a chat, type &quot;build me a todo...">
+    <meta property="og:image" content="https://howareu.app/images/logo.png">
+    <meta property="og:site_name" content="How Are You?! Senior Safety">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="I built a 126K-line Android app with AI — here is the workflow that actually worked for me">
+    <meta name="twitter:description" content="Most developers trying AI coding tools hit the same wall. They open a chat, type &quot;build me a todo...">
+    <meta name="twitter:image" content="https://howareu.app/images/logo.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="blog-body">
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
+            </a>
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav">
+                    <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="../index.html#use-cases" class="nav-link">For Whom</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="index.html" class="nav-link nav-link-active">Blog</a></li>
+                    <li><a href="../index.html#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="../index.html" class="lang-btn active">EN</a>
+                    <a href="../bg/index.html" class="lang-btn">BG</a>
+                    <a href="../de/index.html" class="lang-btn">DE</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <div class="container article-container">
+            <p class="article-breadcrumb"><a href="index.html">&larr; All articles</a></p>
+            <h1 class="article-title">I built a 126K-line Android app with AI — here is the workflow that actually worked for me</h1>
+            <div class="article-meta">
+                <time datetime="2026-03-29">March 29, 2026</time>
+                <span class="article-meta-sep">&middot;</span>
+                <span>8 min read</span>
+                <span class="article-meta-sep">&middot;</span>
+                <span class="article-tags"><span class="article-tag">#ai</span> <span class="article-tag">#productivity</span> <span class="article-tag">#programming</span> <span class="article-tag">#devops</span></span>
+            </div>
+            
+            <article class="article-prose">
+<p>Most developers trying AI coding tools hit the same wall. They open a chat, type "build me a todo app," get something that looks right, and then spend 3 hours fixing the mess. They try again with a bigger project and it falls apart faster. They conclude AI coding is overhyped.</p>
+<p>I had the same experience. Then I changed my approach — not the tool, the process around it.</p>
+<p>Over 4 months I built <a href="https://howareu.app">How Are You?!</a>, a safety-critical Android app that monitors elderly people living alone. 126,000 lines of Kotlin. 144 versions. 130 test files. 3 languages. Solo developer with zero Kotlin experience when I started. The entire codebase was AI-generated — I never wrote Kotlin manually.</p>
+<p>This article is not about the app. It is about the workflow that made this possible.</p>
+<h2>Why most people fail with AI coding</h2>
+<p>Two reasons:</p>
+<ol>
+<li>
+<p><strong>Expectations are wrong.</strong> People expect to describe a feature in plain English and get production code. That works for a function. It does not work for a system. AI is not a replacement for engineering — it is an amplifier. If your input is vague, the output is vague.</p>
+</li>
+<li>
+<p><strong>No structure around the AI.</strong> They open a chat, prompt, get code, paste it, prompt again. There is no architecture. No shared context. No accumulated knowledge. Every conversation starts from zero.</p>
+</li>
+</ol>
+<p>The fix is not better prompting. It is better engineering process — with the AI as a participant.</p>
+<h2>Step 1: Architecture before code (BMAD)</h2>
+<p>Before writing a single line of code, I used <a href="https://docs.bmad-method.org/">BMAD</a> (a structured methodology for AI-assisted development) to create:</p>
+<ul>
+<li><strong>Product Requirements Document</strong> — what the app does, who it is for, what the constraints are</li>
+<li><strong>Architecture document</strong> — module boundaries, layer responsibilities, error handling patterns, data flow</li>
+<li><strong>Project context</strong> — coding standards, naming conventions, DO/DON'T lists</li>
+</ul>
+<p>This took about a week. It felt slow. It was the most valuable week of the entire project.</p>
+<p>Why? Because every conversation with the AI after that point had a shared foundation. The AI was not guessing what my app looked like — it knew. Module boundaries were defined. Error handling was standardized. The AI could generate code that fit into a real system because the system was documented.</p>
+<p>Without architecture docs, AI generates code that looks correct in isolation but conflicts with everything else. You spend all your time merging inconsistent outputs instead of building features.</p>
+<h2>Step 2: CLAUDE.md — the constitution</h2>
+<p>Claude Code loads a <code>CLAUDE.md</code> file from your project root at the start of every conversation. This is the most important file in my repository.</p>
+<p>Mine contains:</p>
+<ul>
+<li><strong>Module boundaries</strong> enforced by Gradle (which module can import what)</li>
+<li><strong>Core patterns</strong> (all use cases return <code>Result&lt;T&gt;</code>, ViewModels expose <code>StateFlow</code>, never <code>GlobalScope</code>)</li>
+<li><strong>Critical DON'Ts</strong> — a condensed list of rules that came from production bugs</li>
+<li><strong>Subsystem quick reference</strong> — a table pointing to detailed rules for each area (AlarmManager, sensors, AI, email, billing, GPS, permissions)</li>
+</ul>
+<p>Every rule in that file exists because I violated it once and something broke. The file grows with the project.</p>
+<p>This is the key insight: <strong>CLAUDE.md turns one-time lessons into permanent constraints.</strong> The AI never forgets a rule I put there. I forget constantly.</p>
+<h2>Step 3: Living documentation with start/stop commands</h2>
+<p>I built custom slash commands that bookend every development session:</p>
+<p><strong><code>/howareyou-start</code></strong> — loads the developer briefing, critical rules, release notes, and current version. The AI reads everything before I write a single prompt. It takes 30 seconds and prevents 80% of the mistakes I used to make.</p>
+<p><strong><code>/howareyou-stop</code></strong> — updates release notes, archives old entries, updates CRITICAL_DONTS.md with any new lessons, updates the developer briefing, bumps the version, commits, and pushes.</p>
+<p>The documentation is never stale because updating it is part of the release process, not a separate task. I do not update docs manually. The AI does it as part of shipping.</p>
+<p>This creates a flywheel: better docs -&gt; better AI output -&gt; fewer bugs -&gt; lessons captured -&gt; better docs.</p>
+<h2>Step 4: Concrete technical specs</h2>
+<p>When I need a new feature, I do not say "add travel detection." I use BMAD's tech spec workflow to produce a document that specifies:</p>
+<ul>
+<li>Exact state machine (HOME -&gt; DAY_1 -&gt; TRAVELING -&gt; TRIP_ENDED)</li>
+<li>Database schema changes (table names, column types, indexes)</li>
+<li>Which existing classes are affected and how</li>
+<li>Edge cases and error handling</li>
+<li>What tests to write</li>
+</ul>
+<p>The spec is 2-5 pages. Writing it takes 30 minutes with BMAD's guided conversation. It saves hours of back-and-forth with the AI during implementation and eliminates the "it generated something but it does not fit" problem.</p>
+<p><strong>The rule:</strong> if I cannot describe the feature precisely enough for a spec, I am not ready to build it. I brainstorm first (also with the AI), then spec, then build.</p>
+<h2>Step 5: Brainstorming sessions</h2>
+<p>I use BMAD brainstorming for everything — not just code. Pricing strategy. UX decisions. Marketing approaches. Whether to support SMS notifications or stick with email.</p>
+<p>The pattern: open a session, describe the problem, let the AI challenge my assumptions. I keep the transcripts. Some of my best architectural decisions came from brainstorming sessions where the AI pointed out an edge case I had not considered.</p>
+<h2>Step 6: Automated audits that run weekly</h2>
+<p>My app has to survive Android OEM battery killers (Samsung, Xiaomi, Honor, OPPO — they all kill background apps differently). These OEMs ship updates constantly that can break my compatibility layer.</p>
+<p>I built two audit commands:</p>
+<p><strong><code>/howareyou-oem-audit</code></strong> — searches the web for recent OEM changelog entries and breaking changes, then scans my codebase for affected areas and proposes fixes.</p>
+<p><strong><code>/howareyou-gps-audit</code></strong> — does the same for GPS and location API changes (FusedLocationProvider updates, OEM GPS power management changes).</p>
+<p><strong><code>/howareyou-full-audit</code></strong> — runs both in parallel and produces a combined report with a prioritized action plan.</p>
+<p>I run these weekly. They have caught breaking changes before they hit my users — Samsung silently resetting battery optimization exemptions after OTA updates, Honor changing wakelock tag whitelisting behavior, Google deprecating location API parameters.</p>
+<p>This is the kind of thing that would take a human developer hours of manual searching. The AI does it in minutes and maps the findings directly to my source code.</p>
+<h2>Step 7: One-command publishing</h2>
+<pre><code class="language-plaintext">/howareyou-build-test    → builds signed release AAB
+/howareyou-publish-testingMode  → uploads to Google Play internal + closed testing
+</code></pre>
+<p>From "the code is ready" to "testers have the update" in under 5 minutes, without leaving the terminal. No browser, no Play Console clicking.</p>
+<h2>Step 8: Infrastructure monitoring</h2>
+<p>I use 6 Google Cloud projects for Gemini API key rotation (each project gets 10K free requests/day — 60K total). Things break. Billing gets disabled. Keys expire.</p>
+<p><strong><code>/howareyou-monitor</code></strong> — checks all 6 shards, reports which are healthy, which failed, and why.</p>
+<p><strong><code>/howareyou-fix-billing</code></strong> — automatically re-links disabled shards to the shared billing account.</p>
+<p>These are not development tasks. They are operational tasks that I handle from the same terminal where I write code.</p>
+<h2>Step 9: Code reviews with a second model</h2>
+<p>After implementing a feature, I run a code review using BMAD's adversarial review workflow. It is configured to find 3-10 specific problems in every review — it never says "looks good." It checks:</p>
+<ul>
+<li>Architecture compliance (are module boundaries respected?)</li>
+<li>Test coverage (are edge cases tested?)</li>
+<li>Security (any hardcoded keys? SQL injection? XSS?)</li>
+<li>Performance (unnecessary allocations? missing indexes?)</li>
+<li>Consistency with project patterns</li>
+</ul>
+<p>This catches things I miss because I have been staring at the code for hours. The adversarial framing is important — a review that always approves is useless.</p>
+<h2>Step 10: Lessons learned as a living document</h2>
+<p>Every production bug becomes a rule in <code>CRITICAL_DONTS.md</code>. The file is organized by subsystem:</p>
+<ul>
+<li><strong>AlarmManager:</strong> never call <code>setAlarmClock()</code> more than 3x/day (Honor flags you)</li>
+<li><strong>Sensor:</strong> always flush FIFO and discard stale readings (Honor rebases timestamps)</li>
+<li><strong>Email:</strong> per-recipient sends, never batch (Resend delivery tracking breaks)</li>
+<li><strong>GPS:</strong> full priority fallback chain, never trust a single <code>getCurrentLocation()</code> call</li>
+</ul>
+<p>There are 50+ rules in that file. Each one has a version number (when it was added) and a rationale (why it matters). The AI reads this file at the start of every session via the <code>/howareyou-start</code> command.</p>
+<p>This is the most underrated part of the workflow. Most developers keep lessons in their head. Heads forget. Files do not.</p>
+<h2>The daily workflow</h2>
+<p>Here is what a typical development day looks like:</p>
+<ol>
+<li><code>/howareyou-start</code> — AI loads all context (30 seconds)</li>
+<li>Describe the task — with a tech spec if it is a feature, or a bug description if it is a fix</li>
+<li>AI implements — I review the diff, run tests</li>
+<li>Iterate — usually 1-3 rounds</li>
+<li><code>/howareyou-stop</code> — docs updated, version bumped, committed, pushed</li>
+<li><code>/howareyou-publish-testingMode</code> — testers have the update</li>
+</ol>
+<p>I ship multiple versions per day with this flow. Not because I rush — because the overhead between "code works" and "testers have it" is near zero.</p>
+<h2>What this is NOT</h2>
+<ul>
+<li>It is not "no-code.". If you know the language, it is worth checking and correcting if needed. With time, the needed small fixes will become less. It is always good to understand the architecture and to make the design decisions yourself.</li>
+<li>It is not effortless. The workflow took months to build. The documentation is extensive.</li>
+<li>It is not magic. The AI makes mistakes. The difference is that mistakes are caught by the process (tests, reviews, rules, audits) instead of by users.</li>
+</ul>
+<h2>The numbers</h2>
+<ul>
+<li><strong>126,000 lines</strong> of Kotlin across 398 files</li>
+<li><strong>45,000 lines</strong> of tests across 130 files</li>
+<li><strong>144 versions</strong> shipped</li>
+<li><strong>3 languages</strong> (English, Bulgarian, German)</li>
+<li><strong>50+ production lessons</strong> captured in CRITICAL_DONTS.md</li>
+<li><strong>4 months</strong> from zero Kotlin experience to production app on Google Play</li>
+<li><strong>9 custom commands</strong> automating the full development lifecycle</li>
+<li><strong>0 lines</strong> of Kotlin written manually by me</li>
+</ul>
+<h2>The takeaway</h2>
+<p>AI coding tools are not magic code generators. They are force multipliers for engineering process. If your process is "open chat, type prompt, hope for the best," you will be disappointed.</p>
+<p>If your process is "document the architecture, define the rules, automate the lifecycle, capture every lesson, review everything adversarially" — the AI becomes unreasonably effective.</p>
+<p>The investment is not in better prompts. It is in better engineering.</p>
+<hr>
+<p><em>The app is <a href="https://howareu.app">How Are You?!</a> — AI safety monitoring for elderly parents. It will be released soon. The code workflow described here uses <a href="https://claude.ai/code">Claude Code</a> with <a href="https://docs.bmad-method.org/">BMAD</a>. Both are tools I use daily and genuinely recommend.</em></p>
+            </article>
+            <div class="article-footer">
+                <a class="article-devto-link" href="https://dev.to/stoyan_minchev/i-built-a-126k-line-android-app-with-ai-here-is-the-workflow-that-actually-works-2llj" target="_blank" rel="noopener">Read on dev.to / discuss in comments &rarr;</a>
+            </div>
+            <nav class="article-nav" aria-label="Article navigation">
+                <a class="article-nav-link prev" href="11-layers-oem-survival.html"><span class="article-nav-label">&larr; Previous</span><span class="article-nav-title">What Android OEMs do to background apps, and the 11 layers I built to survive it</span></a><a class="article-nav-link next" href="kotlin-lambda-21-hours.html"><span class="article-nav-label">Next &rarr;</span><span class="article-nav-title">A single Kotlin lambda silently broke my app for 21 hours - and I only found the bug because I crossed a border</span></a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="How Are You?! Senior Safety" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="https://dev.to/stoyan_minchev" class="footer-link" target="_blank" rel="noopener">dev.to</a>
+                    <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Community</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 How Are You?! All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

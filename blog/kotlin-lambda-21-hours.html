@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I build a safety-critical Android app that monitors elderly people living alone. It watches their...">
+    <meta name="author" content="Stoyan Minchev">
+    <meta name="robots" content="index, follow">
+    <title>A single Kotlin lambda silently broke my app for 21 hours - and I only found the bug because I crossed a border — How Are You?! Blog</title>
+
+    <link rel="canonical" href="https://howareu.app/blog/kotlin-lambda-21-hours.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://howareu.app/blog/kotlin-lambda-21-hours.html">
+    <meta property="og:title" content="A single Kotlin lambda silently broke my app for 21 hours - and I only found the bug because I crossed a border">
+    <meta property="og:description" content="I build a safety-critical Android app that monitors elderly people living alone. It watches their...">
+    <meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fx5k3macovdbhed4nb07c.png">
+    <meta property="og:site_name" content="How Are You?! Senior Safety">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A single Kotlin lambda silently broke my app for 21 hours - and I only found the bug because I crossed a border">
+    <meta name="twitter:description" content="I build a safety-critical Android app that monitors elderly people living alone. It watches their...">
+    <meta name="twitter:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fx5k3macovdbhed4nb07c.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="blog-body">
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
+            </a>
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav">
+                    <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="../index.html#use-cases" class="nav-link">For Whom</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="index.html" class="nav-link nav-link-active">Blog</a></li>
+                    <li><a href="../index.html#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="../index.html" class="lang-btn active">EN</a>
+                    <a href="../bg/index.html" class="lang-btn">BG</a>
+                    <a href="../de/index.html" class="lang-btn">DE</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <div class="container article-container">
+            <p class="article-breadcrumb"><a href="index.html">&larr; All articles</a></p>
+            <h1 class="article-title">A single Kotlin lambda silently broke my app for 21 hours - and I only found the bug because I crossed a border</h1>
+            <div class="article-meta">
+                <time datetime="2026-04-12">April 12, 2026</time>
+                <span class="article-meta-sep">&middot;</span>
+                <span>5 min read</span>
+                <span class="article-meta-sep">&middot;</span>
+                <span class="article-tags"><span class="article-tag">#android</span> <span class="article-tag">#kotlin</span> <span class="article-tag">#programming</span> <span class="article-tag">#debug</span></span>
+            </div>
+            <div class="article-cover"><img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fx5k3macovdbhed4nb07c.png" alt="" loading="eager"></div>
+            <article class="article-prose">
+<p>I build a safety-critical Android app that monitors elderly people living alone. It watches their phone 24/7 — motion, GPS, screen activity — and emails their family when something looks wrong. No buttons to press, no wearable to charge. Install it on grandma's phone and forget about it.</p>
+<p>I took a trip from Bulgaria to Romania in early April to test the app in real conditions and have a small vacation with my family. I drove across the Danube at the Vidin - Calafat bridge. Everything was working fine. Then at 14:55, the app went completely silent.</p>
+<p>Not crashed. Not killed by the OS. Silent.</p>
+<p>For the next <strong>21 hours and 42 minutes</strong>, the motion sensor recorded 682 events. The GPS hardware was acquiring satellite fixes with 11-meter accuracy. The app was running, awake, doing its job. But not a single location reached the database.</p>
+<p>The next morning, the AI looked at the last known position — a border crossing — and the 12-hour data gap, and did what it was designed to do: it sent an URGENT alert. Except I was fine. I was in Craiova, 200km away, sleeping in a hotel. The alert was anchored to a stale coordinate from the previous afternoon.</p>
+<p>I spent two days tracing this. The root cause was one line of Kotlin.</p>
+<h2>The interface that lies to you</h2>
+<p>Android's <code>Geocoder</code> class converts GPS coordinates into street addresses. On API 33+, there's an async callback version:</p>
+<pre><code class="language-kotlin">geocoder.getFromLocation(latitude, longitude, 1) { addresses -&gt;
+    // do something with the result
+}
+</code></pre>
+<p>That trailing lambda is Kotlin's SAM (Single Abstract Method) conversion. It looks clean. It compiles. It works perfectly — until it doesn't.</p>
+<p>The interface behind this lambda is <code>Geocoder.GeocodeListener</code>:</p>
+<pre><code class="language-java">public interface GeocodeListener {
+    void onGeocode(@NonNull List&lt;Address&gt; addresses);
+
+    default void onError(@Nullable String errorMessage) { }
+}
+</code></pre>
+<p>See that second method? <code>onError</code> has a <strong>default empty implementation</strong>. When you use a SAM lambda, Kotlin only implements the single abstract method — <code>onGeocode</code>. The default <code>onError</code> stays empty.</p>
+<p>So what happens when geocoding fails? Network timeout. No roaming data after crossing a border. Play Services killed by the OEM battery manager. Any of a dozen things that go wrong on real Android devices in real countries.</p>
+<p>The framework calls <code>onError()</code>. The empty default runs. Nothing happens. <strong>The continuation is never resumed. The coroutine hangs forever.</strong></p>
+<h2>Why it killed everything, not just geocoding</h2>
+<p>If the geocoder had hung in isolation, it would have been a minor bug — one address lookup fails, you move on. But my code looked like this:</p>
+<pre><code class="language-kotlin">processLocationMutex.withLock {
+    val address = reverseGeocode(latitude, longitude)  // hangs here
+    insertLocationData(location, address)
+}
+</code></pre>
+<p>The <code>processLocationMutex</code> exists for a good reason. Four independent systems can trigger a GPS write at the same time — the stillness detector, the periodic scheduler, the force probe, and the area stability detector. Without the mutex, they race on the stationarity filter and insert duplicate rows that defeat the drive-through filtering logic.</p>
+<p>But when <code>reverseGeocode()</code> hung, the mutex was held forever. Every subsequent GPS fix from every trigger path called <code>processLocation()</code>, tried to acquire the mutex, and blocked. Behind a coroutine that would never wake up.</p>
+<p>No exception. No crash. No log entry. Just a growing queue of frozen coroutines, each holding a perfectly good satellite fix that would never reach the database.</p>
+<p>The motion sensor kept firing. The GPS kept acquiring. The diagnostic logs show two successful HIGH_ACCURACY fixes at 21:37 and 21:38 — 11-meter accuracy, acquired in 2.5 seconds — both of which entered <code>processLocation()</code> and silently queued behind the hung mutex holder from 7 hours earlier.</p>
+<h2>The only recovery was killing the process</h2>
+<p>At 12:19 the next day — almost 22 hours after the hang started — I force-stopped the app from Android settings. The process died. The singleton mutex died with it. On restart, everything worked again.</p>
+<p>But by then, the damage was done. The AI had already sent a false URGENT alert based on 12-hour-old coordinates. And a weekly re-calibration job had run during the trip, learning the border crossing drive-through as a "frequent location," which caused a cascade of further false alerts over the following days.</p>
+<p>One hung lambda. One stale coordinate. Days of downstream consequences.</p>
+<h2>The fix has three layers</h2>
+<p>I don't trust single fixes for problems that can kill 21 hours of data.</p>
+<p><strong>Layer 1: Explicit object, both methods implemented.</strong></p>
+<pre><code class="language-kotlin">val listener = object : Geocoder.GeocodeListener {
+    override fun onGeocode(addresses: MutableList&lt;Address&gt;) {
+        if (!hasResumed &amp;&amp; continuation.isActive) {
+            hasResumed = true
+            continuation.resume(formatAddress(addresses.firstOrNull()))
+        }
+    }
+
+    override fun onError(errorMessage: String?) {
+        if (!hasResumed &amp;&amp; continuation.isActive) {
+            hasResumed = true
+            continuation.resume(null)
+        }
+    }
+}
+</code></pre>
+<p>No SAM conversion. Both callbacks resume the continuation. The <code>hasResumed</code> flag guards against the race where both fire, or either fires after timeout.</p>
+<p><strong>Layer 2: Hard timeout ceiling.</strong></p>
+<pre><code class="language-kotlin">withTimeoutOrNull(10_000L) {
+    suspendCancellableCoroutine&lt;String?&gt; { continuation -&gt;
+        geocoder.getFromLocation(latitude, longitude, 1, listener)
+    }
+}
+</code></pre>
+<p>Even if some future Android version adds a third callback method with another empty default, the coroutine dies after 10 seconds.</p>
+<p><strong>Layer 3: Geocoding moved outside the mutex.</strong></p>
+<pre><code class="language-kotlin">// Geocoding is slow and can hang — never inside the mutex
+val address = reverseGeocodingService.reverseGeocode(lat, lng)
+
+// Only the database insert is protected (50ms critical section, not 10s+)
+val acquired = withTimeoutOrNull(60_000L) {
+    processLocationMutex.withLock {
+        insertLocationData(location, address)
+    }
+}
+</code></pre>
+<p>The mutex timeout is a tripwire. If something else wedges the lock in the future, we log a diagnostic error and drop the fix rather than queuing forever.</p>
+<h2>What I actually learned</h2>
+<p><strong>SAM conversion is not a convenience. It's a contract you didn't read.</strong> When you write a trailing lambda, you're implementing one method and accepting the defaults for everything else. If those defaults are no-ops, you've written code that silently drops errors. The compiler won't warn you. The IDE won't flag it. It works perfectly until it doesn't.</p>
+<p>The scary part is that <code>GeocodeListener</code> isn't unusual. Android has dozens of interfaces with default error methods. <code>WebViewClient.onReceivedError()</code> has a default. <code>MediaPlayer.OnErrorListener</code> has patterns where partial implementation looks complete. Every SAM-converted lambda on an interface with default methods is a potential silent failure.</p>
+<p><strong>Mutexes amplify hangs into outages.</strong> A 10-second geocoding timeout would have been invisible — one null address, one row without a street name, nobody notices. But a mutex turned a local hang into a system-wide 21-hour data loss. If you're using a mutex to serialize writes, the critical section should contain only writes. Anything that touches the network, the filesystem, or a third-party service belongs outside the lock.</p>
+<p><strong>Silent failures are worse than crashes.</strong> If the geocoder had thrown an exception, I would have found it in the first hour. Instead, it hung — producing no error, no log, no crash report. The only evidence was the absence of data in a database table. In a safety-critical app that monitors whether elderly people are still moving, silence is the most dangerous failure mode there is.</p>
+<hr>
+<p><em>The app is called "How Are You?! Senior Safety" — soon it will be released, once I am confident, that there are no bad surprises popping up. Have you ever been bitten by a default interface method you didn't know existed?</em></p>
+            </article>
+            <div class="article-footer">
+                <a class="article-devto-link" href="https://dev.to/stoyan_minchev/a-single-kotlin-lambda-silently-broke-my-app-for-21-hours-and-i-only-found-the-bug-because-3mgj" target="_blank" rel="noopener">Read on dev.to / discuss in comments &rarr;</a>
+            </div>
+            <nav class="article-nav" aria-label="Article navigation">
+                <a class="article-nav-link prev" href="126k-android-app-ai-workflow.html"><span class="article-nav-label">&larr; Previous</span><span class="article-nav-title">I built a 126K-line Android app with AI — here is the workflow that actually worked for me</span></a><a class="article-nav-link next" href="oems-tear-apart.html"><span class="article-nav-label">Next &rarr;</span><span class="article-nav-title">I pushed my Android app to production. Then Android and the OEMs spent two weeks tearing it apart.</span></a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="How Are You?! Senior Safety" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="https://dev.to/stoyan_minchev" class="footer-link" target="_blank" rel="noopener">dev.to</a>
+                    <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Community</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 How Are You?! All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

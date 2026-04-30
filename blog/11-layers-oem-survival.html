@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I spent over a year building a safety monitoring app that runs 24/7 on elderly parents&#x27; phones. If it...">
+    <meta name="author" content="Stoyan Minchev">
+    <meta name="robots" content="index, follow">
+    <title>What Android OEMs do to background apps, and the 11 layers I built to survive it — How Are You?! Blog</title>
+
+    <link rel="canonical" href="https://howareu.app/blog/11-layers-oem-survival.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://howareu.app/blog/11-layers-oem-survival.html">
+    <meta property="og:title" content="What Android OEMs do to background apps, and the 11 layers I built to survive it">
+    <meta property="og:description" content="I spent over a year building a safety monitoring app that runs 24/7 on elderly parents&#x27; phones. If it...">
+    <meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffhc7ggzsr8ucewveyzku.png">
+    <meta property="og:site_name" content="How Are You?! Senior Safety">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Android OEMs do to background apps, and the 11 layers I built to survive it">
+    <meta name="twitter:description" content="I spent over a year building a safety monitoring app that runs 24/7 on elderly parents&#x27; phones. If it...">
+    <meta name="twitter:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffhc7ggzsr8ucewveyzku.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="blog-body">
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
+            </a>
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav">
+                    <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="../index.html#use-cases" class="nav-link">For Whom</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="index.html" class="nav-link nav-link-active">Blog</a></li>
+                    <li><a href="../index.html#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="../index.html" class="lang-btn active">EN</a>
+                    <a href="../bg/index.html" class="lang-btn">BG</a>
+                    <a href="../de/index.html" class="lang-btn">DE</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <div class="container article-container">
+            <p class="article-breadcrumb"><a href="index.html">&larr; All articles</a></p>
+            <h1 class="article-title">What Android OEMs do to background apps, and the 11 layers I built to survive it</h1>
+            <div class="article-meta">
+                <time datetime="2026-03-23">March 23, 2026</time>
+                <span class="article-meta-sep">&middot;</span>
+                <span>12 min read</span>
+                <span class="article-meta-sep">&middot;</span>
+                <span class="article-tags"><span class="article-tag">#android</span> <span class="article-tag">#kontlin</span> <span class="article-tag">#sideprojects</span> <span class="article-tag">#architecture</span></span>
+            </div>
+            <div class="article-cover"><img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffhc7ggzsr8ucewveyzku.png" alt="" loading="eager"></div>
+            <article class="article-prose">
+<p>I spent over a year building a safety monitoring app that runs 24/7 on elderly parents' phones. If it gets killed, nobody gets alerted when something goes wrong. That constraint forced me into the deepest, most frustrating corners of Android background execution.</p>
+<p>This article covers what I learned about how Samsung, Xiaomi, Honor, OPPO, and Vivo actively kill background apps, why the standard Android approach is nowhere near sufficient, and the 11-layer recovery architecture I ended up building. I will also cover two related problems that surprised me: GPS hardware that silently stops working, and accelerometer data that lies about its age.</p>
+<p>126,000 lines of Kotlin, 125+ versions, solo developer. The app is called <a href="https://howareu.app">How Are You?!</a> — it learns an elderly person's daily routine over 7 days, then monitors around the clock and emails the family if something seems wrong. But this article is about the engineering, not the product.</p>
+<hr>
+<h2>The problem: Android wants your app dead</h2>
+<p>Stock Android already makes continuous background work difficult. Doze mode, App Standby, background execution limits — Google has been tightening the screws since Android 6. A foreground service with <code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code> is the standard answer.</p>
+<p>That is necessary. It is nowhere near sufficient.</p>
+<p>OEMs add their own proprietary battery management on top of stock Android, and they are far more aggressive. Here is what I encountered on the devices I tested:</p>
+<p><strong>Samsung</strong> maintains a "Sleeping Apps" list. If your app has no foreground activity for 3 days, Samsung kills it. OTA updates silently reset your battery optimization exemption. The user opted you out of optimization? Samsung un-opted you after the update.</p>
+<p><strong>Xiaomi (MIUI/HyperOS)</strong> kills background services aggressively and resets autostart permissions after OTA updates. Your app was whitelisted? Not anymore.</p>
+<p><strong>Honor and Huawei</strong> have PowerGenie, which monitors how often your app wakes the system. Call <code>setAlarmClock()</code> more than about 3 times per day and you get flagged as "frequently wakes your system." They also have HwPFWService, which kills apps holding wakelocks longer than 60 minutes with non-whitelisted tags.</p>
+<p><strong>OPPO (ColorOS)</strong> has "Sleep standby optimization" that freezes apps during the hours the phone detects the user is sleeping. A safety monitoring app for elderly people needs to run <em>especially</em> during sleep hours — that is when falls and medical events go unnoticed.</p>
+<p><strong>Vivo (Funtouch OS)</strong> has "AI sleep mode" that does the same thing.</p>
+<p>Each manufacturer found a different way to kill you. No single workaround survives all of them.</p>
+<hr>
+<h2>The answer: 11 layers of recovery</h2>
+<p>The core insight is that no single mechanism is reliable across all OEMs and all device states. The answer is redundancy — each layer catches the failures of the layers above it.</p>
+<h3>Layer 1: Foreground service with START_STICKY</h3>
+<p>The foundation. <code>startForeground()</code> with a persistent notification. The notification channel must use <code>IMPORTANCE_MIN</code> — not <code>IMPORTANCE_DEFAULT</code> or higher. Why? OEMs auto-grant <code>POST_NOTIFICATIONS</code> on higher importance channels, bypassing the user's notification settings and making your persistent notification visible. <code>IMPORTANCE_MIN</code> keeps it silent while <code>startForeground()</code> still gives your process elevated priority.</p>
+<p><code>START_STICKY</code> tells the system to restart the service after a kill. But "restart" can take minutes or never happen on aggressive OEMs.</p>
+<h3>Layer 2: onDestroy recovery scheduling</h3>
+<p>When the system kills your service, <code>onDestroy()</code> fires (most of the time). Use this 50ms window to schedule everything that will bring you back:</p>
+<pre><code class="language-kotlin">override fun onDestroy() {
+    super.onDestroy()
+    ServiceWatchdogReceiver.scheduleWithBackup(this)
+    MotionSnapshotReceiver.schedule(this)
+}
+</code></pre>
+<p>This fires both the AlarmManager chain and the motion snapshot chain. If <code>onDestroy()</code> does not fire (force-stop, OEM kill without callback), the other layers cover it.</p>
+<h3>Layer 3: AlarmManager watchdog chain</h3>
+<p>A self-chaining <code>setExactAndAllowWhileIdle()</code> alarm at 15-minute intervals during active use. When it fires, it checks whether the service is alive and restarts it if not.</p>
+<p>The interval adapts to power state: 15 minutes when active, 30 minutes when idle, 60 minutes during deep sleep. This matters for OEM battery scoring — more frequent alarms get flagged.</p>
+<p>Important: never use <code>Handler.postDelayed()</code> as a replacement for AlarmManager. Handlers do not fire during CPU deep sleep. I learned this the hard way.</p>
+<h3>Layer 4: WorkManager periodic watchdog</h3>
+<p>A <code>PeriodicWorkRequest</code> at 15-minute intervals that does the same thing — checks the service and restarts if needed. WorkManager survives service kills and uses JobScheduler under the hood, which OEMs are more reluctant to interfere with.</p>
+<p>But there is a subtle trap: <code>ExistingPeriodicWorkPolicy.KEEP</code> silently discards new requests if a worker is already enqueued, even if the existing one has a stale timer from hours ago. And <code>REPLACE</code> resets the countdown every time you call <code>schedule()</code>. The solution: query <code>getWorkInfosForUniqueWork()</code> first and only schedule when the worker is not already enqueued.</p>
+<pre><code class="language-kotlin">val workInfos = workManager
+    .getWorkInfosForUniqueWork(WATCHDOG_WORK_NAME).await()
+val isEnqueued = workInfos.any {
+    it.state == WorkInfo.State.ENQUEUED || it.state == WorkInfo.State.RUNNING
+}
+if (!isEnqueued) {
+    workManager.enqueueUniquePeriodicWork(
+        WATCHDOG_WORK_NAME,
+        ExistingPeriodicWorkPolicy.KEEP,
+        watchdogRequest
+    )
+}
+</code></pre>
+<h3>Layer 5: Boot recovery</h3>
+<p><code>BOOT_COMPLETED</code>, <code>LOCKED_BOOT_COMPLETED</code>, <code>QUICKBOOT_POWERON</code>, and <code>MY_PACKAGE_REPLACED</code> receivers that re-establish the service and all alarm chains after reboot or app update.</p>
+<p>Some OEMs reset permissions after OTA updates. OnePlus, Samsung, Xiaomi, Redmi, and POCO all do this. You need to detect the OTA and re-prompt the user for battery optimization exemption.</p>
+<h3>Layer 6: SyncAdapter for process priority</h3>
+<p><code>ContentResolver.addPeriodicSync()</code> gives your process elevated priority through the sync framework. OEMs are reluctant to kill sync adapter processes because the sync framework is a system concept — killing it could break contacts, calendar, and email sync.</p>
+<p>This is a ~1-hour periodic callback that checks service health. It will not bring you back fast, but it is extremely hard for OEMs to suppress.</p>
+<h3>Layer 7: AlarmClock safety net</h3>
+<p><code>setAlarmClock()</code> at 8-hour intervals — approximately 3 calls per day. This is the nuclear option. AlarmClock alarms get the highest delivery priority on Android because they are designed to wake users up.</p>
+<p>Why 8 hours and not shorter? Honor's PowerGenie specifically tracks AlarmClock frequency. At 15-minute intervals, it flags you as "frequently wakes your system" and kills you. At 8-hour intervals (~3/day), you fly under the radar.</p>
+<pre><code class="language-kotlin">fun scheduleSafetyNet(context: Context) {
+    val intent = PendingIntent.getBroadcast(
+        context, REQUEST_CODE_ALARMCLOCK, intent,
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+    )
+    val triggerAt = System.currentTimeMillis() + SAFETY_NET_INTERVAL_MS // 8 hours
+    alarmManager.setAlarmClock(
+        AlarmManager.AlarmClockInfo(triggerAt, null),
+        intent
+    )
+}
+</code></pre>
+<h3>Layer 8: Exact alarm permission recovery</h3>
+<p>When the user revokes <code>SCHEDULE_EXACT_ALARM</code>, <strong>all</strong> pending AlarmManager chains die silently. No callback, no exception. Your watchdog, your snapshot receiver, your safety net — all gone.</p>
+<p>Listen for <code>ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED</code> and re-establish everything on re-grant:</p>
+<pre><code class="language-kotlin">class ExactAlarmPermissionReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        if (canScheduleExactAlarms()) {
+            ServiceWatchdogReceiver.scheduleWithBackup(context)
+            MotionSnapshotReceiver.schedule(context)
+        }
+    }
+}
+</code></pre>
+<h3>Layer 9: Batched accelerometer sensing</h3>
+<p>This is the layer that surprised me most. Keep the accelerometer registered with <code>maxReportLatencyUs</code> during idle and deep sleep. The sensor HAL continuously samples into a hardware FIFO buffer and delivers readings via a sensor interrupt — this is completely invisible to OEM battery managers because it does not use AlarmManager, WorkManager, or any schedulable mechanism.</p>
+<pre><code class="language-kotlin">sensorManager.registerListener(
+    batchedMotionListener,
+    accelerometer,
+    SensorManager.SENSOR_DELAY_NORMAL,
+    maxReportLatencyUs  // 10 min in deep sleep
+)
+</code></pre>
+<p>The HAL batches readings and delivers them all at once when the buffer fills or the latency expires. You get continuous motion awareness with zero wakes visible to the OEM.</p>
+<p>One gotcha: a single SLIGHT_MOVEMENT reading (1.0-3.0 m/s^2) should not exit batched mode. Table vibrations and building micro-movements produce transient spikes. I require 3 consecutive SLIGHT_MOVEMENT readings (~15 seconds) before exiting. Anything above 3.0 m/s^2 (MODERATE_MOVEMENT) exits immediately.</p>
+<h3>Layer 10: Network restoration and app foreground triggers</h3>
+<p><code>CONNECTIVITY_ACTION</code> receiver triggers a service health check when the network comes back. <code>ProcessLifecycleOwner</code> fires when the user opens the app. These are opportunistic — they catch edge cases where the service died during airplane mode or extended offline periods.</p>
+<h3>Layer 11: User-facing gap detection</h3>
+<p>When all 10 layers fail (and on some devices, they do), the app detects the gap and shows the user device-specific instructions: "Your [Manufacturer] phone is stopping background apps. Open Settings &gt; Battery &gt; [OEM-specific path] and disable optimization for How Are You?!"</p>
+<p>This is the least satisfying layer because it requires user action. But on a few particularly aggressive OEM configurations, it is the only thing that works.</p>
+<hr>
+<h2>The wakelock tag problem on Honor</h2>
+<p>HwPFWService on Honor and Huawei devices maintains a whitelist of allowed wakelock tags. If your app holds a wakelock for more than 60 minutes with a tag that is not on the whitelist, HwPFWService kills your app.</p>
+<p>The solution is embarrassingly simple: use a whitelisted tag on Honor/Huawei, your real tag everywhere else.</p>
+<pre><code class="language-kotlin">private val WAKELOCK_TAG: String = run {
+    val manufacturer = Build.MANUFACTURER?.lowercase().orEmpty()
+    if (manufacturer == &quot;huawei&quot; || manufacturer == &quot;honor&quot;) {
+        &quot;LocationManagerService&quot;  // Whitelisted by HwPFWService
+    } else {
+        &quot;HowAreYou:PulseBurst&quot;
+    }
+}
+</code></pre>
+<p><code>LocationManagerService</code> is whitelisted because it is a system service tag. I am not proud of this, but it works.</p>
+<hr>
+<h2>getCurrentLocation() hangs forever</h2>
+<p>Once I had the service staying alive, I discovered a second problem: GPS does not work when you need it.</p>
+<p>At approximately 12% battery on my Honor test device, the OEM battery saver silently killed GPS hardware access. No exception, no error callback, no log entry. The foreground service was alive, the accelerometer worked. But <code>getCurrentLocation(PRIORITY_HIGH_ACCURACY)</code> simply never completed. The Task from Play Services hung indefinitely — neither <code>onSuccessListener</code> nor <code>onFailureListener</code> ever fired.</p>
+<p>The code fell back to <code>getLastLocation()</code>, which returned a 5-hour-old cached position from a completely different city.</p>
+<h3>Fix 1: Always timeout</h3>
+<p>Every <code>getCurrentLocation()</code> call must be wrapped in a coroutine timeout:</p>
+<pre><code class="language-kotlin">suspend fun getLocation(priority: Int): Location? {
+    return withTimeoutOrNull(30_000L) {
+        suspendCancellableCoroutine { cont -&gt;
+            fusedClient.getCurrentLocation(priority, token)
+                .addOnSuccessListener { cont.resume(it) }
+                .addOnFailureListener { cont.resume(null) }
+        }
+    }
+}
+</code></pre>
+<h3>Fix 2: Priority fallback chain</h3>
+<p>GPS hardware being dead does not mean all location sources are dead. Cell towers and Wi-Fi still work. I built a sequential fallback:</p>
+<pre><code class="language-plaintext">PRIORITY_HIGH_ACCURACY (GPS, ~10m)
+    | timeout or null
+PRIORITY_BALANCED_POWER_ACCURACY (Wi-Fi + cell, ~40-300m)
+    | timeout or null
+PRIORITY_LOW_POWER (cell only, ~300m-3km)
+    | timeout or null
+getLastLocation() (cached, any age)
+    | null
+TotalFailure
+</code></pre>
+<p>Each step gets its own 30-second timeout. In practice, when GPS is killed, BALANCED_POWER_ACCURACY returns in 2-3 seconds because Wi-Fi scanning still works.</p>
+<h3>Fix 3: GPS wake probe</h3>
+<p>Sometimes the GPS hardware is not permanently dead — it has been suspended by the battery manager. A brief <code>requestLocationUpdates</code> call can wake it:</p>
+<pre><code class="language-kotlin">if (hoursSinceLastFreshGps &gt; 4) {
+    val probeRequest = LocationRequest.Builder(
+        Priority.PRIORITY_HIGH_ACCURACY, 1000L
+    )
+        .setDurationMillis(5_000L)
+        .setMaxUpdates(5)
+        .build()
+
+    withTimeoutOrNull(6_000L) {
+        fusedClient.requestLocationUpdates(probeRequest, callback, looper)
+    }
+    fusedClient.removeLocationUpdates(callback)
+}
+</code></pre>
+<p>Five seconds, maximum once every 4 hours. On Honor, this recovers the GPS roughly 40% of the time.</p>
+<h3>Fix 4: Explicit outcome types</h3>
+<p>The original code returned <code>Location?</code>. The caller had no way to distinguish a fresh 10-meter GPS fix from a 5-hour-old cached position. I changed the return type to make the quality of data explicit:</p>
+<pre><code class="language-kotlin">sealed interface GpsLocationOutcome {
+    data class FreshGps(val accuracy: Float) : GpsLocationOutcome
+    data class WakeProbeSuccess(val accuracy: Float) : GpsLocationOutcome
+    data class CellFallback(val accuracy: Float) : GpsLocationOutcome
+    data class StaleLastLocation(val ageMs: Long) : GpsLocationOutcome
+    data object TotalFailure : GpsLocationOutcome
+}
+</code></pre>
+<p>Now the consumer can make informed decisions. A 3km cell tower reading is low precision, but it answers "is this person in the expected city or 200km away?" For a safety app, that distinction matters.</p>
+<hr>
+<h2>The sensor HAL lies about timestamps</h2>
+<p>At 3 AM, your app wakes up to check the accelerometer. You call <code>registerListener()</code>, and the sensor HAL returns data. You check <code>event.timestamp</code> against <code>SystemClock.elapsedRealtimeNanos()</code>. The delta is small. The data looks fresh.</p>
+<p>It is not. It is 22-minute-old data sitting in the hardware FIFO buffer since the last time anyone read the sensor.</p>
+<p>This is the normal behavior of hardware sensor FIFOs. When the CPU sleeps, the sensor continues sampling into its buffer. When you register a listener after wakeup, the HAL dumps the entire buffer contents at you. The timestamps are real (the readings were taken at those times), but the data is stale — it describes what happened 22 minutes ago, not what is happening now.</p>
+<p>On most devices, you can catch this by comparing <code>event.timestamp</code> (CLOCK_BOOTTIME nanoseconds) against <code>SystemClock.elapsedRealtimeNanos()</code>. If the delta is large, the reading is stale.</p>
+<p>Honor broke this assumption. On Honor devices, the HAL rebases <code>event.timestamp</code> on FIFO flush, so the delta check shows the data as fresh even when it is not.</p>
+<h3>The fix: flush, wait for callback, then collect</h3>
+<p>Do not trust the first readings after <code>registerListener()</code>. Instead:</p>
+<ol>
+<li>Call <code>sensorManager.flush(this)</code> to drain the stale FIFO data</li>
+<li>Wait for the <code>onFlushCompleted()</code> callback from <code>SensorEventListener2</code></li>
+<li>Only start collecting readings after the flush completes</li>
+<li>Set a 1000ms fallback timer in case the HAL never fires the callback</li>
+</ol>
+<pre><code class="language-kotlin">class MotionSnapshotReceiver : BroadcastReceiver(), SensorEventListener2 {
+    private var isFlushPhase = true
+
+    override fun onSensorChanged(event: SensorEvent) {
+        if (isFlushPhase) return  // Discard stale FIFO data
+        collectReading(event)
+    }
+
+    override fun onFlushCompleted(sensor: Sensor?) {
+        endFlushPhase(byHal = true)
+    }
+
+    private fun endFlushPhase(byHal: Boolean) {
+        if (!isFlushPhase) return  // Guard against double-trigger
+        isFlushPhase = false
+        handler.removeCallbacks(flushFallbackRunnable)
+        // Now start collecting real readings
+    }
+}
+</code></pre>
+<p>The fallback timer at 1000ms is important. I originally used 200ms, which was insufficient for Honor devices — their deep FIFO drains at approximately 16Hz, and a full buffer can take over 200ms to flush.</p>
+<p>As a secondary safety net, I use dual-clock comparison: both <code>CLOCK_BOOTTIME</code> and <code>CLOCK_MONOTONIC</code> deltas must agree that the reading is fresh. If either delta exceeds 500ms of staleness, the reading is discarded.</p>
+<hr>
+<h2>A race condition in GPS processing</h2>
+<p>I had multiple independent trigger paths (stillness detector, smart GPS scheduler, area stability detector) that could request GPS concurrently. Two of them fired within 33 milliseconds of each other. Both read the same <code>getLastLocation()</code>, both passed the stationarity filter, and both inserted a GPS reading.</p>
+<p>My code uses a minimum-readings-per-cluster filter to discard drive-through locations — a place needs at least 2 GPS readings to count as a real visit. The duplicate entry from the race condition defeated this filter. A single drive-by at 60km/h became a "cluster of 2."</p>
+<p>The fix is a Mutex around the entire location processing path:</p>
+<pre><code class="language-kotlin">private val processLocationMutex = Mutex()
+
+suspend fun processLocation(location: Location) {
+    processLocationMutex.withLock {
+        val lastLocation = getLastLocation()
+        // The second concurrent caller now sees the just-inserted
+        // location and correctly skips as duplicate
+    }
+}
+</code></pre>
+<hr>
+<h2>Battery result</h2>
+<p>After all 11 layers and three tiers of power state, the battery impact is under 1% per day. The key numbers:</p>
+<ul>
+<li><strong>Before optimization:</strong> ~4,300 AlarmManager wakes per day. Every active-mode pulse (15s/30s) used AlarmManager. Every watchdog check (every 5 minutes) used AlarmManager. Honor flagged the app within hours.</li>
+<li><strong>After optimization:</strong> ~240 wakes per day. Active-mode pulses use <code>Handler.postDelayed()</code> (zero AlarmManager wakes). Watchdog intervals extended from 5 to 15 minutes. AlarmClock safety net reduced from every 15 minutes to every 8 hours.</li>
+</ul>
+<p>That is a 94% reduction in system wakes while maintaining the same monitoring reliability.</p>
+<p>The insight: aggressive scheduling wastes more battery than it saves in reliability. A three-tier power state that backs off when the device is still (active at 15-second pulses, idle at 5-minute pulses, deep sleep at 30-minute pulses with batched accelerometer as safety net) achieves both low battery impact and high reliability.</p>
+<hr>
+<h2>What I would do differently</h2>
+<p><strong>Build the OEM compatibility layer first.</strong> I treated background reliability as something I would fix later. It took 40+ versions across several months to get right. It should have been the architectural foundation from Day 1.</p>
+<p><strong>Test on real OEM devices from the start.</strong> The Android emulator and Pixel devices tell you nothing about OEM battery management. I did not discover the Honor wakelock whitelist problem, the GPS hardware suspension, or the sensor FIFO timestamp rebasing until I tested on actual devices.</p>
+<p><strong>Never trust a single mechanism.</strong> Every Android background API has an OEM that breaks it. AlarmManager gets suppressed. WorkManager gets deferred. Foreground services get killed. The only reliable approach is layered redundancy where each mechanism independently tries to recover.</p>
+<hr>
+<p>The app is called <a href="https://howareu.app">How Are You?!</a> and is available on Google Play. It is still in closed testing phase — if you have an elderly parent on Android and want to try it, I would appreciate feedback, especially from OEM devices I have not tested yet. Email: developer@howareu.app</p>
+<p>I am happy to answer questions about any of these techniques. The OEM compatibility rabbit hole goes much deeper than what I have covered here.</p>
+            </article>
+            <div class="article-footer">
+                <a class="article-devto-link" href="https://dev.to/stoyan_minchev/what-android-oems-do-to-background-apps-and-the-11-layers-i-built-to-survive-it-28bb" target="_blank" rel="noopener">Read on dev.to / discuss in comments &rarr;</a>
+            </div>
+            <nav class="article-nav" aria-label="Article navigation">
+                <a class="article-nav-link prev" href="ai-safety-app-elderly-parent.html"><span class="article-nav-label">&larr; Previous</span><span class="article-nav-title">I spent several months building an AI safety app for my elderly parent — here is what I learned</span></a><a class="article-nav-link next" href="126k-android-app-ai-workflow.html"><span class="article-nav-label">Next &rarr;</span><span class="article-nav-title">I built a 126K-line Android app with AI — here is the workflow that actually worked for me</span></a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="How Are You?! Senior Safety" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="https://dev.to/stoyan_minchev" class="footer-link" target="_blank" rel="noopener">dev.to</a>
+                    <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Community</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 How Are You?! All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I write a safety-critical Android app that watches a phone 24/7 — motion, GPS, screen activity — and...">
+    <meta name="author" content="Stoyan Minchev">
+    <meta name="robots" content="index, follow">
+    <title>Honor watched my Android app come back from the dead — and revoked the battery exemption that let it — How Are You?! Blog</title>
+
+    <link rel="canonical" href="https://howareu.app/blog/honor-magicos-revoke.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://howareu.app/blog/honor-magicos-revoke.html">
+    <meta property="og:title" content="Honor watched my Android app come back from the dead — and revoked the battery exemption that let it">
+    <meta property="og:description" content="I write a safety-critical Android app that watches a phone 24/7 — motion, GPS, screen activity — and...">
+    <meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fo8w5nbff7gs8xjyt9j95.png">
+    <meta property="og:site_name" content="How Are You?! Senior Safety">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Honor watched my Android app come back from the dead — and revoked the battery exemption that let it">
+    <meta name="twitter:description" content="I write a safety-critical Android app that watches a phone 24/7 — motion, GPS, screen activity — and...">
+    <meta name="twitter:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fo8w5nbff7gs8xjyt9j95.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="blog-body">
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
+            </a>
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav">
+                    <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="../index.html#use-cases" class="nav-link">For Whom</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="index.html" class="nav-link nav-link-active">Blog</a></li>
+                    <li><a href="../index.html#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="../index.html" class="lang-btn active">EN</a>
+                    <a href="../bg/index.html" class="lang-btn">BG</a>
+                    <a href="../de/index.html" class="lang-btn">DE</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <div class="container article-container">
+            <p class="article-breadcrumb"><a href="index.html">&larr; All articles</a></p>
+            <h1 class="article-title">Honor watched my Android app come back from the dead — and revoked the battery exemption that let it</h1>
+            <div class="article-meta">
+                <time datetime="2026-04-29">April 29, 2026</time>
+                <span class="article-meta-sep">&middot;</span>
+                <span>11 min read</span>
+                <span class="article-meta-sep">&middot;</span>
+                <span class="article-tags"><span class="article-tag">#android</span> <span class="article-tag">#kotlin</span> <span class="article-tag">#programming</span> <span class="article-tag">#debugging</span></span>
+            </div>
+            <div class="article-cover"><img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fo8w5nbff7gs8xjyt9j95.png" alt="" loading="eager"></div>
+            <article class="article-prose">
+<p>I write a safety-critical Android app that watches a phone 24/7 — motion, GPS, screen activity — and emails the family if an elderly person's behavior suddenly looks wrong. Install it on grandma's phone and forget about it. That's the ideas.</p>
+<p>I've written here before about a SAM lambda that hung my geocoder for 21 hours, and about the OTAs that silently strip every battery-optimisation exemption I worked to get. This one is sillier than either. This one is about the time my own service-recovery layers were so visibly enthusiastic that the manufacturer's battery manager looked at them and went, "yeah, that's a zombie, kill it harder."</p>
+<p>The fix shipped last week. The bug is not really a bug - it's a category of mistake - and I think it's worth writing about because every Android dev I know who builds anything that has to run in the background eventually steps in this exact pile.</p>
+<h2>The setup that should have worked</h2>
+<p>Fresh install on an Honor phone running MagicOS 9.0 on top of Android 15. Out of the box, brand new, the friendliest possible test.</p>
+<p>The user went through onboarding. Battery optimisation: "Don't optimise." Autostart: on. Recipients added. Setup finished.</p>
+<p>My in-app sanity worker fires one hour after setup completes. It's a simple thing — re-runs every permission probe and snapshots the device state into the diagnostic log. At T+1h it reported <code>health=Healthy</code>. Battery exemption present. Foreground service running. <code>IMPORTANCE_MIN</code> notification visible. Everything fine.</p>
+<p>About six hours after that, the family received this email:</p>
+<blockquote>
+<p>Battery optimisation is blocking the app. Tap "Open Settings" below, then set "How Are You?!" to "Don't optimise."</p>
+</blockquote>
+<p>That email is automatic. The app sends it when a runtime health check detects that an exemption it was granted has been quietly revoked. So at some point between hour 1 and hour 7, the OS had said "yes, you have battery exemption" at lunchtime and "no, you don't" by evening, and absolutely nothing the user did caused the change.</p>
+<p>The phone had been sitting on a counter the whole time. The app should have been bored.</p>
+<h2>What actually happened (with timestamps, because Android is a story told in timestamps)</h2>
+<p>The diagnostic export, when I opened it, was a small horror movie.</p>
+<p>At <strong>17:24:30 UTC</strong>, MagicOS killed the foreground service. No specific reason in the logs — Honor doesn't bother emitting one. The process just dies.</p>
+<p>Then my 11-layer service-recovery chain woke up, exactly as designed. I built that chain over forty-odd app versions, each layer added because the previous ones weren't enough on some specific device. Eleven layers feels excessive until you ship to a Xiaomi user, after which it feels like a starting point.</p>
+<p>Within the same wall-clock second, three of those layers fired at once:</p>
+<pre><code class="language-console">17:24:31  [Application] Recovery: process started, service not running - starting service
+17:24:31  [Application] Network recovery: service not running - starting service
+17:24:31  [MonitoringService] onStartCommand startId=2
+17:24:31  [MonitoringService] onStartCommand startId=3
+</code></pre>
+<p>What you're looking at:</p>
+<ul>
+<li>The process restarted, which fired <code>Application.onCreate</code> recovery. That layer noticed the foreground service wasn't running and called <code>MonitoringService.start()</code>.</li>
+<li>A network availability callback fired in the same instant. That layer also noticed the service wasn't running and called <code>MonitoringService.start()</code>.</li>
+<li>Behind the scenes, a SyncAdapter account-creation poke also fired. Third independent path. Third call.</li>
+</ul>
+<p>All three calls reached the framework. The framework happily delivered all three to <code>onStartCommand</code>. My init code ran, ran again, ran a third time. Each invocation re-fired <code>startForeground()</code>. Each invocation re-scheduled the watchdog. Each invocation re-launched the monitoring coroutines.</p>
+<p>I was, from the OS's point of view, <em>aggressively</em> visible.</p>
+<p>By <strong>19:24 UTC</strong> — exactly two hours later — the watchdog reported <code>ServiceRecoveryJobService missing - rescheduling</code>. My battery exemption was gone, and one of my JobScheduler registrations had been ripped out for good measure. The next health check confirmed the regression and shipped the email to the family.</p>
+<p>It took MagicOS less than two hours from "this app got killed once" to "this app's exemption is hereby revoked."</p>
+<h2>The "process resurrection detector"</h2>
+<p>Here is the unkind realisation that took me an embarrassing length of time to land on.</p>
+<p>Honor PowerGenie, Xiaomi MIUI Power Keeper, Samsung Smart Manager — they all run a heuristic that explicitly looks for what mine does: a process that gets killed and immediately tries to come back via multiple unrelated paths.</p>
+<p>To the OEM, that pattern is one of two things. It's malware-shaped — rootkit-style autostart, ad-stuck zombies, miners that won't quit. Or it's a "stubborn" app that doesn't take the hint that the OS would prefer it to stay down. Either way, it earns demerits. Each concurrent recovery path that lights up in the same second is one tick on a process-resurrection counter. Hit the threshold and the OEM strips your trust.</p>
+<p>Multi-path concurrent recovery is not, in PowerGenie's eyes, a clever defence-in-depth strategy. It's a symptom of a misbehaving app.</p>
+<p>And of course every single one of my eleven layers is genuinely necessary on a different OEM. Pixel App Standby will let <code>BOOT_COMPLETED</code> fire but quietly throttle the AlarmManager chain into next Tuesday. Samsung lets the AlarmManager fire but JobScheduler registrations vanish through Doze. Xiaomi keeps the JobScheduler but stops delivering <code>onTaskRemoved</code> after a while. Whenever I removed any of these layers in the past, a different family stopped getting alerts. So the eleven of them are real. The problem is not that they exist — the problem is that, on a process restart, they all fire on the <em>same trigger</em> in the <em>same second</em>, and that's the part PowerGenie reads.</p>
+<p>This is a problem you only have if your recovery is good enough that all of it works.</p>
+<h2>What broke, in three signals</h2>
+<p>Working backwards from the export, I could pin down three specific things MagicOS observed and graded me down on. None of the three was a clever, specific bug. They were the kind of thing you only see once you know to look.</p>
+<p><strong>Signal 1 — multi-path concurrent recovery.</strong> Three <code>onStartCommand</code> calls in the same second, two of them firing <code>startForeground()</code> redundantly, watchdog reschedule re-fired, monitoring coroutines re-launched. To PowerGenie, three increments instead of one.</p>
+<p><strong>Signal 2 — JobScheduler frequency.</strong> My periodic watchdog ran every fifteen minutes. That's about ninety-six runs per day. According to AOSP <code>BatteryStatsService</code> telemetry, that puts an app in the top one percent of UIDs by job count. Pixel App Standby Bucket demotion and Samsung's Sleeping Apps classifier read this number directly. The historical reason I picked fifteen minutes was that fifteen is the floor for <code>PeriodicWorkRequest</code>. I picked the floor because it was the floor, not because anyone measured it against alternatives.</p>
+<p><strong>Signal 3 — time-based location requests with no explicit distance hint.</strong> My GPS wake probe — a five-second <code>requestLocationUpdates(HIGH_ACCURACY)</code> that fires at most once every four hours — built its <code>LocationRequest</code> without <code>setMinUpdateDistanceMeters(0f)</code>. The default is implementation-defined, undocumented, and on some Play Services versions non-zero. Samsung and Pixel battery analysers flag time-only location requests harder than the equivalent request that explicitly declares its intent. Two other call sites in my code already had the line. The wake probe didn't, because I'd written it earlier and never came back.</p>
+<p>Each signal on its own is small. The three together added up to "this UID is suspicious," and PowerGenie should clear its trust, I hope.</p>
+<h2>The fix, three small surfaces</h2>
+<p>The pleasant surprise was that none of these three needed a clever solution. They needed the smallest possible change at the right place.</p>
+<p><strong>Anti-thrash gate on <code>onStartCommand</code>.</strong> Five seconds, monotonic clock, one <code>@Volatile</code> field on the Service:</p>
+<pre><code class="language-kotlin">private const val CONCURRENT_START_WINDOW_MS = 5_000L
+
+@Volatile private var lastStartCommandHandledMs: Long = 0L
+
+override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    super.onStartCommand(intent, flags, startId)
+
+    val now = SystemClock.elapsedRealtime()
+    val sinceLast = now - lastStartCommandHandledMs
+    if (lastStartCommandHandledMs &gt; 0L &amp;&amp; sinceLast &lt; CONCURRENT_START_WINDOW_MS) {
+        DiagnosticLogger.logInfo(
+            &quot;MonitoringService&quot;,
+            &quot;onStartCommand startId=$startId — duplicate within ${sinceLast}ms; skipping re-init&quot;
+        )
+        return START_STICKY
+    }
+    lastStartCommandHandledMs = now
+
+    // ...existing init body unchanged from here
+}
+</code></pre>
+<p>Two things worth being specific about.</p>
+<p><code>SystemClock.elapsedRealtime()</code>, not <code>System.currentTimeMillis()</code>, because wall clock can jump backwards (NTP sync, DST in a few zones, manual time change), and you do not want a "duplicate" gate that ever rejects more aggressively than the window you wrote down.</p>
+<p>The gate sits at the <strong>convergence point</strong>, not at every caller. The eleven layers above need to keep firing independently — each one is the only thing that works on some specific OEM, and every gate I added on the divergent caller side immediately created the next OEM-specific gap. Deduplication belongs where the calls converge, not where they diverge. <code>onStartCommand</code> is the chokepoint where every layer's effort eventually arrives, so it's the right place to be visible-once instead of visible-thrice.</p>
+<p>The framework is fine with this, by the way. AOSP <code>ActivityManagerService.ServiceRecord</code> tracks one deadline per service, and a single successful <code>startForeground()</code> call clears every pending deadline regardless of how many <code>startForegroundService()</code> calls are stacked behind it. The <em>first</em> <code>onStartCommand</code> of the burst already satisfied the OS. The duplicates were doing redundant work — work that PowerGenie watched, and that the OS would have been just as happy without.</p>
+<p><strong><code>setMinUpdateDistanceMeters(0f)</code> on the GPS wake probe.</strong> One line:</p>
+<pre><code class="language-kotlin">LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000L)
+    .setDurationMillis(GPS_WAKE_PROBE_DURATION_MS)
+    .setMaxUpdates(5)
+    .setMinUpdateDistanceMeters(0f)   // declarative intent for OEM analysers
+    .build()
+</code></pre>
+<p>Behavior identical. <code>0f</code> says "deliver every fix regardless of distance," which is exactly what a five-second wake probe wanted anyway. The change is purely about handing the OEM's static analyser something explicit to read instead of letting it infer "time-based, no distance hint, suspicious."</p>
+<p><strong>Watchdog cadence: 15 → 30 minutes.</strong> One constant. The watchdog is not the primary FGS-survival layer — that's the AlarmManager 5-min chain plus the 8-hour <code>setAlarmClock()</code> safety net. The WorkManager job is explicitly the <em>backup</em>. Halving its cadence (96 runs/day → 48 runs/day) cuts the per-UID job count in half. On Android 12+ the periodic worker is Doze-deferred anyway, so the "15 is more responsive than 30" claim doesn't hold during the exact moments — deep sleep, OEM kill cycle — when revocation actually happens.</p>
+<p>I also flipped <code>ExistingPeriodicWorkPolicy.KEEP</code> to <code>UPDATE</code> for this release only, so existing installs migrate to the new cadence on first app open instead of waiting weeks for WorkManager to organically re-evaluate.</p>
+<p>Three fixes. Three small surfaces. Total diff: maybe forty lines, including the KDoc explaining why the constants are what they are.</p>
+<h2>What I actually learned</h2>
+<p><strong>Some recovery patterns look exactly like malware to a battery manager.</strong> I had been thinking of my eleven layers as defence in depth. From PowerGenie's side they look like a process that won't die quietly. The OEM doesn't care which I am. It grades the visible behaviour. Every concurrent path that wakes the same service in the same second is one increment on the resurrection counter — and if your eleven layers all fire on the same trigger (process restart, network change, boot), you have handed the heuristic an unambiguous reading. The fix is not to remove layers. It is to keep them and converge their effect.</p>
+<p><strong>The floor is not a free choice.</strong> I picked 15-minute watchdog cadence because it was the lowest periodic interval <code>WorkManager</code> allows. I never asked whether 15 was better than 30 for what the watchdog actually does. It was the floor and I assumed that was the answer. It wasn't. The floor was <em>available</em>. The right value was somewhere above it where the protection still held but the OEM signal stopped firing. Every "minimum allowed" comment in your codebase is a candidate for this question: did anyone ever actually pick this number, or did someone just take what was on the bottom shelf?</p>
+<p><strong>Declarative intent is cheap and load-bearing.</strong> <code>setMinUpdateDistanceMeters(0f)</code> was zero behaviour change. It existed purely to hand a sentence to a machine analyser that was going to read your <code>LocationRequest</code> whether you liked it or not. The lesson generalises. When a <code>LocationRequest</code> / <code>JobInfo</code> / <code>WorkRequest</code> has explicit fields and you leave them unset, you are letting an OEM-specific default fill in for you. That default is undocumented, varies between platform versions, and biases against you. Set every field that matters even if the value matches the platform default — at least then the analyzer has something concrete to read instead of guessing.</p>
+<p><strong>The convergence point is the right place for dedup.</strong> I genuinely tried, briefly, to dedupe at every caller — gate <code>Application.attemptServiceRecovery</code>, gate <code>NetworkConnectivityMonitor.onAvailable</code>, gate the SyncAdapter trigger. Within an hour it was obvious that any one of those gates I added now created the next OEM-specific gap, because each layer is the only thing that works on some specific device. The dedup belongs at the place where the divergent paths converge — <code>onStartCommand</code> for service restarts, <code>processLocation</code> for GPS writes (a separate post one day). Wherever the system actually <em>does the thing</em>. That is the chokepoint where you can be both correct and visible-to-OEM-quiet.</p>
+<p><strong>Single-OEM forensics, multi-OEM patches.</strong> This whole story came from one Honor diagnostic export. Three of the fixes generalise — Pixel and Samsung both read the same job-count and concurrent-<code>onStartCommand</code> signals — but I would not have known to look without the Honor evidence. If you are shipping continuous-background work on Android, every diagnostic export from a device that misbehaved is worth more than a thousand emulator hours. The OEM behaviour that actually matters is undocumented, regional, version-specific, and only shows up under the exact conditions of a real install on a real phone in someone's drawer.</p>
+<p>The really uncomfortable part of all of this, the one I keep coming back to, is that on Android <em>good engineering can be the wrong choice</em>. The recovery layers are correct. The eleven of them, individually, are each load-bearing on some device. Together they are the reason "install and forget" works for the user, in most cases (I can't fight with OTA resetting my configuration silently). And on Honor, the eleven of them firing in the same second of process restart is the trigger for "this is a zombie, lower its trust." There is no platform contract that says "thou shalt not recover thy service via more than two paths at once," and there cannot be, because the OEMs do not write contracts. They write laws! And the laws this week is "concurrent recovery is suspicious."</p>
+<p>So my eleven layers stay. They just learned to whisper.</p>
+<p><em>The app is called "How Are You?!" — it's on Google Play. If you've shipped an Android app that has to run continuously, I'd love to hear which OEM caught you out, what the giveaway was in your logs, and how small the eventual fix turned out to be.</em></p>
+            </article>
+            <div class="article-footer">
+                <a class="article-devto-link" href="https://dev.to/stoyan_minchev/honor-watched-my-android-app-come-back-from-the-dead-and-revoked-the-battery-exemption-that-let-it-10g6" target="_blank" rel="noopener">Read on dev.to / discuss in comments &rarr;</a>
+            </div>
+            <nav class="article-nav" aria-label="Article navigation">
+                <a class="article-nav-link prev" href="oems-tear-apart.html"><span class="article-nav-label">&larr; Previous</span><span class="article-nav-title">I pushed my Android app to production. Then Android and the OEMs spent two weeks tearing it apart.</span></a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="How Are You?! Senior Safety" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="https://dev.to/stoyan_minchev" class="footer-link" target="_blank" rel="noopener">dev.to</a>
+                    <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Community</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 How Are You?! All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

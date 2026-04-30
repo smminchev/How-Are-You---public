@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Field notes from building a 24/7 Android safety app for elderly parents — Kotlin, OEM background-kill battles, AI workflow, debugging stories.">
+    <meta name="author" content="Stoyan Minchev">
+    <meta name="robots" content="index, follow">
+    <title>Blog &mdash; How Are You?! Senior Safety</title>
+
+    <link rel="canonical" href="https://howareu.app/blog/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://howareu.app/blog/">
+    <meta property="og:title" content="How Are You?! Blog">
+    <meta property="og:description" content="Field notes from building a 24/7 Android safety app — Kotlin, OEM battles, AI workflow.">
+    <meta property="og:image" content="https://howareu.app/images/logo.png">
+    <meta property="og:site_name" content="How Are You?! Senior Safety">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Are You?! Blog">
+    <meta name="twitter:description" content="Field notes from building a 24/7 Android safety app — Kotlin, OEM battles, AI workflow.">
+    <meta name="twitter:image" content="https://howareu.app/images/logo.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="blog-body">
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
+            </a>
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav">
+                    <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="../index.html#use-cases" class="nav-link">For Whom</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="index.html" class="nav-link nav-link-active">Blog</a></li>
+                    <li><a href="../index.html#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="../index.html" class="lang-btn active">EN</a>
+                    <a href="../bg/index.html" class="lang-btn">BG</a>
+                    <a href="../de/index.html" class="lang-btn">DE</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="blog-hero">
+        <div class="container">
+            <p class="blog-hero-eyebrow">Field notes from building <em>How Are You?!</em></p>
+            <h1 class="blog-hero-title">Blog</h1>
+            <p class="blog-hero-subtitle">Experience, thoughts, disappointments, successes, and technical advice from building a 24/7 Android safety app for elderly parents.</p>
+        </div>
+    </section>
+
+    <section class="blog-manifesto-section">
+        <div class="container">
+            <article class="blog-manifesto">
+                <h2 class="blog-manifesto-title">Why this blog exists</h2>
+                <p>I build <em>How Are You?!</em> &mdash; a safety-critical Android app that quietly watches an elderly parent&apos;s phone 24/7 and emails their family if something looks wrong. Working on it surfaces a steady stream of stories: OEMs that quietly kill background services, a bug that hid for 21 hours, an AI prompt that learned the wrong thing, an OTA that wiped six months of careful permission setup in a single night.</p>
+                <p>Some of these I post on the usual platforms. Many I don&apos;t. Every platform I&apos;ve tried rewards seniority &mdash; how long you&apos;ve been there, how many followers, how well you play the algorithm &mdash; over whether what you wrote is worth reading. Something written this week, by someone the system doesn&apos;t recognise yet, doesn&apos;t compete on equal footing with content that has neither more insight nor more truth in it.</p>
+                <p>So this is the unfiltered version. A place where I share experience, thoughts, disappointments, successes, and technical advice from building How Are You?! &mdash; without anyone deciding it&apos;s too technical, too venting, or too boring before it reaches you. Long, short, niche, useful, useless. If something isn&apos;t for you, scroll. If it is, glad it found you.</p>
+                <p class="blog-manifesto-sign">&mdash; Stoyan</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="blog-list-section">
+        <div class="container">
+            <h2 class="blog-list-heading">Posts</h2>
+            <div class="blog-list">
+                <a class="blog-card" href="honor-magicos-revoke.html">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-04-29">April 29, 2026</time>
+                        <span class="article-meta-sep">&middot;</span>
+                        <span>11 min read</span>
+                    </div>
+                    <h2 class="blog-card-title">Honor watched my Android app come back from the dead — and revoked the battery exemption that let it</h2>
+                    <p class="blog-card-desc">I write a safety-critical Android app that watches a phone 24/7 — motion, GPS, screen activity — and...</p>
+                    <div class="blog-card-tags"><span class="article-tag">#android</span> <span class="article-tag">#kotlin</span> <span class="article-tag">#programming</span> <span class="article-tag">#debugging</span></div>
+                </a>
+                <a class="blog-card" href="oems-tear-apart.html">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-04-22">April 22, 2026</time>
+                        <span class="article-meta-sep">&middot;</span>
+                        <span>12 min read</span>
+                    </div>
+                    <h2 class="blog-card-title">I pushed my Android app to production. Then Android and the OEMs spent two weeks tearing it apart.</h2>
+                    <p class="blog-card-desc">I build a safety-critical Android app that monitors elderly people living alone. It watches the phone...</p>
+                    <div class="blog-card-tags"><span class="article-tag">#android</span> <span class="article-tag">#kotlin</span> <span class="article-tag">#programming</span> <span class="article-tag">#sideprojects</span></div>
+                </a>
+                <a class="blog-card" href="kotlin-lambda-21-hours.html">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-04-12">April 12, 2026</time>
+                        <span class="article-meta-sep">&middot;</span>
+                        <span>5 min read</span>
+                    </div>
+                    <h2 class="blog-card-title">A single Kotlin lambda silently broke my app for 21 hours - and I only found the bug because I crossed a border</h2>
+                    <p class="blog-card-desc">I build a safety-critical Android app that monitors elderly people living alone. It watches their...</p>
+                    <div class="blog-card-tags"><span class="article-tag">#android</span> <span class="article-tag">#kotlin</span> <span class="article-tag">#programming</span> <span class="article-tag">#debug</span></div>
+                </a>
+                <a class="blog-card" href="126k-android-app-ai-workflow.html">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-03-29">March 29, 2026</time>
+                        <span class="article-meta-sep">&middot;</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="blog-card-title">I built a 126K-line Android app with AI — here is the workflow that actually worked for me</h2>
+                    <p class="blog-card-desc">Most developers trying AI coding tools hit the same wall. They open a chat, type &quot;build me a todo...</p>
+                    <div class="blog-card-tags"><span class="article-tag">#ai</span> <span class="article-tag">#productivity</span> <span class="article-tag">#programming</span> <span class="article-tag">#devops</span></div>
+                </a>
+                <a class="blog-card" href="11-layers-oem-survival.html">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-03-23">March 23, 2026</time>
+                        <span class="article-meta-sep">&middot;</span>
+                        <span>12 min read</span>
+                    </div>
+                    <h2 class="blog-card-title">What Android OEMs do to background apps, and the 11 layers I built to survive it</h2>
+                    <p class="blog-card-desc">I spent over a year building a safety monitoring app that runs 24/7 on elderly parents&#x27; phones. If it...</p>
+                    <div class="blog-card-tags"><span class="article-tag">#android</span> <span class="article-tag">#kontlin</span> <span class="article-tag">#sideprojects</span> <span class="article-tag">#architecture</span></div>
+                </a>
+                <a class="blog-card" href="ai-safety-app-elderly-parent.html">
+                    <div class="blog-card-meta">
+                        <time datetime="2026-03-21">March 21, 2026</time>
+                        <span class="article-meta-sep">&middot;</span>
+                        <span>4 min read</span>
+                    </div>
+                    <h2 class="blog-card-title">I spent several months building an AI safety app for my elderly parent — here is what I learned</h2>
+                    <p class="blog-card-desc">My parent lives alone. After a fall that nobody noticed for hours, I decided to build something that...</p>
+                    <div class="blog-card-tags"><span class="article-tag">#ai</span> <span class="article-tag">#sideprojects</span> <span class="article-tag">#android</span> <span class="article-tag">#kotlin</span></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="How Are You?! Senior Safety" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="https://dev.to/stoyan_minchev" class="footer-link" target="_blank" rel="noopener">dev.to</a>
+                    <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Community</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 How Are You?! All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

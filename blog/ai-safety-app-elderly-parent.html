@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My parent lives alone. After a fall that nobody noticed for hours, I decided to build something that...">
+    <meta name="author" content="Stoyan Minchev">
+    <meta name="robots" content="index, follow">
+    <title>I spent several months building an AI safety app for my elderly parent — here is what I learned — How Are You?! Blog</title>
+
+    <link rel="canonical" href="https://howareu.app/blog/ai-safety-app-elderly-parent.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://howareu.app/blog/ai-safety-app-elderly-parent.html">
+    <meta property="og:title" content="I spent several months building an AI safety app for my elderly parent — here is what I learned">
+    <meta property="og:description" content="My parent lives alone. After a fall that nobody noticed for hours, I decided to build something that...">
+    <meta property="og:image" content="https://howareu.app/images/logo.png">
+    <meta property="og:site_name" content="How Are You?! Senior Safety">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="I spent several months building an AI safety app for my elderly parent — here is what I learned">
+    <meta name="twitter:description" content="My parent lives alone. After a fall that nobody noticed for hours, I decided to build something that...">
+    <meta name="twitter:image" content="https://howareu.app/images/logo.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="blog-body">
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
+            </a>
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav">
+                    <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="../index.html#use-cases" class="nav-link">For Whom</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="index.html" class="nav-link nav-link-active">Blog</a></li>
+                    <li><a href="../index.html#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="../index.html" class="lang-btn active">EN</a>
+                    <a href="../bg/index.html" class="lang-btn">BG</a>
+                    <a href="../de/index.html" class="lang-btn">DE</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <div class="container article-container">
+            <p class="article-breadcrumb"><a href="index.html">&larr; All articles</a></p>
+            <h1 class="article-title">I spent several months building an AI safety app for my elderly parent — here is what I learned</h1>
+            <div class="article-meta">
+                <time datetime="2026-03-21">March 21, 2026</time>
+                <span class="article-meta-sep">&middot;</span>
+                <span>4 min read</span>
+                <span class="article-meta-sep">&middot;</span>
+                <span class="article-tags"><span class="article-tag">#ai</span> <span class="article-tag">#sideprojects</span> <span class="article-tag">#android</span> <span class="article-tag">#kotlin</span></span>
+            </div>
+            
+            <article class="article-prose">
+<p>My parent lives alone. After a fall that nobody noticed for hours, I decided to build something that would.</p>
+<p>Four months, 121 versions, and approximately 79,000 lines of Kotlin later, the app is live on Google Play. Here is the story — the technical challenges, the things that broke, and what I would do differently.</p>
+<p><strong>What the app does</strong></p>
+<p>Install it on your parent's Android phone. It watches. That is it.</p>
+<p>For 7 days, it learns their routine — when they wake up, how active they are, where they go. After that, it monitors 24/7 and emails your family if something seems wrong:</p>
+<ul>
+<li>Unusual stillness (potential fall or medical event)</li>
+<li>Did not wake up on time</li>
+<li>At an unfamiliar location at an unusual hour</li>
+<li>Phone silent for too long</li>
+</ul>
+<p>No buttons to press. No wearable to charge. No daily check-in calls. Install and forget.</p>
+<p><strong>The technical stack</strong></p>
+<ul>
+<li><strong>Kotlin</strong> + Jetpack Compose + Material Design 3</li>
+<li><strong>Room + SQLCipher</strong> for encrypted local storage</li>
+<li><strong>Google Gemini API</strong> for behavioral analysis (cloud, anonymized summaries)</li>
+<li><strong>Resend API</strong> for transactional email alerts</li>
+<li><strong>WorkManager + Foreground Service</strong> for 24/7 reliability</li>
+<li>Clean architecture: <code>:domain</code> (pure Kotlin) -&gt; <code>:data</code> -&gt; <code>:ui</code> -&gt; <code>:app</code></li>
+</ul>
+<p><strong>## The hard part: staying alive on Android</strong></p>
+<p>This is where 80% of my development time went.</p>
+<p>Android's job is to kill your app. OEMs make it worse. Here is what I learned:</p>
+<p><strong>### Problem 1: OEM battery killers</strong></p>
+<p>Samsung, Xiaomi, Honor, OPPO — they all have proprietary battery managers that kill background apps. The standard <code>startForeground()</code> is not enough.</p>
+<p>My solution: 11-layer service recovery:
+1. Foreground service with IMPORTANCE_MIN channel
+2. WorkManager periodic watchdog
+3. AlarmManager backup chains
+4. BOOT_COMPLETED receiver
+5. SyncAdapter for process priority boost
+6. Batched accelerometer sensing (survives CPU sleep)
+7. Exact alarm permission recovery
+8. OEM-specific wakelock tag spoofing (Honor whitelists "LocationManagerService")
+9. START_STICKY restart
+10. Safety net AlarmClock at 8-hour intervals
+11. User-facing gap detection with OEM-specific guidance</p>
+<p>Each layer was added because the previous ones were not enough on some device.</p>
+<h3>Problem 2: Sensor data lies to you</h3>
+<p>At 3 AM, your app wakes up to check the accelerometer. The sensor HAL returns data. You think it is fresh. It is not — it is 22-minute-old data sitting in the hardware FIFO buffer since the last time anyone read the sensor.</p>
+<p>On Honor devices, the HAL even rebases <code>event.timestamp</code> on flush, so a delta check against <code>elapsedRealtimeNanos()</code> thinks the data is fresh. The solution: explicit <code>sensorManager.flush()</code>, discard warm-up readings, use <code>onFlushCompleted()</code> callback instead of fixed timers, and dual-clock comparison as a safety net.</p>
+<p><strong>### Problem 3: GPS does not work when you need it</strong></p>
+<p><code>getCurrentLocation(PRIORITY_HIGH_ACCURACY)</code> returns nothing. The OEM killed the GPS hardware to save power.</p>
+<p>Solution: Priority fallback chain — HIGH_ACCURACY -&gt; wake probe -&gt; BALANCED_POWER -&gt; LOW_POWER -&gt; getLastLocation(). Returns a <code>GpsLocationOutcome</code> sealed class so the caller knows exactly what happened.</p>
+<p><strong>## The AI: from on-device to cloud</strong></p>
+<p>I started with Gemini Nano (fully on-device). It worked on Pixels. It did not work on anything else. The addressable market was tiny.</p>
+<p>So I moved to Gemini Flash (cloud API). The privacy trade-off: detailed behavioral data stays on-device in an encrypted database, but anonymized summaries (including location context) are sent to Google's AI for weekly analysis. No names, no personal identifiers.</p>
+<p>The key architectural decision: <strong>API key sharding</strong>. Each Google Cloud project gets 10,000 requests per day free. I created 6 projects with independent API keys. The app rotates through them on rate-limit errors (429/403). That is 60,000 requests per day — enough for thousands of users at zero cost.</p>
+<p><strong>## Travel intelligence</strong></p>
+<p>The biggest UX win. Without it, every vacation generated 5 to 7 URGENT emails (one per night when the hard-floor detector fired at an unfamiliar location). By day 5, families ignored all emails.</p>
+<p>Now: Day 1 sends one "your parent appears to be traveling" notification. Days 2 through 6: silence (unless something actually changes). Return home: "they have returned to a familiar area."</p>
+<p>The state machine: HOME -&gt; DAY_1 -&gt; TRAVELING(n) -&gt; TRIP_ENDED. Single-writer rule through <code>TravelStateManager</code> to prevent state corruption from concurrent assessments.</p>
+<p><strong>## What I would do differently</strong></p>
+<ol>
+<li><strong>Start with cloud AI from Day 1.</strong> I lost 2 months on Gemini Nano before accepting the device compatibility reality.</li>
+<li><strong>Build the OEM compatibility layer first.</strong> The 11-layer recovery took 40+ versions to get right. It should have been the foundation, not an afterthought.</li>
+<li><strong>Email before OAuth.</strong> I started with Gmail OAuth (user signs into their Google account). It was a UX nightmare. Resend API (transactional email, zero auth) took 1 day to implement and just works.</li>
+</ol>
+<p><strong>## Looking for early adopters</strong></p>
+<p>The app is free to download with a 21-day free trial (then $49 for the first year, $5 per year after that). I am looking for families to test it — install it on your parent's Android phone (Android 9 or newer), run it for a couple of weeks, and tell me what works and what does not.</p>
+<p>Website: <a href="https://howareu.app">howareu.app</a></p>
+            </article>
+            <div class="article-footer">
+                <a class="article-devto-link" href="https://dev.to/stoyan_minchev/i-spent-several-months-building-an-ai-safety-app-for-my-elderly-parent-here-is-what-i-learned-2h8a" target="_blank" rel="noopener">Read on dev.to / discuss in comments &rarr;</a>
+            </div>
+            <nav class="article-nav" aria-label="Article navigation">
+                <a class="article-nav-link next" href="11-layers-oem-survival.html"><span class="article-nav-label">Next &rarr;</span><span class="article-nav-title">What Android OEMs do to background apps, and the 11 layers I built to survive it</span></a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="How Are You?! Senior Safety" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="https://dev.to/stoyan_minchev" class="footer-link" target="_blank" rel="noopener">dev.to</a>
+                    <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Community</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 How Are You?! All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>

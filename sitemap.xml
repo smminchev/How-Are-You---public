@@ -32,6 +32,48 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://howareu.app/"/>
     </url>
     <url>
+        <loc>https://howareu.app/blog/</loc>
+        <lastmod>2026-04-29</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://howareu.app/blog/honor-magicos-revoke.html</loc>
+        <lastmod>2026-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://howareu.app/blog/oems-tear-apart.html</loc>
+        <lastmod>2026-04-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://howareu.app/blog/kotlin-lambda-21-hours.html</loc>
+        <lastmod>2026-04-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://howareu.app/blog/126k-android-app-ai-workflow.html</loc>
+        <lastmod>2026-03-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://howareu.app/blog/11-layers-oem-survival.html</loc>
+        <lastmod>2026-03-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://howareu.app/blog/ai-safety-app-elderly-parent.html</loc>
+        <lastmod>2026-03-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
         <loc>https://howareu.app/privacy-policy.html</loc>
         <lastmod>2026-03-13</lastmod>
         <changefreq>monthly</changefreq>

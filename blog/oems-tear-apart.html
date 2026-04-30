@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I build a safety-critical Android app that monitors elderly people living alone. It watches the phone...">
+    <meta name="author" content="Stoyan Minchev">
+    <meta name="robots" content="index, follow">
+    <title>I pushed my Android app to production. Then Android and the OEMs spent two weeks tearing it apart. — How Are You?! Blog</title>
+
+    <link rel="canonical" href="https://howareu.app/blog/oems-tear-apart.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://howareu.app/blog/oems-tear-apart.html">
+    <meta property="og:title" content="I pushed my Android app to production. Then Android and the OEMs spent two weeks tearing it apart.">
+    <meta property="og:description" content="I build a safety-critical Android app that monitors elderly people living alone. It watches the phone...">
+    <meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwh7qae7gzwv7m759vl62.png">
+    <meta property="og:site_name" content="How Are You?! Senior Safety">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="I pushed my Android app to production. Then Android and the OEMs spent two weeks tearing it apart.">
+    <meta name="twitter:description" content="I build a safety-critical Android app that monitors elderly people living alone. It watches the phone...">
+    <meta name="twitter:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwh7qae7gzwv7m759vl62.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="blog-body">
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
+            </a>
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav">
+                    <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="../index.html#use-cases" class="nav-link">For Whom</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="index.html" class="nav-link nav-link-active">Blog</a></li>
+                    <li><a href="../index.html#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="../index.html" class="lang-btn active">EN</a>
+                    <a href="../bg/index.html" class="lang-btn">BG</a>
+                    <a href="../de/index.html" class="lang-btn">DE</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <div class="container article-container">
+            <p class="article-breadcrumb"><a href="index.html">&larr; All articles</a></p>
+            <h1 class="article-title">I pushed my Android app to production. Then Android and the OEMs spent two weeks tearing it apart.</h1>
+            <div class="article-meta">
+                <time datetime="2026-04-22">April 22, 2026</time>
+                <span class="article-meta-sep">&middot;</span>
+                <span>12 min read</span>
+                <span class="article-meta-sep">&middot;</span>
+                <span class="article-tags"><span class="article-tag">#android</span> <span class="article-tag">#kotlin</span> <span class="article-tag">#programming</span> <span class="article-tag">#sideprojects</span></span>
+            </div>
+            <div class="article-cover"><img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwh7qae7gzwv7m759vl62.png" alt="" loading="eager"></div>
+            <article class="article-prose">
+<p>I build a safety-critical Android app that monitors elderly people living alone. It watches the phone 24/7 — motion, GPS, screen activity — and emails their family when something looks wrong. No buttons to press. No wearable to charge. Install it on your mum's phone and forget about it.</p>
+<p>That last sentence — <strong>install and forget</strong> — is the entire product. It is the only reason this works for the target user, who is 65+ years old, does not open apps she did not put there herself, and will not read an email from us telling her to go into Settings and tap anything. If the app needs her attention to keep working, the app has failed.</p>
+<p>In the last two weeks I found out that Android does not want me to keep that promise.</p>
+<h2>What broke first: the app was too quiet</h2>
+<p>I shipped a build. A tester installed it, went through setup, and never open the app again, exactly as a real elderly user would. Two and a half weeks later I opened the diagnostic export and found a phone that had, from Android's point of view, essentially disappeared.</p>
+<p>The battery-optimization exemption I had granted at setup was reset. The problem was subtler. Because the app had not been opened in 18 days, every OEM-level "smart battery" heuristic had decided the app was unused and put it into the most aggressive standby bucket the platform has. My auto-recovery layers — WorkManager watchdog, AlarmManager safety net, boot receiver — were all there. They were all throttled to the point of being ornamental.</p>
+<p>My 11 layers of recovery are all triggered by the device doing something. Boot. Screen on. Time change. App opened. Network regained. If the user does not open the app, the device stays in deep doze for days, and my "recovery" is just a sequence of alarms that will eventually fire when the OS decides they can.</p>
+<p>This is the <strong>bootstrap paradox of Android background work.</strong> The app cannot wake itself up reliably. It needs an external caller to poke it. And if you are writing a safety-critical app where the entire value proposition is "you do not have to think about this," the user cannot be the external caller.</p>
+<h2>The fix: somebody else has to ring the doorbell</h2>
+<p>I needed an external, non-user-driven wake source. Something that would touch the phone on a predictable cadence regardless of whether the user opened the app.</p>
+<p>FCM push messages are that thing, if you use them correctly. Here is the shape of it — none of this is private:</p>
+<ul>
+<li>A GitHub Actions workflow runs on a cron. Mine is every 6 hours. Its only job is to call the FCM API and send a data message to a topic called <code>heartbeat-all</code>.</li>
+<li>The Android app subscribes to that topic at first launch.</li>
+<li>The app registers a <code>FirebaseMessagingService</code>. When a heartbeat arrives, the service does one thing: it runs my existing recovery classifier. Is the foreground service alive? Are permissions still granted? Is the learning phase progressing? If anything looks wrong, fix it. If everything is fine, do nothing.</li>
+</ul>
+<p>A few things are worth being specific about.</p>
+<p><strong>Topic messaging, not device tokens.</strong> I do not want to store FCM tokens on a server. I have no server. With topic messaging, the server-side cron sends one message and Google's fan-out reaches every subscribed device. Zero per-device state. The external caller (GitHub Actions) does not know who my users are, and I like it that way.</p>
+<p><strong>Data messages with <code>priority: HIGH</code>, not notification messages.</strong> Notification messages are shown by the system and give the app almost no work budget. Data messages trigger <code>onMessageReceived</code> even in Doze, provided the priority is high. You pay for this with a quota — FCM will downgrade high-priority data messages if you overuse them — so 6-hour cadence is the floor. More frequent and you get throttled; less frequent and dormant phones drift too far before the next wake.</p>
+<p><strong>The handler always checks priority before acting.</strong> If FCM downgraded the message (which it will, eventually, on some device, for reasons Google does not fully document), the heartbeat handler does not run the full recovery path inline. It enqueues an expedited WorkManager job instead, because WorkManager is exempt from the foreground-service-while-in-use restrictions that killed the naive direct-execution path on Android 14. This one took me a minor-version patch to get right.</p>
+<p><strong>There is a compile-time kill switch.</strong> <code>ENABLE_FCM_HEARTBEAT</code> is a <code>BuildConfig</code> boolean. If a specific OEM starts misbehaving, I can ship a hotfix that disables the entire wake path without touching manifest registrations or Firebase configuration. Keep the lever small and reversible.</p>
+<p>That was roughly a week of work. FCM itself is easy to configure — the hard part is not "how do I send a push message," it is "what is the contract my handler signs when the push arrives, and what does it promise not to do on a misbehaving device." Get that contract right and you have bought yourself a non-user-driven wake channel that survives dormant installs.</p>
+<p>Testing now before I ship it. </p>
+<p>And then I started worrying about everything else.</p>
+<h2>I went looking for what else could silently break</h2>
+<p>Shipping the FCM heartbeat felt too quiet. A fix that works is always a little suspicious, especially on Android, and especially when the failure it is fixing took me two and a half weeks of dormant-phone diagnostics to even notice. So after the heartbeat stabilised I sat down with a blank page and forced myself to answer one question: <strong>what else can invalidate the state my recovery is built on top of, without the user doing anything?</strong></p>
+<p>I listed everything the app depends on to keep running. Battery-optimization exemption. Autostart permission on OEMs that have it. Foreground-service type declaration being honoured. Notification channel being visible. The device's standby bucket being something other than "restricted." All of these are things the app establishes at setup and then assumes, forever, because nothing in the normal operation of a phone should flip them back.</p>
+<p>OTAs are not normal operation.</p>
+<p>I do not have a dramatic in-production discovery story for this one. I do not have a log line. The common thread is that the OEM considers battery-optimization exemption to be a privilege the app was granted under the previous system image, and the new system image is entitled to re-evaluate.</p>
+<p>And here is what makes it the worst possible failure mode for my app: <strong>the user will never know.</strong> The OTA completes overnight. The phone reboots. The boot receiver fires. The foreground service tries to start. On the exempted path, it runs. On the reset path, it either fails silently on Android 14+ because <code>foregroundServiceType=location</code> requires permissions that are no longer considered granted, or it starts but runs in a standby bucket that throttles every alarm I schedule into next week. The <code>IMPORTANCE_MIN</code> notification looks the same either way. The elderly user will not notice. The adult child who installed the app months ago has moved on. The app is sitting on the phone doing approximately nothing, and nobody knows.</p>
+<p>A lot of work on 11 layers of recovery. All of it sitting on top of assumptions the OS is allowed to invalidate between Tuesday and Wednesday, without telling me.</p>
+<h2>Detecting an OTA without any help from the OS</h2>
+<p>If the platform will not tell you an OTA happened, you have to work it out. The trick is <code>Build.FINGERPRINT</code>.</p>
+<p><code>Build.FINGERPRINT</code> is a string that uniquely identifies the system image — OEM, device, build ID, build tags, build date. Every OTA changes it. It changes at a point in time the app cannot be guaranteed to observe directly, but it is stable across every wake once the OTA has completed.</p>
+<p>So: persist the last-seen fingerprint. On every wake — service start, boot receiver, heartbeat handler, everywhere — compare the current fingerprint against the stored one. If they differ, the device has been updated since the last time this app ran. At that instant, the app knows an OTA happened, even though nobody told it.</p>
+<p>That is the detector. The response is where it gets interesting, because you still cannot fix anything from code. The permissions have been revoked. The app cannot silently re-grant them. The user has to go into Settings. But the user will never open the app.</p>
+<p>So the response is an email.</p>
+<p>When the fingerprint changes, the app checks: are the critical exemptions still present? If yes, rotate the stored fingerprint, log it, move on — benign OTA. If no, the app flips a flag (<code>ota_degradation_mode</code>), emails the family contact with concrete two-step instructions ("Battery → Unrestricted, Autostart → On, single visit to Settings, five minutes"), and schedules a follow-up worker for seven days out. The email does not go to the elderly user. It goes to the adult child who originally set the app up, because they are the one who can either drive over or walk the parent through it on the phone.</p>
+<h2>Here is where I get angry</h2>
+<p>This is my first Android project in Kotlin, since 14 years. I have been a developer for a long time — I have shipped on other platforms, on servers, on the web — but I had not written a line of Kotlin before this one. I came to Android again, with the assumption that a mainstream mobile platform in 2026 would be a reasonably solved environment. It is not. This has been, by a clear margin, the most hostile platform I have ever written code for, and I mean that in a specific way: it is hostile to the developer.</p>
+<p>Not because Android is hard. Android is fine as a platform. The problem is that <strong>there is no platform anymore.</strong> There are fifteen platforms pretending to be one, and the differences between them are not surface-level. They are the parts of the OS that determine whether your background work runs at all. Samsung, Xiaomi, Honor, OPPO, Vivo, Asus, OnePlus — each one has a proprietary battery manager, a proprietary autostart manager, a proprietary app-standby bucket scheme, and a proprietary philosophy about what apps are allowed to do while the user is not looking. None of these behaviours are documented in a way a developer could build against. All of them change without notice, including as a side effect of an OTA.</p>
+<p>Google's published APIs promise one thing. The OEM fork delivers something weaker. The standards are not enforced. There is no compliance suite the OEM has to pass to ship "Android." The developer is left to reverse-engineer each OEM's behaviour on real hardware, discover the regression via user bug reports or, in my case, a phone not being opened for two and a half weeks, and then add another compatibility layer that will itself need updating the next time the OEM changes its mind.</p>
+<p>I do not think this is by accident. The OEMs compete on battery life — the review sites measure it, the spec sheets advertise it — and the cheapest way to win a battery-life benchmark is to kill background apps harder than the next manufacturer. The developer's app is not a stakeholder in this fight. The developer is collateral. We are victims of the marketing. Good benchmarks, better marketing, more sales -&gt; annoyed developers!</p>
+<p>And here is the thing that really bothers me. My app is not trying to serve ads. It is not mining crypto. It is not stealing the user's contacts. It is trying, on behalf of the user who installed it, to notice if an elderly person stops moving for too long and tell their family. That is the entire feature. And every single one of these OEM-specific battery managers is designed, at its core, to stop exactly this kind of work from happening. Because it looks, from the kernel's perspective, identical to the bad actor.</p>
+<p>I cannot fix that from code. No amount of layered recovery fixes it. The OEMs can invalidate my product's promise between Tuesday and Wednesday by pushing an OTA, and I will find out about it when a family emails me to ask why grandma's phone stopped sending heartbeats three weeks ago.</p>
+<p>I have not seen a serious Android project at my day job in years. I used to wonder why. I do not wonder anymore. If you were deciding, today, where to spend your next year of engineering time, would you pick the platform where your core value proposition can be invalidated by a silent system update from a manufacturer you have no contact with? Or would you pick the one where the platform vendor publishes the API, enforces it, and ships the update themselves?</p>
+<p>The answer is visible in the job listings. Serious product work has moved to iOS and to the web. </p>
+<h2>What I actually learned</h2>
+<p><strong>"Install and forget" is achievable on Android, but it is not a one-time promise — it is an ongoing fight.</strong> You can reach a state where the app survives first install, first reboot, first weekend in a drawer. You cannot reach a state where it is guaranteed to survive the next OTA you did not know was coming. The best you can do is detect degradation on the next wake and recover gracefully, through the family, without the elderly user ever noticing.</p>
+<p><strong>If your background work matters, you need an external wake source.</strong> Every internal recovery mechanism — AlarmManager, WorkManager, boot receivers, sticky services — is eventually rate-limited by the device's opinion of whether your app matters. A dormant install, on a dormant phone, running aggressive OEM battery management, can reach a state where nothing internal will wake it for days. An external push with a server-side cron is the only thing I have found that reliably breaks that state. FCM topic messaging plus a scheduled cron job is roughly a week of engineering. If your app has safety-critical reliability requirements, it is the cheapest week of engineering you will ever spend.</p>
+<p><strong>The permission you got at setup is not the permission you will have next month.</strong> Treat every exemption — battery optimization, autostart, exact alarms, foreground service type — as a fact you re-verify on every wake, not a state you establish once and assume. Compare <code>Build.FINGERPRINT</code> to the last-seen value, re-check exemptions when it changes, and have an out-of-band path (email, SMS, something outside the device) to tell a human when an exemption has been revoked by the OS without the user's involvement.</p>
+<p><strong>Silent degradation is worse than a crash.</strong> This echoes the last piece I wrote about a different bug, and it keeps being true. If the app had crashed after the OTA, Play Console would have told me. It did not crash. It kept running, doing nothing, drawing its minimum-importance notification, while the thing it was supposed to protect against — an elderly person falling in a quiet house — was no longer being monitored. There is no Play Console alert for "app is running but has stopped doing anything useful." You have to build that alert yourself. I have now built three of them, and I expect to build a fourth before the year is out.</p>
+<hr>
+<p><em>The app is called "How Are You?! Senior Safety" It is on Google Play. If you have shipped an Android app that has to run continuously without the user opening it, I would like to hear what broke for you and how you found out.</em></p>
+            </article>
+            <div class="article-footer">
+                <a class="article-devto-link" href="https://dev.to/stoyan_minchev/i-pushed-my-android-app-to-production-then-android-and-the-oems-spent-two-weeks-tearing-it-apart-1e70" target="_blank" rel="noopener">Read on dev.to / discuss in comments &rarr;</a>
+            </div>
+            <nav class="article-nav" aria-label="Article navigation">
+                <a class="article-nav-link prev" href="kotlin-lambda-21-hours.html"><span class="article-nav-label">&larr; Previous</span><span class="article-nav-title">A single Kotlin lambda silently broke my app for 21 hours - and I only found the bug because I crossed a border</span></a><a class="article-nav-link next" href="honor-magicos-revoke.html"><span class="article-nav-label">Next &rarr;</span><span class="article-nav-title">Honor watched my Android app come back from the dead — and revoked the battery exemption that let it</span></a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="How Are You?! Senior Safety" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="https://dev.to/stoyan_minchev" class="footer-link" target="_blank" rel="noopener">dev.to</a>
+                    <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Community</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 How Are You?! All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>
