@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I maintain an Android app that monitors elderly people and emails their family if something looks wrong. Honor's isIgnoringBatteryOptimizations() returns true in foreground and false in background.">
+    <meta name="author" content="Stoyan Minchev">
+    <meta name="robots" content="index, follow">
+    <title>Honor&apos;s isIgnoringBatteryOptimizations() returns true in foreground and false in background &mdash; How Are You?! Blog</title>
+
+    <link rel="canonical" href="https://howareu.app/blog/honor-battery-api-lie.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://howareu.app/blog/honor-battery-api-lie.html">
+    <meta property="og:title" content="Honor&apos;s isIgnoringBatteryOptimizations() returns true in foreground and false in background">
+    <meta property="og:description" content="I maintain an Android app that monitors elderly people and emails their family if something looks wrong. Honor's isIgnoringBatteryOptimizations() returns true in foreground and false in background.">
+    <meta property="og:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fsrqca3n56nk459goftx3.png">
+    <meta property="og:site_name" content="How Are You?! Senior Safety">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Honor&apos;s isIgnoringBatteryOptimizations() returns true in foreground and false in background">
+    <meta name="twitter:description" content="I maintain an Android app that monitors elderly people and emails their family if something looks wrong. Honor's isIgnoringBatteryOptimizations() returns true in foreground and false in background.">
+    <meta name="twitter:image" content="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fsrqca3n56nk459goftx3.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</head>
+<body class="blog-body">
+    <header class="header">
+        <div class="header-content">
+            <a href="../index.html" class="logo">
+                <img src="../images/logo.png" alt="How Are You?! Senior Safety Logo" class="logo-img">
+                <span class="logo-text">How Are You?! <span class="logo-accent">Senior Safety</span></span>
+            </a>
+            <nav class="nav" id="primary-nav" aria-label="Primary">
+                <ul class="primary-nav">
+                    <li><a href="../index.html#features" class="nav-link">Features</a></li>
+                    <li><a href="../index.html#how-it-works" class="nav-link">How It Works</a></li>
+                    <li><a href="../index.html#use-cases" class="nav-link">For Whom</a></li>
+                    <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="index.html" class="nav-link nav-link-active">Blog</a></li>
+                    <li><a href="../index.html#top" class="nav-link nav-cta">Download</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="language-switcher">
+                    <a href="../index.html" class="lang-btn active">EN</a>
+                    <a href="../bg/index.html" class="lang-btn">BG</a>
+                    <a href="../de/index.html" class="lang-btn">DE</a>
+                </div>
+                <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="article-main">
+        <div class="container article-container">
+            <p class="article-breadcrumb"><a href="index.html">&larr; All articles</a></p>
+            <h1 class="article-title">Honor&apos;s isIgnoringBatteryOptimizations() returns true in foreground and false in background &mdash; for the same app, at the same time</h1>
+            <div class="article-meta">
+                <time datetime="2026-05-05">May 5, 2026</time>
+                <span class="article-meta-sep">&middot;</span>
+                <span>3 min read</span>
+                <span class="article-meta-sep">&middot;</span>
+                <span class="article-tags"><span class="article-tag">#android</span> <span class="article-tag">#kotlin</span> <span class="article-tag">#programming</span> <span class="article-tag">#debugging</span></span>
+            </div>
+            <div class="article-cover"><img src="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fsrqca3n56nk459goftx3.png" alt="" loading="eager"></div>
+            <article class="article-prose">
+<p>I maintain an Android app that monitors elderly people and emails their family if something looks wrong. It runs a foreground service 24/7, and the single most important thing it does at install time is get added to the battery-optimisation whitelist - the one behind <code>PowerManager.isIgnoringBatteryOptimizations()</code>.</p>
+<p>On my Honor device running MagicOS 9.0, I did a fresh new install. I did everything right during setup. Tapped &quot;Don&apos;t optimise.&quot; Enabled autostart. Finished onboarding. All looked good. I opened the app a few times, closed it. Normal behavior. People will open it, see that it works, close it. They will wake up, out of curiosity, they will open it, then close it.</p>
+<p>A few hours later, I received an email:<br>
+Battery optimisation is blocking the app. Please open Settings and set it back to &quot;Don&apos;t optimize.&quot;</p>
+<p>I opened the OS settings and all looked good there. They were correct.</p>
+<p>The logs showed something strange:</p>
+<pre><code class="language-console">2026-05-01 19:27 UTC  [WatchdogWorker]  isIgnoringBatteryOptimizations = false
+                                         &rarr; health = Degraded(battery_optimization_active)
+</code></pre>
+<pre><code class="language-console">2026-05-02 09:25 UTC  [MonitoringAutoRecover]  isIgnoringBatteryOptimizations = true
+                                                &rarr; health = Healthy
+</code></pre>
+<p>Same device. Same package. Same API call: <code>context.getSystemService(PowerManager::class.java).isIgnoringBatteryOptimizations(packageName)</code>.</p>
+<p>The watchdog runs as a background process. No activity, no visible UI at that moment.<br>
+The auto-recover check runs when the user opens the app. It&apos;s a foreground process. Activity visible, window focused.</p>
+<p>Between 19:27 and 09:25, the watchdog fired roughly every thirty minutes. Every single background check returned <code>false</code>. I opened the app the next morning, the foreground check returned <code>true</code>, the app said &quot;everything&apos;s fine,&quot; and the recovery screen never appeared.</p>
+<h2>What Honor is actually doing</h2>
+<p>AOSP&apos;s <code>isIgnoringBatteryOptimizations()</code> reads the <code>deviceidle</code> whitelist in <code>DeviceIdleController</code>. That&apos;s a persistent list. You get added via <code>ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code> or <code>dumpsys deviceidle whitelist +&lt;package&gt;</code>. Once you&apos;re on it, you stay on it until someone removes you.</p>
+<p>Honor&apos;s PowerGenie sits on top of this. It has its own internal classification - a per-UID trust score that evolves based on the app&apos;s runtime behaviour (job frequency, wake patterns, GPS usage, the resurrection-detection heuristic I wrote about previously). When PowerGenie decides your trust is low enough, it doesn&apos;t remove you from the AOSP whitelist. That would be visible in <code>dumpsys</code>. Instead, it folds an enforcement bit into the return value of <code>isIgnoringBatteryOptimizations()</code>.</p>
+<p>And here&apos;s the part that cost me two days: <strong>the enforcement bit is only applied when the caller is a background process.</strong> When the calling process has a visible activity &mdash; when the user is looking at the app &mdash; PowerGenie shadows the read and returns the &quot;real&quot; AOSP whitelist value. Which is <code>true</code>, because the user never revoked the exemption.</p>
+<p>In other words:</p>
+<ul>
+<li>Background worker asks &quot;am I whitelisted?&quot; &rarr; PowerGenie says <strong>no</strong></li>
+<li>User opens the app, same code asks &quot;am I whitelisted?&quot; &rarr; PowerGenie says <strong>yes</strong></li>
+<li>The AOSP whitelist never changed</li>
+</ul>
+<p>I spent two days convinced this was a race condition before I looked at the timestamps carefully enough to see that every single background read disagreed with every single foreground read, for sixteen straight hours. That&apos;s not a race. That&apos;s policy.</p>
+<hr>
+<p><em>The app is <a href="https://play.google.com/store/apps/details?id=com.howareyou" target="_blank" rel="noopener">How Are You?!</a> &mdash; elderly monitoring via AI pattern learning. If you&apos;ve hit a vendor API that returns different values depending on the calling context, I&apos;d genuinely like to know about it. The AOSP contract says nothing about this, and I suspect Honor isn&apos;t the only one doing it.</em></p>
+            </article>
+            <div class="article-footer">
+                <a class="article-devto-link" href="https://dev.to/stoyan_minchev/honors-isignoringbatteryoptimizations-returns-true-in-foreground-and-false-in-background-for-4l4p" target="_blank" rel="noopener">Read on dev.to / discuss in comments &rarr;</a>
+            </div>
+            <nav class="article-nav" aria-label="Article navigation">
+                <a class="article-nav-link prev" href="honor-magicos-revoke.html"><span class="article-nav-label">&larr; Previous</span><span class="article-nav-title">Honor watched my Android app come back from the dead &mdash; and revoked the battery exemption that let it</span></a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../images/logo.png" alt="How Are You?! Senior Safety" class="footer-logo">
+                    <span class="footer-name">How Are You?! <span class="footer-accent">Senior Safety</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="../privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="https://dev.to/stoyan_minchev" class="footer-link" target="_blank" rel="noopener">dev.to</a>
+                    <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Community</a>
+                </div>
+            </div>
+            <p class="footer-copyright">&copy; 2026 How Are You?! All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="../js/main.js"></script>
+</body>
+</html>
