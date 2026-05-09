@@ -38,6 +38,36 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://howareu.app/blog/troubleshooting.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://howareu.app/blog/troubleshooting.html"/>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://howareu.app/blog/troubleshooting-bg.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://howareu.app/blog/troubleshooting-de.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://howareu.app/blog/troubleshooting.html"/>
+    </url>
+    <url>
+        <loc>https://howareu.app/blog/troubleshooting-bg.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://howareu.app/blog/troubleshooting.html"/>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://howareu.app/blog/troubleshooting-bg.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://howareu.app/blog/troubleshooting-de.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://howareu.app/blog/troubleshooting.html"/>
+    </url>
+    <url>
+        <loc>https://howareu.app/blog/troubleshooting-de.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://howareu.app/blog/troubleshooting.html"/>
+        <xhtml:link rel="alternate" hreflang="bg" href="https://howareu.app/blog/troubleshooting-bg.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://howareu.app/blog/troubleshooting-de.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://howareu.app/blog/troubleshooting.html"/>
+    </url>
+    <url>
         <loc>https://howareu.app/blog/honor-battery-api-lie.html</loc>
         <lastmod>2026-05-05</lastmod>
         <changefreq>monthly</changefreq>

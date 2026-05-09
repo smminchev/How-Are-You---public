@@ -35,9 +35,6 @@
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Structured Data: Organization -->
     <script type="application/ld+json">
@@ -124,25 +121,8 @@
             {"@type": "Question", "name": "How does the 7-day learning phase work?", "acceptedAnswer": {"@type": "Answer", "text": "During the first 7 days, the AI observes daily patterns - when they wake up, typical activity levels, regular locations. Basic monitoring is active from Day 1, but personalized thresholds are refined by Day 7."}},
             {"@type": "Question", "name": "Is my parent's data safe?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. All detailed data is stored on the device. For safety analysis, behavioral summaries and general location context are sent securely to Google's AI. No names or personal identifiers are ever shared. Emergency alerts are sent via encrypted email to family members."}},
             {"@type": "Question", "name": "What if the app sends false alerts?", "acceptedAnswer": {"@type": "Answer", "text": "The AI continuously learns and adapts. False alerts decrease over time as the system better understands individual patterns."}},
-            {"@type": "Question", "name": "Do I need to pay monthly?", "acceptedAnswer": {"@type": "Answer", "text": "The app is free to download with a 21-day trial. After that, $49/year for the first year, then $5/year (auto-renewing). Even without a subscription, core safety monitoring continues."}},
-            {"@type": "Question", "name": "How do I cancel my subscription?", "acceptedAnswer": {"@type": "Answer", "text": "You can cancel anytime from Google Play Store > Subscriptions. Your access continues until the end of the current billing period. No questions asked."}},
-            {"@type": "Question", "name": "How can you offer this so affordably?", "acceptedAnswer": {"@type": "Answer", "text": "Modern AI development tools let a small team build and maintain what used to require large departments. Everything runs on the phone — no servers, no cloud storage, no data centers. No hardware to manufacture, no call center to staff. We pass those savings directly to families."}},
-            {"@type": "Question", "name": "What Android version is required?", "acceptedAnswer": {"@type": "Answer", "text": "Any Android phone running Android 9 or higher."}},
-            {"@type": "Question", "name": "Can my parent reset or disable it?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Reset Learning button is easily accessible and instantly deletes all learned data. They can also uninstall the app anytime."}},
-            {"@type": "Question", "name": "What happens if the phone battery dies?", "acceptedAnswer": {"@type": "Answer", "text": "The app cannot monitor when the phone is off. However, an extended period without any data can itself trigger an alert to family members, indicating something may be wrong."}},
-            {"@type": "Question", "name": "Does it work without WiFi or internet?", "acceptedAnswer": {"@type": "Answer", "text": "Core safety monitoring works offline. AI-enhanced analysis requires internet, but safety floors (emergency detection) always work. Internet is needed to send emergency alerts via email."}},
-            {"@type": "Question", "name": "What if my parent leaves their phone at home?", "acceptedAnswer": {"@type": "Answer", "text": "The app monitors the phone's location. If your parent frequently leaves their phone at home, this will be learned as normal behavior. Unusual patterns may still trigger alerts."}},
-            {"@type": "Question", "name": "Why must I Ignore Battery Optimizations?", "acceptedAnswer": {"@type": "Answer", "text": "Android tries to kill apps that run in the background to save power. For a safety app, this is dangerous because it stops monitoring. Ignoring optimizations tells Android that this app is critical and must not be killed."}},
-            {"@type": "Question", "name": "The app keeps getting killed by my phone. What do I do?", "acceptedAnswer": {"@type": "Answer", "text": "Some manufacturers (Samsung, Xiaomi, Huawei, Honor, OPPO) aggressively kill background apps. The app includes multiple self-healing layers that automatically restart monitoring. If it cannot recover, it sends your family an email and shows a Tap to fix notification on the phone. Open the app, go to Settings, Device Reliability, tap your phone brand for step-by-step instructions."}},
-            {"@type": "Question", "name": "I don't see a notification. Is the app running?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The app is designed to run quietly in the background — the notification is intentionally silent and hidden. To verify: open the app — if you see the dashboard, monitoring is active."}},
-            {"@type": "Question", "name": "I see a warning May keep your system from sleeping. Is this a problem?", "acceptedAnswer": {"@type": "Answer", "text": "This warning is normal for a 24/7 safety app. It means the app is working correctly by keeping sensors active to detect emergencies."}},
-            {"@type": "Question", "name": "How much battery does the app use?", "acceptedAnswer": {"@type": "Answer", "text": "The app uses an adaptive heartbeat that reduces sensor activity during stillness. Typical battery usage is less than 1% per day."}},
-            {"@type": "Question", "name": "Does it work on Pixel and stock Android phones?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Version 2.171.0 added one-time setup steps specifically for Pixel and other stock Android phones (Nothing, Motorola, most carrier builds). On Android 13 and newer, two battery features are turned on by default that quietly stop monitoring apps after about three months of not opening them: Pause app activity if unused, and Adaptive Battery. The setup flow walks you through disabling both. If a major Android update ever resets these settings, the app detects the change and emails your family with a 2-step fix."}},
-            {"@type": "Question", "name": "What happens if my phone's manufacturer kills the app?", "acceptedAnswer": {"@type": "Answer", "text": "The app has built-in self-healing. If your phone manufacturer stops monitoring, the app automatically tries to restart itself using multiple recovery layers. If it cannot recover on its own, it sends an email to your family members explaining that monitoring has paused and asks them to open the app on the phone to fix it. A notification also appears on the phone with a simple Tap to fix button."}},
-            {"@type": "Question", "name": "Does the app use push notifications? Will my parent see them?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the app uses silent push notifications approximately every 6 hours for monitoring survival. These are NOT regular notifications — your parent will NOT see anything on their phone. The push is a technical signal that helps the app restart itself if the phone manufacturer has stopped the background monitoring service. This ensures the app continues protecting your parent even if they never open the app for weeks or months."}},
-            {"@type": "Question", "name": "I received an email saying monitoring has stopped. What do I do?", "acceptedAnswer": {"@type": "Answer", "text": "Open the app on the monitored phone. You will see a recovery screen showing exactly what needs to be fixed, with step-by-step instructions specific to the phone brand. Tap the fix button, follow the steps, and monitoring restarts automatically."}},
-            {"@type": "Question", "name": "What is Pause app activity if unused and why does it matter?", "acceptedAnswer": {"@type": "Answer", "text": "Android can automatically stop apps that have not been opened in about three months and revoke their permissions. For a safety app installed for someone who never opens it, this would silently stop monitoring. During setup, the app asks you to disable this feature in one tap. If it gets re-enabled after a system update, the app detects this and guides you through fixing it."}},
-            {"@type": "Question", "name": "I already installed the app before version 2.171.0. How do I add the new Pixel settings?", "acceptedAnswer": {"@type": "Answer", "text": "Open the app and go to Settings, Device Reliability, tap your device name. The Pixel-specific guidance screen walks you through the four steps. You may also see a one-time prompt on the dashboard after updating, which opens the same screen automatically."}}
+            {"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "The app is free to download with a 21-day trial. After that, $49/year for the first year, then $5/year (auto-renewing). No hardware, no call center — just intelligent software on the phone your parent already has."}},
+            {"@type": "Question", "name": "What Android version is required?", "acceptedAnswer": {"@type": "Answer", "text": "Any Android phone running Android 9 or higher."}}
         ]
     }
     </script>
@@ -157,9 +137,8 @@
             </a>
             <nav class="nav" id="primary-nav" aria-label="Primary">
                 <ul class="primary-nav">
-                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#story" class="nav-link">Our Story</a></li>
                     <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-                    <li><a href="#use-cases" class="nav-link">For Whom</a></li>
                     <li><a href="#faq" class="nav-link">FAQ</a></li>
                     <li><a href="blog/index.html" class="nav-link" target="_blank" rel="noopener">Blog</a></li>
                     <li><a href="#top" class="nav-link nav-cta">Download</a></li>
@@ -180,179 +159,121 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="top">
-        <div class="hero-shape hero-shape-1"></div>
-        <div class="hero-shape hero-shape-2"></div>
-        <div class="hero-shape hero-shape-3"></div>
-        <div class="hero-shape hero-shape-4"></div>
         <div class="container">
-            <h1 class="hero-title">Peace of Mind for Your Loved Ones</h1>
-            <p class="hero-subtitle">AI-powered safety monitoring that learns your parent's routines and alerts you to emergencies - without daily check-in calls</p>
+            <p class="hero-eyebrow">Senior Safety Monitoring</p>
+            <h1 class="hero-title">What if she falls and no one knows?</h1>
+            <p class="hero-subtitle">AI that learns your parent's daily routine and emails you when something is wrong. No wearables, no cameras, no daily calls. Just their Android phone.</p>
             <div class="hero-cta">
                 <a href="https://play.google.com/store/apps/details?id=com.howareyou" target="_blank" rel="noopener" class="play-badge-link" aria-label="Get How Are You?! on Google Play">
-                    <img src="images/google-play-badge-en.png" alt="Get it on Google Play" class="play-badge-img" width="220" height="85" loading="eager">
+                    <img src="images/google-play-badge-en.png" alt="Get it on Google Play" class="play-badge-img" width="200" height="77" loading="eager">
                 </a>
-                <p class="hero-cta-caption">21-day free trial · Android 9+ · No credit card required</p>
+                <p class="hero-cta-caption">21-day free trial &middot; Android 9+ &middot; No credit card required</p>
             </div>
+            <span class="hero-divider"></span>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features reveal" id="features">
-        <div class="container">
-            <h2 class="section-title">Key Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">7-Day Learning</h3>
-                    <p class="feature-desc">AI learns unique behavioral patterns in just one week</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">24/7 Monitoring</h3>
-                    <p class="feature-desc">Continuous protection without any interaction required</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Smart Alerts</h3>
-                    <p class="feature-desc">Email notifications with GPS coordinates when needed</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M17.13,17C15.92,18.85 14.11,20.24 12,20.92C9.89,20.24 8.08,18.85 6.87,17C6.53,16.5 6.24,16 6,15.47C6,13.82 8.71,12.47 12,12.47C15.29,12.47 18,13.79 18,15.47C17.76,16 17.47,16.5 17.13,17Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Your Privacy, Protected</h3>
-                    <p class="feature-desc">Your data stays on your phone — AI safety analysis via secure encrypted connection</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Simple Pricing</h3>
-                    <p class="feature-desc">Free to download. 21-day trial, then $49/year. Just $5/year after Year 1</p>
-                    <p class="feature-desc feature-desc-secondary">Built by a small team using modern AI tools — no large departments needed. No servers to maintain, no hardware to manufacture. We pass the savings directly to you.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Dignity First</h3>
-                    <p class="feature-desc">No intrusive notifications to your parent</p>
-                </div>
-            </div>
+    <!-- Story -->
+    <section class="story reveal" id="story">
+        <div class="story-inner">
+            <p class="story-label">Why I built this</p>
+            <h2 class="story-title">My grandmother fell. Nobody knew for hours.</h2>
+            <p class="story-text">She lived alone. She was independent, sharp, proud. One morning she slipped in the kitchen and couldn't get up. By the time a neighbor noticed, hours had passed.</p>
+            <p class="story-text">My parents still live together, but my father often goes for long walks in the forest or hunting &mdash; leaving my mother home alone for hours. And when he's out there, he's on his own too. I know them &mdash; neither would wear a medical alert pendant, they hate check-in calls that make them feel like a burden, and cameras would strip their dignity.</p>
+            <p class="story-text"><strong>Elderly people don't want to feel watched. They don't want to press buttons. They just want to live their lives.</strong></p>
+            <p class="story-text">So I built something different. An app that sits quietly on their phone, learns what a normal day looks like, and emails you only when something seems wrong. No hardware. No interaction. They don't even know it's there.</p>
+            <div class="story-highlight">"I don't do it for the money. I just want to help people like my parents &mdash; and yours."</div>
         </div>
     </section>
 
-    <!-- What We Detect Section -->
+    <!-- Scenarios -->
     <section class="scenarios reveal" id="scenarios">
         <div class="container">
-            <h2 class="section-title">What We Detect</h2>
-            <p class="section-subtitle">Real emergencies the app is built to catch</p>
-            <div class="features-grid">
-                <div class="feature-card scenario-card">
-                    <div class="feature-icon scenario-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M11,7H13V13H11V7M11,15H13V17H11V15Z"/></svg>
+            <p class="section-label">What it catches</p>
+            <h2 class="section-title">Real emergencies. Detected automatically.</h2>
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-icon">
+                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4C16.42,4 20,7.58 20,12C20,16.42 16.42,20 12,20M11,7H13V13H11V7M11,15H13V17H11V15Z"/></svg>
                     </div>
-                    <h3 class="feature-title">Falls at Home</h3>
-                    <p class="feature-desc">Your parent falls and can't reach their phone. The app detects hours of unusual stillness and alerts your family with their GPS location.</p>
+                    <div class="scenario-content">
+                        <h3>Falls at Home</h3>
+                        <p>They fall and can't reach their phone. The app detects hours of unusual stillness and alerts your family with GPS location.</p>
+                    </div>
                 </div>
-                <div class="feature-card scenario-card">
-                    <div class="feature-icon scenario-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
+                <div class="scenario-card">
+                    <div class="scenario-icon">
+                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
                     </div>
-                    <h3 class="feature-title">Medical Emergency</h3>
-                    <p class="feature-desc">A stroke or heart event leaves them unable to move. The app notices the sudden break from normal activity patterns.</p>
+                    <div class="scenario-content">
+                        <h3>Medical Emergency</h3>
+                        <p>A stroke or heart event leaves them unable to move. The app notices the sudden break from their normal activity patterns.</p>
+                    </div>
                 </div>
-                <div class="feature-card scenario-card">
-                    <div class="feature-icon scenario-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
+                <div class="scenario-card">
+                    <div class="scenario-icon">
+                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></svg>
                     </div>
-                    <h3 class="feature-title">Didn't Wake Up on Time</h3>
-                    <p class="feature-desc">It's 11 AM and they usually wake at 7. The app knows their sleep schedule and alerts you when something's off.</p>
+                    <div class="scenario-content">
+                        <h3>Didn't Wake Up on Time</h3>
+                        <p>It's 11 AM and they usually wake at 7. The app knows their sleep schedule and alerts you when something's off.</p>
+                    </div>
                 </div>
-                <div class="feature-card scenario-card">
-                    <div class="feature-icon scenario-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5C10.62,11.5 9.5,10.38 9.5,9C9.5,7.62 10.62,6.5 12,6.5C13.38,6.5 14.5,7.62 14.5,9C14.5,10.38 13.38,11.5 12,11.5Z"/></svg>
+                <div class="scenario-card">
+                    <div class="scenario-icon">
+                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5C10.62,11.5 9.5,10.38 9.5,9C9.5,7.62 10.62,6.5 12,6.5C13.38,6.5 14.5,7.62 14.5,9C14.5,10.38 13.38,11.5 12,11.5Z"/></svg>
                     </div>
-                    <h3 class="feature-title">Wandered to Unfamiliar Area</h3>
-                    <p class="feature-desc">They've left their usual neighborhood at an unusual hour. The app learned their safe zones and notices the deviation.</p>
-                </div>
-                <div class="feature-card scenario-card">
-                    <div class="feature-icon scenario-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>
+                    <div class="scenario-content">
+                        <h3>Wandered to Unfamiliar Area</h3>
+                        <p>They left their usual neighborhood at an unusual hour. The app learned their safe zones and notices the deviation.</p>
                     </div>
-                    <h3 class="feature-title">Phone Silent Too Long</h3>
-                    <p class="feature-desc">No phone activity for hours. Could mean the battery died — or it could mean they can't reach it.</p>
-                </div>
-                <div class="feature-card scenario-card">
-                    <div class="feature-icon scenario-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M20.5,3L20.34,3.03L15,5.1L9,3L3.36,4.9C3.15,4.97 3,5.15 3,5.38V20.5A0.5,0.5 0 0,0 3.5,21L3.66,20.97L9,18.9L15,21L20.64,19.1C20.85,19.03 21,18.85 21,18.62V3.5A0.5,0.5 0 0,0 20.5,3M15,19L9,16.89V5L15,7.11V19Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Traveling Safely</h3>
-                    <p class="feature-desc">Your parent went on vacation. Instead of 7 days of false alarms, you get one "they appear to be traveling" notification and a "they're home" when they return.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Alert Preview Section -->
-    <section class="alert-preview reveal" id="alert-preview">
-        <div class="container">
-            <h2 class="section-title">What Your Family Receives</h2>
-            <p class="section-subtitle">When something seems wrong, your family gets a detailed email alert — no app install needed on their end</p>
-            <div class="alert-preview-gallery">
-                <div class="alert-preview-item">
-                    <img src="images/alert_stillness.png" alt="Alert email header — Unusual Stillness Detected with confidence score and detection time" class="alert-preview-img">
-                    <p class="alert-preview-caption">Clear alert header with detection details</p>
-                </div>
-                <div class="alert-preview-item">
-                    <img src="images/alert_stillness2.png" alt="Alert email body — GPS location, Google Maps link, context (time of day, last motion), recommended actions for family" class="alert-preview-img">
-                    <p class="alert-preview-caption">GPS location, context, and recommended actions</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
+    <!-- How It Works -->
     <section class="how-it-works reveal" id="how-it-works">
         <div class="container">
-            <h2 class="section-title">How It Works</h2>
+            <p class="section-label">Three steps</p>
+            <h2 class="section-title">Set up once. Never think about it again.</h2>
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Quick Setup</h3>
-                    <p class="step-desc">Grant permissions, add family emails. Takes just 3-5 minutes.</p>
+                    <div class="step-text">
+                        <h3>Install &amp; Configure</h3>
+                        <p>Put the app on their phone. Grant permissions, add your email. Takes 3&ndash;5 minutes.</p>
+                    </div>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Learning Phase</h3>
-                    <p class="step-desc">Basic monitoring active from Day 1. AI personalizes thresholds by Day 7.</p>
+                    <div class="step-text">
+                        <h3>AI Learns Their Routine</h3>
+                        <p>For 7 days, the AI observes &mdash; when they wake, their activity levels, their favorite places. Basic protection starts on Day 1.</p>
+                    </div>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Active Protection</h3>
-                    <p class="step-desc">Anomaly detection with automatic family alerts when something seems wrong.</p>
+                    <div class="step-text">
+                        <h3>24/7 Protection</h3>
+                        <p>Personalized monitoring runs silently. You get an email only when something seems wrong. They don't notice a thing.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- A Day With How Are You?! Section -->
+    <!-- Day Story -->
     <section class="day-story reveal" id="day-story">
         <div class="container">
-            <h2 class="section-title">A Day With How Are You?!</h2>
-            <p class="section-subtitle">What protection looks like from your family's perspective</p>
+            <p class="section-label">A typical day</p>
+            <h2 class="section-title">What protection looks like</h2>
             <div class="timeline">
                 <div class="timeline-phase">
                     <div class="timeline-marker">
-                        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,2L14.39,5.42C13.65,5.15 12.84,5 12,5C11.16,5 10.35,5.15 9.61,5.42L12,2M3.34,7L7.5,6.65C6.9,7.16 6.36,7.78 5.93,8.5C5.5,9.22 5.25,9.95 5.11,10.69L3.34,7M3.36,17L5.12,13.23C5.26,14 5.53,14.78 5.95,15.5C6.37,16.22 6.91,16.82 7.5,17.35L3.36,17M20.65,7L18.88,10.68C18.74,9.94 18.5,9.22 18.07,8.5C17.64,7.78 17.1,7.16 16.5,6.65L20.65,7M20.64,17L16.5,17.35C17.09,16.82 17.63,16.22 18.05,15.5C18.47,14.78 18.74,14 18.87,13.23L20.64,17Z"/></svg>
+                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,2L14.39,5.42C13.65,5.15 12.84,5 12,5C11.16,5 10.35,5.15 9.61,5.42L12,2M3.34,7L7.5,6.65C6.9,7.16 6.36,7.78 5.93,8.5C5.5,9.22 5.25,9.95 5.11,10.69L3.34,7M3.36,17L5.12,13.23C5.26,14 5.53,14.78 5.95,15.5C6.37,16.22 6.91,16.82 7.5,17.35L3.36,17M20.65,7L18.88,10.68C18.74,9.94 18.5,9.22 18.07,8.5C17.64,7.78 17.1,7.16 16.5,6.65L20.65,7M20.64,17L16.5,17.35C17.09,16.82 17.63,16.22 18.05,15.5C18.47,14.78 18.74,14 18.87,13.23L20.64,17Z"/></svg>
                     </div>
                     <div class="timeline-content">
                         <h3 class="timeline-time">Morning</h3>
@@ -361,7 +282,7 @@
                 </div>
                 <div class="timeline-phase">
                     <div class="timeline-marker">
-                        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5C10.62,11.5 9.5,10.38 9.5,9C9.5,7.62 10.62,6.5 12,6.5C13.38,6.5 14.5,7.62 14.5,9C14.5,10.38 13.38,11.5 12,11.5Z"/></svg>
+                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12,2C8.13,2 5,5.13 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9C19,5.13 15.87,2 12,2M12,11.5C10.62,11.5 9.5,10.38 9.5,9C9.5,7.62 10.62,6.5 12,6.5C13.38,6.5 14.5,7.62 14.5,9C14.5,10.38 13.38,11.5 12,11.5Z"/></svg>
                     </div>
                     <div class="timeline-content">
                         <h3 class="timeline-time">Afternoon</h3>
@@ -370,7 +291,7 @@
                 </div>
                 <div class="timeline-phase timeline-phase-alert">
                     <div class="timeline-marker timeline-marker-alert">
-                        <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>
+                        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>
                     </div>
                     <div class="timeline-content">
                         <h3 class="timeline-time">The Alert That Matters</h3>
@@ -382,358 +303,49 @@
         </div>
     </section>
 
-    <!-- Is This For You? Section -->
-    <section class="use-cases reveal" id="use-cases">
-        <div class="container">
-            <h2 class="section-title">Is This For You?</h2>
-            <p class="section-subtitle">Families in these situations find How Are You?! most valuable</p>
-            <div class="features-grid">
-                <div class="feature-card usecase-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">My parent lives alone</h3>
-                    <p class="feature-desc">No one is there to notice if something goes wrong. A fall at 2 AM, a medical episode during the day — the app watches when no one else can.</p>
-                </div>
-                <div class="feature-card usecase-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">I live far from my parent</h3>
-                    <p class="feature-desc">You can't drop by to check. Maybe you're in another city, or another country. The app bridges the distance with real-time safety awareness.</p>
-                </div>
-                <div class="feature-card usecase-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">My parent won't wear a medical alert</h3>
-                    <p class="feature-desc">They see the pendant as a sign of weakness. They don't want to feel old. How Are You?! runs on their phone — something they already carry every day.</p>
-                </div>
-                <div class="feature-card usecase-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">I just want to know they're okay</h3>
-                    <p class="feature-desc">Not every family faces an emergency. Sometimes you just want the quiet confidence that if something did happen, you'd know. That's what this app gives you.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Families Trust Us Section -->
-    <section class="trust-section reveal" id="trust">
-        <div class="container">
-            <h2 class="section-title">Why Families Trust Us</h2>
-            <div class="features-grid">
-                <div class="feature-card trust-card">
-                    <div class="feature-icon trust-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M7,7H17V10L21,6L17,2V5H5V11H7V7M17,17H7V14L3,18L7,22V19H19V13H17V17Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Zero Interaction Needed</h3>
-                    <p class="feature-desc">Your parent doesn't press buttons, wear devices, or answer check-in calls. They just live their life.</p>
-                </div>
-                <div class="feature-card trust-card">
-                    <div class="feature-icon trust-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Free App + 21-Day Trial</h3>
-                    <p class="feature-desc">Try it risk-free for 21 days. Then $49/year for the first year, just $5/year after that. Cancel anytime.</p>
-                </div>
-                <div class="feature-card trust-card">
-                    <div class="feature-icon trust-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Your Privacy, Protected</h3>
-                    <p class="feature-desc">All detailed data stays on their phone. Anonymous behavioral summaries analyzed securely — no tracking, no surveillance.</p>
-                </div>
-                <div class="feature-card trust-card">
-                    <div class="feature-icon trust-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M19,1L17.74,3.75L15,5L17.74,6.26L19,9L20.25,6.26L23,5L20.25,3.75M9,4L6.5,9.5L1,12L6.5,14.5L9,20L11.5,14.5L17,12L11.5,9.5"/></svg>
-                    </div>
-                    <h3 class="feature-title">AI That Learns THEIR Routine</h3>
-                    <p class="feature-desc">Not generic thresholds — the AI learns your parent's unique sleep times, activity levels, and favorite places.</p>
-                </div>
-                <div class="feature-card trust-card">
-                    <div class="feature-icon trust-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M20.5,3L20.34,3.03L15,5.1L9,3L3.36,4.9C3.15,4.97 3,5.15 3,5.38V20.5A0.5,0.5 0 0,0 3.5,21L3.66,20.97L9,18.9L15,21L20.64,19.1C20.85,19.03 21,18.85 21,18.62V3.5A0.5,0.5 0 0,0 20.5,3M15,19L9,16.89V5L15,7.11V19Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Travel-Aware Intelligence</h3>
-                    <p class="feature-desc">Going on vacation? The app adapts automatically. No false alarms, just one friendly "they're traveling" notification.</p>
-                </div>
-                <div class="feature-card trust-card">
-                    <div class="feature-icon trust-icon">
-                        <svg viewBox="0 0 24 24" width="48" height="48"><path fill="currentColor" d="M17,19H7V5H17M17,1H7C5.89,1 5,1.89 5,3V21A2,2 0 0,0 7,23H17A2,2 0 0,0 19,21V3C19,1.89 18.1,1 17,1Z"/></svg>
-                    </div>
-                    <h3 class="feature-title">Just Their Phone</h3>
-                    <p class="feature-desc">No pendants, no base stations, no wristbands to charge. Their existing Android phone is all they need.</p>
-                </div>
-            </div>
-            <p class="mission-statement">We built this because someone we love was in a difficult situation, and we wished something like this existed.</p>
-        </div>
-    </section>
-
-    <!-- How It Compares Section -->
-    <section class="compare-section reveal" id="compare">
-        <div class="container">
-            <h2 class="section-title">How It Compares</h2>
-            <p class="section-subtitle">Traditional elderly monitoring vs. a smarter approach</p>
-            <div class="compare-grid">
-                <div class="compare-card">
-                    <h3 class="compare-category">Medical Alert Pendants</h3>
-                    <div class="compare-row">
-                        <span class="compare-x">&times;</span>
-                        <p>Requires pressing a button. Useless if they're unconscious or confused.</p>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-check">&check;</span>
-                        <p>Detects emergencies automatically. No button needed.</p>
-                    </div>
-                </div>
-                <div class="compare-card">
-                    <h3 class="compare-category">Smartwatch Fall Detection</h3>
-                    <div class="compare-row">
-                        <span class="compare-x">&times;</span>
-                        <p>Needs daily charging. Many elderly find them uncomfortable or forget to wear them.</p>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-check">&check;</span>
-                        <p>Uses their existing phone. Nothing new to wear or charge.</p>
-                    </div>
-                </div>
-                <div class="compare-card">
-                    <h3 class="compare-category">Camera Monitoring</h3>
-                    <div class="compare-row">
-                        <span class="compare-x">&times;</span>
-                        <p>Your parent feels watched in their own home. Invasive and dignity-stripping.</p>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-check">&check;</span>
-                        <p>Completely invisible. They just live their life normally.</p>
-                    </div>
-                </div>
-                <div class="compare-card">
-                    <h3 class="compare-category">Daily Check-in Calls</h3>
-                    <div class="compare-row">
-                        <span class="compare-x">&times;</span>
-                        <p>Creates anxiety on both sides. They feel like a burden. You panic when they don't answer.</p>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-check">&check;</span>
-                        <p>Zero interaction needed. You only hear from the app when it matters.</p>
-                    </div>
-                </div>
-                <div class="compare-card">
-                    <h3 class="compare-category">Monthly Monitoring Services</h3>
-                    <div class="compare-row">
-                        <span class="compare-x">&times;</span>
-                        <p>Traditional services cost $30-50/month — that's $360-600 per year, every year.</p>
-                    </div>
-                    <div class="compare-row">
-                        <span class="compare-check">&check;</span>
-                        <p>Free to download with a 21-day trial. $49/year, then just $5/year. Cancel anytime. Same protection, fraction of the price.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- You're In Control Section -->
-    <section class="in-control reveal" id="in-control">
-        <div class="container">
-            <h2 class="section-title">You're In Control</h2>
-            <p class="section-subtitle">Your privacy, your choice - always</p>
-            <div class="control-grid">
-                <div class="control-item">
-                    <div class="control-icon">
-                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z"/></svg>
-                    </div>
-                    <p>Your detailed data stays on the device — only anonymous behavioral summaries are shared securely for AI analysis</p>
-                </div>
-                <div class="control-item">
-                    <div class="control-icon">
-                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/></svg>
-                    </div>
-                    <p>View exactly what the app has learned about your patterns</p>
-                </div>
-                <div class="control-item">
-                    <div class="control-icon">
-                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"/></svg>
-                    </div>
-                    <p>Reset Learning button instantly deletes all data - your choice</p>
-                </div>
-                <div class="control-item">
-                    <div class="control-icon">
-                        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/></svg>
-                    </div>
-                    <p>No notifications bother you during normal operation</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Under the Hood Section -->
-    <section class="under-the-hood reveal" id="under-the-hood">
-        <div class="container">
-            <details class="tech-details">
-                <summary class="tech-summary">
-                    <h2>Under the Hood</h2>
-                    <span class="toggle-icon"></span>
-                </summary>
-                <div class="tech-content">
-                    <ul class="tech-list">
-                        <li>Powered by Google's Gemini AI — fast, accurate safety analysis. Core monitoring works even offline</li>
-                        <li>Detects: unusual stillness duration, abnormally long sleep, location deviations from safe zones</li>
-                        <li>Context-aware: different thresholds for home vs. outside, day vs. night</li>
-                        <li>Weekly recalibration adapts to changing routines (seasonal, health changes)</li>
-                        <li>Battery efficient: designed for less than 1% daily battery impact</li>
-                    </ul>
-                </div>
-            </details>
-        </div>
-    </section>
-
-    <!-- Screenshots Section -->
-    <section class="screenshots reveal" id="screenshots">
-        <div class="container">
-            <h2 class="section-title">See It In Action</h2>
-            <div class="screenshots-gallery">
-                <img src="images/screenshots/device1.png" alt="Dashboard - Learning your routines with progress indicator" class="screenshot">
-                <img src="images/screenshots/device2.png" alt="Activity tracking - Locations, movements, and rest periods" class="screenshot">
-                <img src="images/screenshots/device7.png" alt="Help & Support — Privacy Policy, learn how your data is protected" class="screenshot">
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
+    <!-- FAQ -->
     <section class="faq reveal" id="faq">
         <div class="container">
+            <p class="section-label">Common questions</p>
             <h2 class="section-title">Frequently Asked Questions</h2>
             <div class="faq-list">
                 <details class="faq-item">
                     <summary>What emergencies can it detect?</summary>
-                    <p>The app detects unusual stillness (potential falls or medical emergencies), abnormally long sleep periods, and location deviations from established safe zones. It learns what's normal for YOUR parent specifically.</p>
+                    <p>Unusual stillness (potential falls or medical emergencies), abnormally long sleep, and location deviations from established safe zones. The AI learns what's normal for YOUR parent specifically.</p>
                 </details>
                 <details class="faq-item">
                     <summary>How does the 7-day learning phase work?</summary>
-                    <p>During the first 7 days, the AI observes daily patterns - when they wake up, typical activity levels, regular locations. Basic monitoring is active from Day 1, but personalized thresholds are refined by Day 7.</p>
+                    <p>The AI observes daily patterns — when they wake up, activity levels, regular locations. Basic monitoring is active from Day 1, but personalized thresholds are refined by Day 7. Weekly recalibration continues to adapt as their routine changes.</p>
                 </details>
                 <details class="faq-item">
                     <summary>Is my parent's data safe?</summary>
-                    <p>Yes. All detailed data is stored on the device. For safety analysis, behavioral summaries and general location context are sent securely to Google's AI — similar to what any maps or weather app uses. No names or personal identifiers are ever shared. Emergency alerts are sent via encrypted email to family members.</p>
+                    <p>All detailed data stays on their phone. For safety analysis, anonymous behavioral summaries are sent securely to Google's AI — no names or personal identifiers, ever. Emergency alerts go via encrypted email to family members.</p>
                 </details>
                 <details class="faq-item">
                     <summary>What if the app sends false alerts?</summary>
-                    <p>The AI continuously learns and adapts. False alerts decrease over time as the system better understands individual patterns.</p>
+                    <p>The AI continuously learns and adapts. False alerts decrease over time. The app also adapts to travel — instead of 7 days of false alarms during a vacation, you get one "they're traveling" notification.</p>
                 </details>
                 <details class="faq-item">
                     <summary>How much does it cost?</summary>
-                    <p>The app is free to download with a 21-day trial. After that, $49/year for the first year, then just $5/year (auto-renewing) to keep AI safety analysis active. Cancel anytime. No hardware, no call center — just intelligent software on the phone your parent already has.</p>
+                    <p>Free to download with a 21-day trial. Then $49/year for the first year, just $5/year after that. No hardware, no call center — just intelligent software on the phone they already carry. Cancel anytime.</p>
                 </details>
                 <details class="faq-item">
-                    <summary>How do I cancel my subscription?</summary>
-                    <p>You can cancel anytime from Google Play Store > Subscriptions. Your access continues until the end of the current billing period. No questions asked.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>How can you offer this so affordably?</summary>
-                    <p>We believe in transparency — like IKEA shares why their prices are low, here's ours: modern AI development tools let a small team build and maintain what used to require large departments of developers, testers, designers, and managers. And because everything runs on your parent's phone, we don't pay for servers, cloud storage, or data centers. No hardware to manufacture, no call center to staff. We pass those savings directly to families.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>What Android version is required?</summary>
-                    <p>Any Android phone running Android 9 or higher.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Can my parent reset or disable it?</summary>
-                    <p>Yes, absolutely. The "Reset Learning" button is easily accessible and instantly deletes all learned data. They can also uninstall the app anytime - no questions asked.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>What happens if the phone battery dies?</summary>
-                    <p>The app cannot monitor when the phone is off. However, an extended period without any data can itself trigger an alert to family members, indicating something may be wrong.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Does it work without WiFi or internet?</summary>
-                    <p>Core monitoring (motion detection, stillness tracking) works offline. However, internet connection is needed for AI safety analysis, weekly recalibration, and sending emergency alerts via email.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>What if my parent leaves their phone at home?</summary>
-                    <p>The app monitors the phone's location. If your parent frequently leaves their phone at home, this will be learned as normal behavior. Unusual patterns (phone stationary for too long) may still trigger alerts.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Why must I "Ignore Battery Optimizations"?</summary>
-                    <p>Android tries to kill apps that run in the background to save power. For a safety app, this is dangerous because it stops monitoring. "Ignoring optimizations" tells Android that this app is critical and must not be killed.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>The app keeps getting killed by my phone. What do I do?</summary>
-                    <p>Some manufacturers (Samsung, Xiaomi, Huawei, Honor, OPPO) aggressively kill background apps. The app includes multiple self-healing layers that automatically restart monitoring. If it cannot recover, it sends your family an email and shows a "Tap to fix" notification on the phone. To prevent this: open the app, go to Settings → Device Reliability → tap your phone brand for step-by-step instructions. On most phones, one or two toggles cover it for the long term. Major Android updates can occasionally reset these settings — if that happens, the app detects it and emails your family with a 2-step fix.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>I don't see a notification. Is the app running?</summary>
-                    <p>Yes! The app runs quietly in the background — the notification is intentionally silent and hidden while you use your phone, so you're not bothered. To verify: open the app — if you see the dashboard, monitoring is active.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>I see a warning "May keep your system from sleeping". Is this a problem?</summary>
-                    <p>This warning is normal for a 24/7 safety app. It means the app is working correctly by keeping sensors active to detect emergencies. The app works perfectly with this warning. On Honor/Huawei devices, you can optionally silence it in Settings > Battery > Power-intensive prompt.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>How much battery does the app use?</summary>
-                    <p>The app uses an adaptive heartbeat that reduces sensor activity during stillness. Typical battery usage is less than 1% per day. WiFi-assisted location helps reduce GPS battery drain.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Does it work on Pixel and stock Android phones?</summary>
-                    <p>Yes — and version 2.171.0 added one-time setup steps specifically for Pixel and other stock Android phones (Nothing, Motorola, most carrier builds). On Android 13 and newer, two battery features are turned on by default that quietly stop monitoring apps after about three months of not opening them: "Pause app activity if unused" and Adaptive Battery. The setup flow walks you through disabling both, so monitoring runs reliably. Major Android updates can occasionally re-enable them — if that happens, the app detects the change and emails your family with a 2-step fix.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>I already installed the app before version 2.171.0. How do I add the new Pixel settings?</summary>
-                    <p>Open the app and go to Settings → Device Reliability → tap your device name. The Pixel-specific guidance screen will walk you through the four steps. You may also see a one-time prompt on the dashboard after updating, which opens the same screen automatically. After that, no further action is needed — and if a future Android update resets the settings, the app detects it and emails your family with a 2-step fix.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>What happens if my phone's manufacturer kills the app?</summary>
-                    <p>The app has built-in self-healing. If your phone manufacturer stops monitoring, the app automatically tries to restart itself using multiple recovery layers. If it cannot recover on its own, it sends an email to your family members explaining that monitoring has paused and asks them to open the app on the phone to fix it. A notification also appears on the phone with a simple "Tap to fix" button. One tap restores everything.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Does the app use push notifications? Will my parent see them?</summary>
-                    <p>Yes, the app uses silent push notifications approximately every 6 hours for monitoring survival. These are NOT regular notifications — your parent will NOT see anything on their phone. The push is a technical signal that helps the app restart itself if the phone manufacturer has stopped the background monitoring service. This ensures the app continues protecting your parent even if they never open the app for weeks or months.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>I received an email saying monitoring has stopped. What do I do?</summary>
-                    <p>Open the app on the monitored phone. You will see a recovery screen showing exactly what needs to be fixed, with step-by-step instructions specific to the phone brand. Tap the fix button, follow the steps, and monitoring restarts automatically. If you cannot access the phone yourself, ask the person who has it to open the app — one tap is all it takes.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>What is "Pause app activity if unused" and why does it matter?</summary>
-                    <p>Android can automatically stop apps that haven't been opened in about three months and revoke their permissions. For a safety app installed for someone who never opens it, this would silently stop monitoring. During setup, the app asks you to disable this feature in one tap. If it gets re-enabled after a system update, the app detects this and guides you through fixing it.</p>
+                    <summary>What if the phone manufacturer kills the app?</summary>
+                    <p>The app has built-in self-healing — multiple recovery layers automatically restart monitoring. If it can't recover, it emails your family with a simple fix. Silent push notifications every 6 hours help keep monitoring alive even on aggressive manufacturers like Samsung, Xiaomi, and Honor.</p>
                 </details>
             </div>
         </div>
     </section>
 
-    <!-- Troubleshooting Section -->
-    <section class="faq reveal" id="troubleshooting">
+    <!-- Final CTA -->
+    <section class="final-cta reveal">
         <div class="container">
-            <h2 class="section-title">Troubleshooting</h2>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>GPS location isn't updating</summary>
-                    <p>1. Open Android Settings > Location and ensure it's enabled. 2. Set location accuracy to "High accuracy" mode. 3. Open app permissions for "How Are You?!" and set Location to "Allow all the time". 4. Restart the phone and wait 5 minutes. 5. If outdoors, ensure clear view of sky for 2 minutes.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Alert emails are not being delivered</summary>
-                    <p>1. Verify all recipient email addresses are correct in Settings > Recipients. 2. Ensure the phone has active internet. 3. Try sending a test alert from Settings. 4. If it still fails, check the diagnostic export for error details.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Monitoring stops or notification disappears</summary>
-                    <p>The app includes self-healing layers that automatically restart monitoring in most cases. <strong>Additionally, silent push notifications arrive every 6 hours to help revive monitoring on dormant installations.</strong> If monitoring cannot recover, your family receives an email alert and a "Tap to fix" notification appears on the phone. To fix: 1. Open the app — if you see a recovery screen, tap the fix button and follow the on-screen steps for your phone brand. 2. If no recovery screen, go to Settings → Device Reliability → tap your phone brand and follow the steps. 3. Disable Battery Optimization: Android Settings → Apps → How Are You?! → Battery → Unrestricted. 4. On Xiaomi/Huawei/Honor/OPPO: check manufacturer-specific power saving settings and add the app to exceptions.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Battery draining quickly</summary>
-                    <p>1. Ensure WiFi is enabled - GPS uses less battery with WiFi-assisted location. 2. The app typically uses less than 1% battery per day. Higher usage may indicate GPS issues. 3. If battery drain is severe, restart the phone. 4. The app automatically reduces sensor activity during periods of stillness to save battery.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Family received "Monitoring has stopped" email</summary>
-                    <p>This means the app detected that a critical permission was revoked or the phone manufacturer stopped the background service, and it could not recover automatically. Someone needs to open the app on the monitored phone. A recovery screen will appear showing what is wrong and how to fix it, with step-by-step instructions for that specific phone brand. One tap restores monitoring. This email is sent at most once per day to avoid repeated alerts for the same issue.</p>
-                </details>
-                <details class="faq-item">
-                    <summary>Pixel / stock Android: monitoring stopped after a system update or weeks of not using the phone</summary>
-                    <p>Pixel and other stock Android phones have two battery features that can quietly stop monitoring: "Pause app activity if unused" and Adaptive Battery. Open the app → Settings → Device Reliability → tap your device name and follow the four steps: (1) disable "Pause app activity if unused", (2) set battery usage to "Unrestricted", (3) confirm "Background restriction" is OFF, (4) reconfirm battery optimization is disabled. The dashboard banner should turn green within a few minutes.</p>
-                </details>
+            <h2 class="final-cta-title">Give yourself peace of mind. Give them their dignity.</h2>
+            <div class="hero-cta">
+                <a href="https://play.google.com/store/apps/details?id=com.howareyou" target="_blank" rel="noopener" class="play-badge-link" aria-label="Get How Are You?! on Google Play">
+                    <img src="images/google-play-badge-en.png" alt="Get it on Google Play" class="play-badge-img" width="200" height="77" loading="lazy">
+                </a>
+                <p class="hero-cta-caption">21-day free trial &middot; Less than 1% battery impact &middot; No credit card</p>
             </div>
         </div>
     </section>
@@ -752,7 +364,7 @@
                     <a href="https://discord.gg/m2fQ2tqw" class="footer-link" target="_blank" rel="noopener">Community</a>
                 </div>
             </div>
-            <div class="footer-badges" style="display:flex;justify-content:center;margin-top:1.25rem;opacity:0.85;">
+            <div class="footer-badges">
                 <a target="_blank" rel="noopener"
                    href="https://betalist.com/startups/how-are-you?utm_campaign=badge-how-are-you&amp;utm_medium=badge&amp;utm_source=badge-featured"
                    aria-label="Featured on BetaList">
